@@ -1,0 +1,20 @@
+TSV = Tab separated values, näitä voi katsella ja muokata myös excelissä, kun avatessa valitsee sarkainerottelun.
+Jokainen rivi on oma tekstinsä, mitä NPC sanoo. Rivi voi joko ohjautua suoraan seuraavaan riviin (NPC lähettää useamman viestin putkeen) tai antaa pelaajalle vastausvaihtoehtoja. 
+
+Sarake 1: Tekstin ID
+Sarake 2: Varsinainen teksti
+
+Sarake 3: Sen tekstin ID, mihin ensimmäinen vastausvaihtoehto johtaa. -1 jos keskustelu loppuu tähän
+Sarake 4: Vastausvaihtoehto itsessään. "cont" jos NPC lähettää useamman viestin peräkkäin, eikä anna pelaajalle vaihtoehtoa vastata välissä
+Sarake 5: Approval, mitä tästä vastauksesta saa. 0 jos se ei vaikuta mitenkään
+
+Sarake 6 -> Tämän jälkeen vastausvaihtoehtoja voi lisätä samalle riville niin monta kuin haluaa, kunhan määrittelee sille kaikki kolme arvoa; ID:n, vastauksen tekstin, ja approval-arvon.
+
+ESIM:
+0	Hei	1	cont
+1	Tässä kysymys	2	Myöntävä vastaus	10	3	Kielteinen vastaus	-10
+2	Onpas kiva kuulla	-1
+3	Onpas ikävä kuulla	-1
+
+Tässä esimerkissä NPC sanoo ensin "Hei", ja lähettää sitten uuden viestin "Tässä kysymys", 
+jonka jälkeen pelaaja voi valita joko myöntävän vastauksen, joka johtaa ID 2:n, +10 approval-arvoon, ja positiiviseen vastaukseen NPC:ltä, tai kielteisen vastauksen, joka johtaa ID 3:n, -10 approval-arvoon ja negatiiviseen vastaukseen NPC:ltä. Sen jälkeen keskustelu sulkeutuu.
