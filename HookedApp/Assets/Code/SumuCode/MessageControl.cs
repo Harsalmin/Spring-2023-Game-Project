@@ -7,13 +7,15 @@ using TMPro;
 public class MessageControl : MonoBehaviour
 {
     List<Message> messages = new List<Message>();
-    public GameObject messageContainer, textObj, buttonObj;
+    public GameObject viewport, textObj, buttonObj, convoObj;
+    private GameObject messageContainer;
     [SerializeField] private Color npcColor, playerColor;
     List<GameObject> buttons = new List<GameObject>();
 
     // Start is called before the first frame update
     void Start()
     {
+
     }
 
     // Update is called once per frame
@@ -21,6 +23,7 @@ public class MessageControl : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Space))
         {
+            ChangeConversation("Name");
             AddMessage("This is a message from an npc", Message.Sender.npc);
             AddMessage("This is a message from the player", Message.Sender.player);
         }
@@ -81,6 +84,19 @@ public class MessageControl : MonoBehaviour
                 break;
         }
         return color;
+    }
+
+    // Changes which conversation is active currently
+    public void ChangeConversation(string characterName)
+    {
+        messageContainer = viewport.transform.Find("Character_" + characterName).gameObject;
+    }
+
+    // Adds a new conversation
+    public void AddNewConversation(string name)
+    {
+        GameObject newConversation = Instantiate(convoObj, viewport.transform);
+        newConversation.name = "Character_" + name;
     }
 }
 
