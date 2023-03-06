@@ -12,18 +12,13 @@ public class MessageControl : MonoBehaviour
     [SerializeField] private Color npcColor, playerColor;
     List<GameObject> buttons = new List<GameObject>();
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        // FOR TESTING ONLY
+        if(Input.GetKeyDown(KeyCode.R))
         {
-            ChangeConversation("Name");
+            ChangeConversation("Pekka");
             AddMessage("This is a message from an npc", Message.Sender.npc);
             AddMessage("This is a message from the player", Message.Sender.player);
         }

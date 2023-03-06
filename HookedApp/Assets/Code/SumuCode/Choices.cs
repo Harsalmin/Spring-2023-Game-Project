@@ -7,14 +7,17 @@ public class Choices : MonoBehaviour
 {
     private List<DialogueNode> dialogue = new List<DialogueNode>();
     [SerializeField] string filePath;
-    [SerializeField] string characterName;
+    public string characterName;
     private DialogueNode currDialogue;
     private Stats stats;
     private MessageControl messageControl;
+    private GameControl gameControl;
+    private string stateName;
     
     // Start is called before the first frame update
     void Start()
     {
+        gameControl = GetComponent<GameControl>();
         stats = GetComponent<Stats>();
         messageControl = GetComponent<MessageControl>();
         LoadFromFile(filePath);
@@ -23,13 +26,15 @@ public class Choices : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // FOR TESTING ONLY
-        if(Input.GetKeyDown(KeyCode.A))
-        {
-            StartCoroutine(SendDelay());
-        }
     }
 
+    // Changes the state name so the game control script knows where we're at
+    public void SetStateName(string stateName)
+    {
+        this.stateName = stateName;
+    }
+
+    // Player has pressed a button in this conversation
     public void ButtonClicked(int btnNumber)
     {
         messageControl.AddMessage(currDialogue.Answers[btnNumber], Message.Sender.player);
@@ -38,7 +43,7 @@ public class Choices : MonoBehaviour
     }
 
     // Sends a message with a delay
-    private IEnumerator SendDelay()
+    public IEnumerator SendDelay()
     {
         float delay = Random.Range(0.5f, 1f);
         yield return new WaitForSeconds(delay);
@@ -62,7 +67,7 @@ public class Choices : MonoBehaviour
         if (currDialogue.AnswerIds[0] == -1)
         {
             // Ends conversation if there is no dialogue left
-            Debug.Log("Conversation ends");
+            gameControl.EndConversation(stateName);
         }
         else
         {
