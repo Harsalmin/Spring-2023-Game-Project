@@ -902,7 +902,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1708154662}
   m_HandleRect: {fileID: 1708154661}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -2053,6 +2053,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1210620960}
   - component: {fileID: 1210620959}
+  - component: {fileID: 1210620965}
   - component: {fileID: 1210620958}
   - component: {fileID: 1210620961}
   - component: {fileID: 1210620962}
@@ -2173,6 +2174,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1e66994526a5db4ea819bea665240e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1210620965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1210620957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e86d17fca57f71248905dd75b304abe6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  filePath: Assets/Story/testDialogue.tsv
+  characterName: Pekka 2
 --- !u!224 &1259544859 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2253590389936699472, guid: a4659830826fc5b46a204f32550ace93, type: 3}

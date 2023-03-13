@@ -67,7 +67,7 @@ public class Choices : MonoBehaviour
         if (currDialogue.AnswerIds[0] == -1)
         {
             // Ends conversation if there is no dialogue left
-            gameControl.EndConversation(stateName);
+            gameControl.EndPhase(stateName);
         }
         else
         {

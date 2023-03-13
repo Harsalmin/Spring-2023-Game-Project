@@ -8,10 +8,12 @@ public class EventManager : MonoBehaviour
     [SerializeField] private Event[] allEvents;
     Stats stats;
     UIcontrol uiControl;
+    GameControl gameControl;
     private void Start()
     {
         stats = GetComponent<Stats>();
         uiControl = GetComponent<UIcontrol>();
+        gameControl = GetComponent<GameControl>();
     }
 
     public void AnswerYesToInvite(GameObject eventTitle)
@@ -26,6 +28,7 @@ public class EventManager : MonoBehaviour
                 e.answered = true;
             }
         }
+        gameControl.EndPhase("Yes:" + eventName);
         uiControl.CloseEventScreen();
     }
 
@@ -40,7 +43,7 @@ public class EventManager : MonoBehaviour
                 e.answered = true;
             }
         }
-        Debug.Log("No");
+        gameControl.EndPhase("No:" + eventName);
         uiControl.CloseEventScreen();
     }
 

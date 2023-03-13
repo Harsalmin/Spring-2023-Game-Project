@@ -19,9 +19,6 @@ public class UIcontrol : MonoBehaviour
         conversations.SetActive(false);
         eventWindow.SetActive(false);
         viewport = conversations.transform.Find("Scroll View/Viewport").gameObject;
-
-        // Test
-        AddEventButton("Test event");
     }
 
     public void ToggleChat()
