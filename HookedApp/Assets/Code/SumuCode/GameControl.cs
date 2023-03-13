@@ -57,12 +57,37 @@ public class GameControl : MonoBehaviour
     // When a conversation ends, it comes back here
     public void EndPhase(string stateName)
     {
-        Debug.Log("Phase '" + stateName + "' has ended");
+        Debug.Log(stateName);
+        stateName = stateName.Trim();
 
-        switch(stateName)
+        switch (stateName)
         {
             case "Pekka convo 1":
                 GameState("Pekka convo 2");
+                break;
+
+                // test
+            case "Pekka convo 1: Testi1":
+                Debug.Log("toimii");
+                GameState("Pekka convo 2");
+                break;
+
+                // test
+            case "Pekka convo 1: Testi2":
+                Debug.Log("toimii");
+                GameState("Pekka convo 2");
+                break;
+
+                // test
+            case "Pekka convo 2: Testi1":
+                Debug.Log("toimii");
+                GameState("Test event invite");
+                break;
+
+            // test
+            case "Pekka convo 2: Testi2":
+                Debug.Log("toimii");
+                GameState("Test event invite");
                 break;
 
             case "Pekka convo 2":

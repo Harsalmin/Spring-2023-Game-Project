@@ -1,0 +1,5 @@
+0	Hey	1	[cont]
+1	Here's a question for you	2	Yes	30	3	No	-10
+2	How nice	-1	[next:]Testi1
+3	Ok i guess 	4	[cont]
+4	Bye	-1	[next:]Testi2

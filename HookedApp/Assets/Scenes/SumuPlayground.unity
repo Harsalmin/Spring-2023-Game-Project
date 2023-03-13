@@ -2090,7 +2090,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e86d17fca57f71248905dd75b304abe6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  filePath: Assets/Story/testDialogue.tsv
+  fileName: testDialogue
   characterName: Pekka
 --- !u!4 &1210620960
 Transform:
@@ -2186,7 +2186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e86d17fca57f71248905dd75b304abe6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  filePath: Assets/Story/testDialogue.tsv
+  fileName: testDialogue
   characterName: Pekka 2
 --- !u!224 &1259544859 stripped
 RectTransform:
