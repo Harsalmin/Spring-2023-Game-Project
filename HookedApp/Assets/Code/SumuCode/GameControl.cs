@@ -49,6 +49,7 @@ public class GameControl : MonoBehaviour
 
             case "Test event invite":
                 uiControl.AddEventButton("Test event");
+                uiControl.AddEventButton("Test event 2");
                 Debug.Log("Testi invite");
                 break;
         }

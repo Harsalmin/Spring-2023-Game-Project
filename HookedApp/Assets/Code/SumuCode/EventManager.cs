@@ -6,6 +6,7 @@ using TMPro;
 public class EventManager : MonoBehaviour
 {
     [SerializeField] private Event[] allEvents;
+    private List<Event> unlockedEvents;
     Stats stats;
     UIcontrol uiControl;
     GameControl gameControl;
@@ -20,33 +21,54 @@ public class EventManager : MonoBehaviour
     {
         string eventName = eventTitle.GetComponent<TMP_Text>().text;
         // If agreed to go to the event, add approval points
-        foreach(Event e in allEvents)
-        {
-            if(e.name == eventName)
-            {
-                stats.AddPoints(e.approval);
-                e.answered = true;
-            }
-        }
+        Event e = GetEventByName(eventName);
+        stats.AddPoints(e.approval);
+        e.answered = true;
+
+        DateFull(e.date);
+
         gameControl.EndPhase("Yes:" + eventName);
-        uiControl.CloseEventScreen();
+        uiControl.DisableEventButtons(true);
     }
 
     public void AnswerNoToInvite(GameObject eventTitle)
     {
         string eventName = eventTitle.GetComponent<TMP_Text>().text;
         // If the player says no to an event, do [something] (or nothing idk)
-        foreach (Event e in allEvents)
+        Event e = GetEventByName(eventName);
+        e.answered = true;
+
+        gameControl.EndPhase("No:" + eventName);
+        uiControl.DisableEventButtons(true);
+    }
+
+    // add to list of unlocked events
+    public void EventUnlocked(Event e)
+    {
+        if(unlockedEvents == null)
         {
-            if (e.name == eventName)
+            unlockedEvents = new List<Event>();
+        }
+
+        if(!unlockedEvents.Contains(e))
+        {
+            unlockedEvents.Add(e);
+        }
+    }
+
+    // marks all events with the same date as answered
+    public void DateFull(string eventDate)
+    {
+        foreach (Event e in unlockedEvents)
+        {
+            if (e.date == eventDate)
             {
                 e.answered = true;
             }
         }
-        gameControl.EndPhase("No:" + eventName);
-        uiControl.CloseEventScreen();
     }
 
+    // returns an event by name
     public Event GetEventByName(string name)
     {
         foreach(Event e in allEvents)
@@ -66,6 +88,7 @@ public class Event
     public string name;
     public string description;
     public string imgFile;
+    public string date;
     public int approval;
     public bool answered;
 }

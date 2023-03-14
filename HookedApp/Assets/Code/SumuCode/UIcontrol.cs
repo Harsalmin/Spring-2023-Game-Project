@@ -79,6 +79,7 @@ public class UIcontrol : MonoBehaviour
         GameObject newEventBtn = Instantiate(button, eventApp.transform.Find("Container").transform);
         newEventBtn.GetComponent<Button>().onClick.AddListener(delegate { OpenEvent(eventName); });
         newEventBtn.GetComponentInChildren<TMP_Text>().text = eventName;
+        eventManager.EventUnlocked(eventManager.GetEventByName(eventName));
     }
 
     private void OpenEvent(string eventName)
@@ -86,25 +87,25 @@ public class UIcontrol : MonoBehaviour
         // Opens an event screen and changes its contents
         Event e = eventManager.GetEventByName(eventName);
         eventWindow.transform.Find("Container").transform.Find("Title").GetComponent<TMP_Text>().text = e.name;
+
         if (e.imgFile != "" || e.imgFile != null)
         {
-            Sprite img = Resources.Load<Sprite>(e.imgFile);
+            // if there is a photo of the event, load it from resources
+            Sprite img = Resources.Load("Art/Events/" + e.imgFile) as Sprite;
             eventWindow.transform.Find("Container").transform.Find("Image").GetComponent<Image>().sprite = img;
         }
 
-        if(e.answered)
-        {
-            eventWindow.transform.Find("Container").transform.Find("Yes").GetComponent<Button>().enabled = false;
-            eventWindow.transform.Find("Container").transform.Find("No").GetComponent<Button>().enabled = false;
-        }
-        else
-        {
-            eventWindow.transform.Find("Container").transform.Find("Yes").GetComponent<Button>().enabled = true;
-            eventWindow.transform.Find("Container").transform.Find("No").GetComponent<Button>().enabled = true;
-        }
-
+        DisableEventButtons(e.answered);
+        eventWindow.transform.Find("Container").transform.Find("Date").GetComponent<TMP_Text>().text = e.date;
         eventWindow.transform.Find("Container").transform.Find("Description").GetComponent<TMP_Text>().text = e.description;
         eventWindow.SetActive(true);
+    }
+
+    public void DisableEventButtons(bool isAnswered)
+    {
+        // Disables (or activates) event buttons
+        eventWindow.transform.Find("Container").transform.Find("Yes").GetComponent<Button>().enabled = !isAnswered;
+        eventWindow.transform.Find("Container").transform.Find("No").GetComponent<Button>().enabled = !isAnswered;
     }
 
     public void CloseEventScreen()
