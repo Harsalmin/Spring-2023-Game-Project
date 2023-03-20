@@ -7,12 +7,17 @@ public class GameControl : MonoBehaviour
     UIcontrol uiControl;
     MessageControl messageControl;
     Choices[] choices;
+    LevelLoader loader;
+    Stats stats;
+    private string gameState;
 
     private void Awake()
     {
         uiControl = GetComponent<UIcontrol>();
         messageControl = GetComponent<MessageControl>();
         choices = GetComponents<Choices>();
+        loader = GameObject.Find("Loader").GetComponent<LevelLoader>();
+        stats = GetComponent<Stats>();
     }
 
     private void Start()
@@ -29,7 +34,8 @@ public class GameControl : MonoBehaviour
     // Controls the game flow
     public void GameState(string state)
     {
-        switch(state)
+        gameState = state;
+        switch (state)
         {
             case "Pekka convo 1":
                 string characterName = "Pekka";
@@ -97,10 +103,26 @@ public class GameControl : MonoBehaviour
 
             case "Yes:Test event":
                 Debug.Log("Game ends, you said yes");
+                loader.SetFinalPoints(stats.GetApproval());
+                loader.LoadLevel("Ending");
                 break;
 
             case "No:Test event":
                 Debug.Log("Game ends, you said no");
+                loader.SetFinalPoints(stats.GetApproval());
+                loader.LoadLevel("Ending");
+                break;
+
+            case "Yes:Test event 2":
+                Debug.Log("Game ends, you said yes");
+                loader.SetFinalPoints(stats.GetApproval());
+                loader.LoadLevel("Ending");
+                break;
+
+            case "No:Test event 2":
+                Debug.Log("Game ends, you said no");
+                loader.SetFinalPoints(stats.GetApproval());
+                loader.LoadLevel("Ending");
                 break;
         }
     }
@@ -116,5 +138,10 @@ public class GameControl : MonoBehaviour
             }
         }
         return null;
+    }
+
+    public string GetGameState()
+    {
+        return gameState;
     }
 }

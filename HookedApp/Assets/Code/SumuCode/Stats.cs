@@ -6,18 +6,6 @@ public class Stats : MonoBehaviour
 {
     private int approval;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void AddPoints(int amount)
     {
         Debug.Log(amount + " points added");
@@ -28,5 +16,15 @@ public class Stats : MonoBehaviour
     {
         Debug.Log(amount + " points removed");
         approval -= amount;
+    }
+
+    public int GetApproval()
+    {
+        return approval;
+    }
+
+    public void SetApproval(int amount)
+    {
+        approval = amount;
     }
 }
