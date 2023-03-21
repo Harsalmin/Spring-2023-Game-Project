@@ -24,11 +24,6 @@ public class Choices : MonoBehaviour
         LoadFromFile();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
     // Changes the state name so the game control script knows where we're at
     public void SetStateName(string stateName)
     {

@@ -10,6 +10,7 @@ public class GameControl : MonoBehaviour
     LevelLoader loader;
     Stats stats;
     private string gameState;
+    private string logText;
 
     private void Awake()
     {
@@ -23,7 +24,7 @@ public class GameControl : MonoBehaviour
     private void Start()
     {
         // TESTING
-        GameState("Pekka convo 1");
+        GameState("Pekka convo");
     }
 
     private void Update()
@@ -34,10 +35,11 @@ public class GameControl : MonoBehaviour
     // Controls the game flow
     public void GameState(string state)
     {
+        print("Game state: " + state);
         gameState = state;
         switch (state)
         {
-            case "Pekka convo 1":
+            case "Pekka convo":
                 string characterName = "Pekka";
                 uiControl.AddConvoButton(characterName);
                 messageControl.ChangeConversation(characterName);
@@ -45,10 +47,10 @@ public class GameControl : MonoBehaviour
                 StartCoroutine(getDialogueByName(characterName).SendDelay());
                 break;
 
-            case "Pekka convo 2":
-                characterName = "Pekka";
+            case "Timo convo":
+                characterName = "Timo";
+                uiControl.AddConvoButton(characterName);
                 messageControl.ChangeConversation(characterName);
-                characterName += " 2";
                 getDialogueByName(characterName).SetStateName(state);
                 StartCoroutine(getDialogueByName(characterName).SendDelay());
                 break;
@@ -69,58 +71,50 @@ public class GameControl : MonoBehaviour
 
         switch (stateName)
         {
-            case "Pekka convo 1":
-                GameState("Pekka convo 2");
+                // test
+            case "Pekka convo: Testi1":
+                logText += "You said yes to Pekka \n";
+                GameState("Timo convo");
                 break;
 
                 // test
-            case "Pekka convo 1: Testi1":
-                Debug.Log("toimii");
-                GameState("Pekka convo 2");
+            case "Pekka convo: Testi2":
+                logText += "You said no to Pekka \n";
+                GameState("Timo convo");
                 break;
 
                 // test
-            case "Pekka convo 1: Testi2":
-                Debug.Log("toimii");
-                GameState("Pekka convo 2");
-                break;
-
-                // test
-            case "Pekka convo 2: Testi1":
-                Debug.Log("toimii");
+            case "Timo convo: Testi1":
+                logText += "You said yes to Timo \n";
                 GameState("Test event invite");
                 break;
 
             // test
-            case "Pekka convo 2: Testi2":
-                Debug.Log("toimii");
-                GameState("Test event invite");
-                break;
-
-            case "Pekka convo 2":
+            case "Timo convo: Testi2":
+                logText += "You said no to Timo \n";
                 GameState("Test event invite");
                 break;
 
             case "Yes:Test event":
-                Debug.Log("Game ends, you said yes");
+                Debug.Log("Game ends, you said yes to event 1");
                 loader.SetFinalPoints(stats.GetApproval());
                 loader.LoadLevel("Ending");
                 break;
 
             case "No:Test event":
-                Debug.Log("Game ends, you said no");
+                Debug.Log("Game ends, you said no to event 1");
                 loader.SetFinalPoints(stats.GetApproval());
                 loader.LoadLevel("Ending");
                 break;
 
             case "Yes:Test event 2":
-                Debug.Log("Game ends, you said yes");
+                Debug.Log("Game ends, you said yes to event 2");
                 loader.SetFinalPoints(stats.GetApproval());
                 loader.LoadLevel("Ending");
                 break;
 
             case "No:Test event 2":
-                Debug.Log("Game ends, you said no");
+                Debug.Log("Game ends, you said no to event 2");
                 loader.SetFinalPoints(stats.GetApproval());
                 loader.LoadLevel("Ending");
                 break;
@@ -143,5 +137,20 @@ public class GameControl : MonoBehaviour
     public string GetGameState()
     {
         return gameState;
+    }
+
+    public void SetGameState(string state)
+    {
+        gameState = state;
+    }
+
+    public string GetLogs()
+    {
+        return logText;
+    }
+
+    public void SetLogs(string logs)
+    {
+        logText = logs;
     }
 }

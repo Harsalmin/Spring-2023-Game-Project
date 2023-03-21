@@ -27,6 +27,7 @@ public class EventManager : MonoBehaviour
 
         DateFull(e.date);
 
+        // tell that this phase has ended with the player agreeing
         gameControl.EndPhase("Yes:" + eventName);
         uiControl.DisableEventButtons(true);
     }
@@ -34,10 +35,10 @@ public class EventManager : MonoBehaviour
     public void AnswerNoToInvite(GameObject eventTitle)
     {
         string eventName = eventTitle.GetComponent<TMP_Text>().text;
-        // If the player says no to an event, do [something] (or nothing idk)
         Event e = GetEventByName(eventName);
         e.answered = true;
 
+        // if the player says no to an event, tell that this phase has ended as such
         gameControl.EndPhase("No:" + eventName);
         uiControl.DisableEventButtons(true);
     }
@@ -79,6 +80,20 @@ public class EventManager : MonoBehaviour
             }
         }
         return null;
+    }
+
+    // returns unlocked events for saving purposes
+    public List<Event> GetUnlockedEvents()
+    {
+        return unlockedEvents;
+    }
+
+    public void LoadUnlockedEvents(List<Event> eventHistory)
+    {
+        if(eventHistory != null)
+        {
+            unlockedEvents = new List<Event>(eventHistory);
+        }
     }
 }
 
