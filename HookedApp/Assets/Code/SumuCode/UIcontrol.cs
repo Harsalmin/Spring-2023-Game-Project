@@ -102,7 +102,7 @@ public class UIcontrol : MonoBehaviour
     public void AddEventButton(string eventName)
     {
         // Adds a button for an event
-        if (eventApp.transform.Find(CONTAINERNAME).transform.Find(EVENTINDICATOR + eventName))
+        if (!eventApp.transform.Find(CONTAINERNAME).transform.Find(EVENTINDICATOR + eventName))
         {
             GameObject newEventBtn = Instantiate(button, eventApp.transform.Find(CONTAINERNAME).transform);
             newEventBtn.name = EVENTINDICATOR + eventName;
