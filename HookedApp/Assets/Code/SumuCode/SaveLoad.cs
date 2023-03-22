@@ -12,6 +12,8 @@ public class SaveLoad : MonoBehaviour
     EventManager events;
     MessageControl messages;
     UIcontrol uiControl;
+    LevelLoader levelLoader;
+
     private const string STATE = "State";
     private const string APPROVALPOINTS = "Approval";
     private const string EVENTCOUNT = "Event count";
@@ -20,6 +22,7 @@ public class SaveLoad : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        levelLoader = GameObject.Find("Loader").GetComponent<LevelLoader>();
         control = GetComponent<GameControl>();
         stats = GetComponent<Stats>();
         events = GetComponent<EventManager>();
@@ -47,11 +50,12 @@ public class SaveLoad : MonoBehaviour
         Debug.Log("Saving");
         // gets the data
         GameData data = new GameData();
-        data.gameState = control.GetGameState();
+        data.gameState = GameControl.GetGameState();
         data.approval = stats.GetApproval();
         data.conversationHistory = messages.GetConversationHistory();
+        Debug.Log("Saved : " + data.conversationHistory.Count);
         data.eventHistory = events.GetUnlockedEvents();
-        data.logText = control.GetLogs();
+        data.logText = GameControl.logText;
 
         // does the saving
         BinaryFormatter bf = new BinaryFormatter();
@@ -74,17 +78,16 @@ public class SaveLoad : MonoBehaviour
 
             // sets the data 
             stats.SetApproval(data.approval);
+
             if (data.conversationHistory != null)
             {
-                foreach (string s in data.conversationHistory.Keys.ToList())
-                {
-                    uiControl.AddConvoButton(s);
-                }
-                messages.SetConversationHistory(data.conversationHistory);
+                GameControl.conversationHistory = data.conversationHistory;
             }
             events.LoadUnlockedEvents(data.eventHistory);
-            control.SetLogs(data.logText);
-            control.GameState(data.gameState);
+            GameControl.logText = data.logText;
+            GameControl.SetGameState(data.gameState);
+            levelLoader.LoadLevel("SumuPlayground");
+            //control.GameState(data.gameState);
         }
         else
         {

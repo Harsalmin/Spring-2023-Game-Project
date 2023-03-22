@@ -15,9 +15,15 @@ public class MessageControl : MonoBehaviour
     [SerializeField] private Color npcColor, playerColor;
     List<GameObject> buttons = new List<GameObject>();
     private int index = 0;
+    UIcontrol uiControl;
 
     private const string CHARACTERINDICATOR = "Character_";
     // private const string CONVERSATIONINDICATOR = "Conversation_";
+
+    private void Start()
+    {
+        uiControl = GetComponent<UIcontrol>();
+    }
 
     // Sends a message to the chat window
     public void AddMessage(string text, Message.Sender sender)
@@ -84,7 +90,7 @@ public class MessageControl : MonoBehaviour
     }
 
     // Saves all messages that are currently stored
-    void SaveMessages()
+    public void SaveMessages()
     {
         // create dictionary if it doesn't already exist
         if (conversationHistory == null)
@@ -107,6 +113,7 @@ public class MessageControl : MonoBehaviour
     // Changes which conversation is active currently
     public void ChangeConversation(string characterName)
     {
+        print("conversation: " + characterName);
         if (currentNpc != null)
         {
             SaveMessages();
@@ -132,13 +139,20 @@ public class MessageControl : MonoBehaviour
     // Loads all previous conversation history
     public void SetConversationHistory(Dictionary<string, List<Message>> convoHistory)
     {
-        conversationHistory = new Dictionary<string, List<Message>>(convoHistory);
+        if(convoHistory == null)
+        {
+            return;
+        }
+
+        conversationHistory = convoHistory;
         foreach(string s in conversationHistory.Keys.ToList())
         {
+            uiControl.AddConvoButton(s);
             ChangeConversation(s);
             List<int> processedIDs = new List<int>();
             foreach (Message msg in conversationHistory[s])
             {
+                Debug.Log(msg + " from " + s);
                 // prevents duplicates
                 if (processedIDs.Contains(msg.id))
                 {

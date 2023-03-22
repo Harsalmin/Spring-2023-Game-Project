@@ -9,8 +9,9 @@ public class GameControl : MonoBehaviour
     Choices[] choices;
     LevelLoader loader;
     Stats stats;
-    private string gameState;
-    private string logText;
+    private static string gameState;
+    public static Dictionary<string, List<Message>> conversationHistory;
+    public static string logText;
 
     private void Awake()
     {
@@ -19,23 +20,30 @@ public class GameControl : MonoBehaviour
         choices = GetComponents<Choices>();
         loader = GameObject.Find("Loader").GetComponent<LevelLoader>();
         stats = GetComponent<Stats>();
+        DontDestroyOnLoad(gameObject);
     }
 
     private void Start()
     {
-        // TESTING
-        GameState("Pekka convo");
-    }
+        StartCoroutine(uiControl.RefreshReferences());
 
-    private void Update()
-    {
+        if (gameState == null)
+        {
+            gameState = "Pekka convo";
+        }
+        else
+        {
+            Debug.Log(conversationHistory.Count);
+            messageControl.SetConversationHistory(conversationHistory);
+        }
 
+        GameState(gameState);
     }
 
     // Controls the game flow
     public void GameState(string state)
     {
-        print("Game state: " + state);
+        // print("Game state: " + state);
         gameState = state;
         switch (state)
         {
@@ -52,13 +60,13 @@ public class GameControl : MonoBehaviour
             case "Test event invite":
                 uiControl.AddEventButton("Test event");
                 uiControl.AddEventButton("Test event 2");
-                Debug.Log("Testi invite");
                 break;
         }
     }
 
     void StartDialogue(string characterName)
     {
+        // print("start dialogue" + characterName);
         uiControl.AddConvoButton(characterName);
         // messageControl.ChangeConversation(characterName);
         messageControl.SendMessage("ChangeConversation", characterName);
@@ -69,7 +77,7 @@ public class GameControl : MonoBehaviour
     // When a conversation ends, it comes back here
     public void EndPhase(string stateName)
     {
-        Debug.Log(stateName);
+        // Debug.Log("Phase ended: " +stateName);
         stateName = stateName.Trim();
 
         switch (stateName)
@@ -89,12 +97,14 @@ public class GameControl : MonoBehaviour
                 // test
             case "Timo convo: Testi1":
                 logText += "You said yes to Timo \n";
+                messageControl.SaveMessages();
                 GameState("Test event invite");
                 break;
 
             // test
             case "Timo convo: Testi2":
                 logText += "You said no to Timo \n";
+                messageControl.SaveMessages();
                 GameState("Test event invite");
                 break;
 
@@ -137,23 +147,13 @@ public class GameControl : MonoBehaviour
         return null;
     }
 
-    public string GetGameState()
+    public static string GetGameState()
     {
         return gameState;
     }
 
-    public void SetGameState(string state)
+    public static void SetGameState(string state)
     {
         gameState = state;
-    }
-
-    public string GetLogs()
-    {
-        return logText;
-    }
-
-    public void SetLogs(string logs)
-    {
-        logText = logs;
     }
 }
