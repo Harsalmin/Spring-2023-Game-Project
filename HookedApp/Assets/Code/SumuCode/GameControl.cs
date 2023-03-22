@@ -9,8 +9,9 @@ public class GameControl : MonoBehaviour
     Choices[] choices;
     LevelLoader loader;
     Stats stats;
-    private string gameState;
-    private string logText;
+    private static string gameState;
+    public static Dictionary<string, List<Message>> conversationHistory;
+    public static string logText;
 
     private void Awake()
     {
@@ -19,79 +20,91 @@ public class GameControl : MonoBehaviour
         choices = GetComponents<Choices>();
         loader = GameObject.Find("Loader").GetComponent<LevelLoader>();
         stats = GetComponent<Stats>();
+        DontDestroyOnLoad(gameObject);
     }
 
     private void Start()
     {
-        // TESTING
-        GameState("Pekka convo");
-    }
+        StartCoroutine(uiControl.RefreshReferences());
 
-    private void Update()
-    {
+        if (gameState == null)
+        {
+            gameState = "character.1 convo";
+        }
+        else
+        {
+            Debug.Log(conversationHistory.Count);
+            messageControl.SetConversationHistory(conversationHistory);
+        }
 
+        GameState(gameState);
     }
 
     // Controls the game flow
     public void GameState(string state)
     {
-        print("Game state: " + state);
+        // print("Game state: " + state);
         gameState = state;
         switch (state)
         {
-            case "Pekka convo":
-                string characterName = "Pekka";
-                uiControl.AddConvoButton(characterName);
-                messageControl.ChangeConversation(characterName);
-                getDialogueByName(characterName).SetStateName(state);
-                StartCoroutine(getDialogueByName(characterName).SendDelay());
+            case "character.1 convo":
+                string characterName = "character.1";
+                StartDialogue(characterName);
                 break;
 
-            case "Timo convo":
-                characterName = "Timo";
-                uiControl.AddConvoButton(characterName);
-                messageControl.ChangeConversation(characterName);
-                getDialogueByName(characterName).SetStateName(state);
-                StartCoroutine(getDialogueByName(characterName).SendDelay());
+            case "character.2 convo":
+                characterName = "character.2";
+                StartDialogue(characterName);
                 break;
 
             case "Test event invite":
                 uiControl.AddEventButton("Test event");
                 uiControl.AddEventButton("Test event 2");
-                Debug.Log("Testi invite");
                 break;
         }
+    }
+
+    void StartDialogue(string characterName)
+    {
+        // print("start dialogue" + characterName);
+        uiControl.AddConvoButton(characterName);
+        // messageControl.ChangeConversation(characterName);
+        messageControl.SendMessage("ChangeConversation", characterName);
+        getDialogueByName(characterName).SetStateName(gameState);
+        StartCoroutine(getDialogueByName(characterName).SendDelay());
     }
 
     // When a conversation ends, it comes back here
     public void EndPhase(string stateName)
     {
-        Debug.Log(stateName);
+        // Debug.Log("Phase ended: " +stateName);
         stateName = stateName.Trim();
 
         switch (stateName)
         {
                 // test
-            case "Pekka convo: Testi1":
-                logText += "You said yes to Pekka \n";
-                GameState("Timo convo");
+            case "character.1 convo: Testi1":
+                logText += "You said yes to character.1 \n";
+                GameState("character.2 convo");
                 break;
 
                 // test
-            case "Pekka convo: Testi2":
-                logText += "You said no to Pekka \n";
-                GameState("Timo convo");
+            case "character.1 convo: Testi2":
+                logText += "You said no to character.1 \n";
+                GameState("character.2 convo");
                 break;
 
                 // test
-            case "Timo convo: Testi1":
-                logText += "You said yes to Timo \n";
+            case "character.2 convo: Testi1":
+                logText += "You said yes to character.2 \n";
+                messageControl.SaveMessages();
                 GameState("Test event invite");
                 break;
 
             // test
-            case "Timo convo: Testi2":
-                logText += "You said no to Timo \n";
+            case "character.2 convo: Testi2":
+                logText += "You said no to character.2 \n";
+                messageControl.SaveMessages();
                 GameState("Test event invite");
                 break;
 
@@ -134,23 +147,13 @@ public class GameControl : MonoBehaviour
         return null;
     }
 
-    public string GetGameState()
+    public static string GetGameState()
     {
         return gameState;
     }
 
-    public void SetGameState(string state)
+    public static void SetGameState(string state)
     {
         gameState = state;
-    }
-
-    public string GetLogs()
-    {
-        return logText;
-    }
-
-    public void SetLogs(string logs)
-    {
-        logText = logs;
     }
 }

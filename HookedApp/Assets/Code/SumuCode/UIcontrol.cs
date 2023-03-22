@@ -4,13 +4,17 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UIcontrol : MonoBehaviour
 {
-    [SerializeField] private GameObject hub, chatApp, eventApp, logsApp, button, convoWindow, conversations, eventWindow;
+    [SerializeField] private GameObject chatApp, eventApp, logsApp, settingsApp;
+    [SerializeField] private GameObject hub, button, convoWindow, conversations, eventWindow;
     private GameObject viewport;
     EventManager eventManager;
     GameControl control;
+    LevelLoader levelLoader;
+    SaveLoad saves;
 
     private const string CONTAINERNAME = "Container";
     private const string CHARACTERINDICATOR = "Character_";
@@ -21,12 +25,41 @@ public class UIcontrol : MonoBehaviour
     {
         eventManager = GetComponent<EventManager>();
         control = GetComponent<GameControl>();
+        levelLoader = GameObject.Find("Loader").GetComponent<LevelLoader>();
+        saves = GetComponent<SaveLoad>();
         chatApp.SetActive(false);
         eventApp.SetActive(false);
         logsApp.SetActive(false);
+        settingsApp.SetActive(false);
         conversations.SetActive(false);
         eventWindow.SetActive(false);
         viewport = conversations.transform.Find("Scroll View/Viewport").gameObject;
+    }
+
+    public IEnumerator RefreshReferences()
+    {
+        // Refreshed the references to gameobjects
+        // maybe test if this is even needed
+        GameObject[] rootObjects = SceneManager.GetActiveScene().GetRootGameObjects();
+        GameObject canvas;
+        foreach(GameObject go in rootObjects)
+        {
+            if (go.name == "Canvas")
+            {
+                canvas = go;
+                hub = canvas.transform.Find("Hub").gameObject;
+                chatApp = canvas.transform.Find("APP: Chat").gameObject;
+                foreach(Transform t in chatApp.transform.Find(CONTAINERNAME).transform)
+                {
+                    print("children: " + t.name);
+                }
+                eventApp = canvas.transform.Find("APP: Events").gameObject;
+
+            }
+        }
+
+        Debug.Log("Refreshed");
+        yield return null;
     }
 
     public void ToggleChatApp()
@@ -53,14 +86,21 @@ public class UIcontrol : MonoBehaviour
         {
             GameObject logs = logsApp.transform.Find(CONTAINERNAME).transform.Find("Logs").gameObject;
             TMP_Text logsText = logs.GetComponent<TMP_Text>();
-            logsText.text = control.GetLogs();
+            logsText.text = GameControl.logText;
         }
+    }
+
+    public void ToggleSettings()
+    {
+        // Opens and closes the settings
+        settingsApp.SetActive(!settingsApp.activeInHierarchy);
+        hub.SetActive(!hub.activeInHierarchy);
     }
 
     public void AddConvoButton(string name)
     {
         // Adds a button and a conversation window for a character
-        if(!chatApp.transform.Find(CONTAINERNAME).transform.Find(CONVERSATIONINDICATOR + name))
+        if (!chatApp.transform.Find(CONTAINERNAME).transform.Find(CONVERSATIONINDICATOR + name))
         {
             GameObject newConvoBtn = Instantiate(button, chatApp.transform.Find(CONTAINERNAME).transform);
             newConvoBtn.name = CONVERSATIONINDICATOR + name;
@@ -76,6 +116,9 @@ public class UIcontrol : MonoBehaviour
         // Opens a conversation by name
         ToggleChatApp();
         conversations.SetActive(true);
+        conversations.transform.Find("Name").GetComponent<TMP_Text>().text = name;
+        Sprite img = Resources.Load<Sprite>("Art/Characters/" + name);
+        conversations.transform.Find("Image").GetComponent<Image>().sprite = img;
         foreach(Transform convo in viewport.transform)
         {
             if(convo.gameObject.name == CHARACTERINDICATOR + name)
@@ -121,7 +164,7 @@ public class UIcontrol : MonoBehaviour
         if (e.imgFile != "" || e.imgFile != null)
         {
             // if there is a photo of the event, load it from resources
-            Sprite img = Resources.Load("Art/Events/" + e.imgFile) as Sprite;
+            Sprite img = Resources.Load<Sprite>("Art/Events/" + e.imgFile);
             eventWindow.transform.Find(CONTAINERNAME).transform.Find("Image").GetComponent<Image>().sprite = img;
         }
 
@@ -142,5 +185,20 @@ public class UIcontrol : MonoBehaviour
     {
         // Closes event screen and returns to event list
         eventWindow.SetActive(false);
+    }
+
+    public void PressSave()
+    {
+        saves.SaveGame();
+    }
+
+    public void PressLoad()
+    {
+        saves.LoadGame();
+    }
+
+    public void PressExit()
+    {
+        levelLoader.LoadLevel("StartMenu");
     }
 }
