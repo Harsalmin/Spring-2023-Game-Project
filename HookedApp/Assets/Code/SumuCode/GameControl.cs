@@ -41,18 +41,12 @@ public class GameControl : MonoBehaviour
         {
             case "Pekka convo":
                 string characterName = "Pekka";
-                uiControl.AddConvoButton(characterName);
-                messageControl.ChangeConversation(characterName);
-                getDialogueByName(characterName).SetStateName(state);
-                StartCoroutine(getDialogueByName(characterName).SendDelay());
+                StartDialogue(characterName);
                 break;
 
             case "Timo convo":
                 characterName = "Timo";
-                uiControl.AddConvoButton(characterName);
-                messageControl.ChangeConversation(characterName);
-                getDialogueByName(characterName).SetStateName(state);
-                StartCoroutine(getDialogueByName(characterName).SendDelay());
+                StartDialogue(characterName);
                 break;
 
             case "Test event invite":
@@ -61,6 +55,15 @@ public class GameControl : MonoBehaviour
                 Debug.Log("Testi invite");
                 break;
         }
+    }
+
+    void StartDialogue(string characterName)
+    {
+        uiControl.AddConvoButton(characterName);
+        // messageControl.ChangeConversation(characterName);
+        messageControl.SendMessage("ChangeConversation", characterName);
+        getDialogueByName(characterName).SetStateName(gameState);
+        StartCoroutine(getDialogueByName(characterName).SendDelay());
     }
 
     // When a conversation ends, it comes back here

@@ -44,6 +44,7 @@ public class SaveLoad : MonoBehaviour
 
     public void SaveGame()
     {
+        Debug.Log("Saving");
         // gets the data
         GameData data = new GameData();
         data.gameState = control.GetGameState();
@@ -62,6 +63,7 @@ public class SaveLoad : MonoBehaviour
 
     public void LoadGame()
     {
+        Debug.Log("Loading");
         if (File.Exists(Application.persistentDataPath + "/save.dat"))
         {
             //loads file

@@ -16,6 +16,9 @@ public class MessageControl : MonoBehaviour
     List<GameObject> buttons = new List<GameObject>();
     private int index = 0;
 
+    private const string CHARACTERINDICATOR = "Character_";
+    // private const string CONVERSATIONINDICATOR = "Conversation_";
+
     // Sends a message to the chat window
     public void AddMessage(string text, Message.Sender sender)
     {
@@ -110,14 +113,14 @@ public class MessageControl : MonoBehaviour
         }
         currentNpc = characterName;
         messages.Clear();
-        messageContainer = viewport.transform.Find("Character_" + characterName).gameObject;
+        messageContainer = viewport.transform.Find(CHARACTERINDICATOR + characterName).gameObject;
     }
 
     // Adds a new conversation
     public void AddNewConversation(string name)
     {
         GameObject newConversation = Instantiate(convoObj, viewport.transform);
-        newConversation.name = "Character_" + name;
+        newConversation.name = CHARACTERINDICATOR + name;
     }
 
     // returns the dictionary for saving
