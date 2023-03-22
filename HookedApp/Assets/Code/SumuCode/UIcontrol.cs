@@ -116,6 +116,9 @@ public class UIcontrol : MonoBehaviour
         // Opens a conversation by name
         ToggleChatApp();
         conversations.SetActive(true);
+        conversations.transform.Find("Name").GetComponent<TMP_Text>().text = name;
+        Sprite img = Resources.Load<Sprite>("Art/Characters/" + name);
+        conversations.transform.Find("Image").GetComponent<Image>().sprite = img;
         foreach(Transform convo in viewport.transform)
         {
             if(convo.gameObject.name == CHARACTERINDICATOR + name)
@@ -161,7 +164,7 @@ public class UIcontrol : MonoBehaviour
         if (e.imgFile != "" || e.imgFile != null)
         {
             // if there is a photo of the event, load it from resources
-            Sprite img = Resources.Load("Art/Events/" + e.imgFile) as Sprite;
+            Sprite img = Resources.Load<Sprite>("Art/Events/" + e.imgFile);
             eventWindow.transform.Find(CONTAINERNAME).transform.Find("Image").GetComponent<Image>().sprite = img;
         }
 

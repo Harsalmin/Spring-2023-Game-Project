@@ -29,7 +29,7 @@ public class GameControl : MonoBehaviour
 
         if (gameState == null)
         {
-            gameState = "Pekka convo";
+            gameState = "character.1 convo";
         }
         else
         {
@@ -47,13 +47,13 @@ public class GameControl : MonoBehaviour
         gameState = state;
         switch (state)
         {
-            case "Pekka convo":
-                string characterName = "Pekka";
+            case "character.1 convo":
+                string characterName = "character.1";
                 StartDialogue(characterName);
                 break;
 
-            case "Timo convo":
-                characterName = "Timo";
+            case "character.2 convo":
+                characterName = "character.2";
                 StartDialogue(characterName);
                 break;
 
@@ -83,27 +83,27 @@ public class GameControl : MonoBehaviour
         switch (stateName)
         {
                 // test
-            case "Pekka convo: Testi1":
-                logText += "You said yes to Pekka \n";
-                GameState("Timo convo");
+            case "character.1 convo: Testi1":
+                logText += "You said yes to character.1 \n";
+                GameState("character.2 convo");
                 break;
 
                 // test
-            case "Pekka convo: Testi2":
-                logText += "You said no to Pekka \n";
-                GameState("Timo convo");
+            case "character.1 convo: Testi2":
+                logText += "You said no to character.1 \n";
+                GameState("character.2 convo");
                 break;
 
                 // test
-            case "Timo convo: Testi1":
-                logText += "You said yes to Timo \n";
+            case "character.2 convo: Testi1":
+                logText += "You said yes to character.2 \n";
                 messageControl.SaveMessages();
                 GameState("Test event invite");
                 break;
 
             // test
-            case "Timo convo: Testi2":
-                logText += "You said no to Timo \n";
+            case "character.2 convo: Testi2":
+                logText += "You said no to character.2 \n";
                 messageControl.SaveMessages();
                 GameState("Test event invite");
                 break;
