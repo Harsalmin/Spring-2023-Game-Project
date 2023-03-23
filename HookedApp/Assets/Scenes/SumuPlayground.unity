@@ -703,7 +703,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: 48
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -3321,14 +3321,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allEvents:
   - name: "Ty\xF6messut"
-    description: This event is very awesome you should come here
-    imgFile: party background
+    description: "Ty\xF6messut! T\xE4\xE4ll\xE4 on kivaa!"
+    imgFile: workfair background
     date: 1.1.2020
     approval: 100
     answered: 0
   - name: Baari-ilta
-    description: This event is very awesome you should come here
-    imgFile: workfair background
+    description: "T\xE4\xE4ll\xE4kin voit verkostoitua!"
+    imgFile: party background
     date: 1.1.2020
     approval: 100
     answered: 0
