@@ -9,8 +9,18 @@ public class GameControl : MonoBehaviour
     Choices[] choices;
     LevelLoader loader;
     Stats stats;
-    private string gameState;
-    private string logText;
+    private static string gameState;
+    public static Dictionary<string, List<Message>> conversationHistory;
+    public static string logText;
+    EventInviteState eventOneState = EventInviteState.Unanswered;
+    EventInviteState eventTwoState = EventInviteState.Unanswered;
+
+    public enum EventInviteState
+    {
+        Unanswered,
+        Going,
+        NotGoing
+    }
 
     private void Awake()
     {
@@ -19,104 +29,160 @@ public class GameControl : MonoBehaviour
         choices = GetComponents<Choices>();
         loader = GameObject.Find("Loader").GetComponent<LevelLoader>();
         stats = GetComponent<Stats>();
+        DontDestroyOnLoad(gameObject);
     }
 
     private void Start()
     {
-        // TESTING
-        GameState("Pekka convo");
-    }
+        StartCoroutine(uiControl.RefreshReferences());
 
-    private void Update()
-    {
+        if (gameState == null)
+        {
+            gameState = "Megismarko convo";
+        }
+        else
+        {
+            Debug.Log(conversationHistory.Count);
+            messageControl.SetConversationHistory(conversationHistory);
+        }
 
+        GameState(gameState);
     }
 
     // Controls the game flow
     public void GameState(string state)
     {
-        print("Game state: " + state);
+        // print("Game state: " + state);
         gameState = state;
         switch (state)
         {
-            case "Pekka convo":
-                string characterName = "Pekka";
-                uiControl.AddConvoButton(characterName);
-                messageControl.ChangeConversation(characterName);
-                getDialogueByName(characterName).SetStateName(state);
-                StartCoroutine(getDialogueByName(characterName).SendDelay());
+            case "Megismarko convo":
+                string characterName = "Megismarko";
+                StartDialogue(characterName);
                 break;
 
-            case "Timo convo":
-                characterName = "Timo";
-                uiControl.AddConvoButton(characterName);
-                messageControl.ChangeConversation(characterName);
-                getDialogueByName(characterName).SetStateName(state);
-                StartCoroutine(getDialogueByName(characterName).SendDelay());
+            case "Portsarinviesti":
+                characterName = "Portsari";
+                StartDialogue(characterName);
                 break;
 
-            case "Test event invite":
-                uiControl.AddEventButton("Test event");
-                uiControl.AddEventButton("Test event 2");
-                Debug.Log("Testi invite");
+            case "Tapahtumakutsut":
+                uiControl.AddEventButton("Työmessut");
+                uiControl.AddEventButton("Baari-ilta");
+                break;
+
+            case "Kolmashahmo":
+                characterName = "Kolmashahmo";
+                StartDialogue(characterName);
+                break;
+
+            case "Neljäshahmo":
+                characterName = "Neljäshahmo";
+                StartDialogue(characterName);
+                break;
+
+            case "Haastis":
+                Debug.Log("Ending: " + state);
+                loader.SetFinalPoints(stats.GetApproval());
+                loader.LoadLevel("Ending");
+                break;
+
+            case "Huonoloppu":
+                Debug.Log("Ending: " + state);
+                loader.SetFinalPoints(stats.GetApproval());
+                loader.LoadLevel("Ending");
+                break;
+
+            case "Shutin":
+                Debug.Log("Ending: " + state);
+                loader.SetFinalPoints(stats.GetApproval());
+                loader.LoadLevel("Ending");
                 break;
         }
+    }
+
+    void StartDialogue(string characterName)
+    {
+        // print("start dialogue" + characterName);
+        uiControl.AddConvoButton(characterName);
+        // messageControl.ChangeConversation(characterName);
+        messageControl.SendMessage("ChangeConversation", characterName);
+        getDialogueByName(characterName).SetStateName(gameState);
+        StartCoroutine(getDialogueByName(characterName).SendDelay());
     }
 
     // When a conversation ends, it comes back here
     public void EndPhase(string stateName)
     {
-        Debug.Log(stateName);
+        // Debug.Log("Phase ended: " +stateName);
         stateName = stateName.Trim();
 
         switch (stateName)
         {
                 // test
-            case "Pekka convo: Testi1":
-                logText += "You said yes to Pekka \n";
-                GameState("Timo convo");
+            case "Megismarko convo: Portsarinviesti":
+                logText += "Sanoit Megismarkolle kyllä \n";
+                GameState("Portsarinviesti");
                 break;
 
                 // test
-            case "Pekka convo: Testi2":
-                logText += "You said no to Pekka \n";
-                GameState("Timo convo");
+            case "Megismarko convo: Portsarinviesti2":
+                logText += "Sanoit Megismarkolle ei \n";
+                GameState("Portsarinviesti");
                 break;
 
                 // test
-            case "Timo convo: Testi1":
-                logText += "You said yes to Timo \n";
-                GameState("Test event invite");
+            case "Portsarinviesti: Tapahtumakutsut":
+                logText += "Sanoit Portsarille kyllä \n";
+                messageControl.SaveMessages();
+                GameState("Tapahtumakutsut");
                 break;
 
             // test
-            case "Timo convo: Testi2":
-                logText += "You said no to Timo \n";
-                GameState("Test event invite");
+            case "Portsarinviesti: Tapahtumakutsut2":
+                logText += "Sanoit Portsarille ei \n";
+                messageControl.SaveMessages();
+                GameState("Tapahtumakutsut");
                 break;
 
-            case "Yes:Test event":
-                Debug.Log("Game ends, you said yes to event 1");
-                loader.SetFinalPoints(stats.GetApproval());
-                loader.LoadLevel("Ending");
+            case "Yes:Työmessut":
+                logText += "Lähdit työmessuille. Siellä tapahtui kaikenlaista kivaa. \n";
+                eventOneState = EventInviteState.Going;
+                GameState("Kolmashahmo");
                 break;
 
-            case "No:Test event":
-                Debug.Log("Game ends, you said no to event 1");
-                loader.SetFinalPoints(stats.GetApproval());
-                loader.LoadLevel("Ending");
+            case "No:Työmessut":
+                logText += "Et lähtenyt työmessuille";
+                eventOneState = EventInviteState.NotGoing;
+                if(eventTwoState == EventInviteState.NotGoing)
+                {
+                    GameState("Shutin");
+                }
                 break;
 
-            case "Yes:Test event 2":
-                Debug.Log("Game ends, you said yes to event 2");
-                loader.SetFinalPoints(stats.GetApproval());
-                loader.LoadLevel("Ending");
+            case "Yes:Baari-ilta":
+                logText += "Lähdit baariin. Siellä tapahtui kaikenlaista kivaa. \n";
+                eventTwoState = EventInviteState.Going;
+                GameState("Neljäshahmo");
                 break;
 
-            case "No:Test event 2":
-                Debug.Log("Game ends, you said no to event 2");
-                loader.SetFinalPoints(stats.GetApproval());
-                loader.LoadLevel("Ending");
+            case "No:Baari-ilta":
+                logText += "Kieltäydyit baari-illasta";
+                eventTwoState = EventInviteState.NotGoing;
+                if (eventOneState == EventInviteState.NotGoing)
+                {
+                    GameState("Shutin");
+                }
+                break;
+
+            case "Kolmashahmo: Haastis":
+            case "Neljäshahmo: Haastis":
+                GameState("Haastis");
+                break;
+
+            case "Kolmashahmo: Huonoloppu":
+            case "Neljäshahmo: Huonoloppu":
+                GameState("Huonoloppu");
                 break;
         }
     }
@@ -134,23 +200,13 @@ public class GameControl : MonoBehaviour
         return null;
     }
 
-    public string GetGameState()
+    public static string GetGameState()
     {
         return gameState;
     }
 
-    public void SetGameState(string state)
+    public static void SetGameState(string state)
     {
         gameState = state;
-    }
-
-    public string GetLogs()
-    {
-        return logText;
-    }
-
-    public void SetLogs(string logs)
-    {
-        logText = logs;
     }
 }

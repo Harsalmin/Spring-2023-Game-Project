@@ -105,5 +105,5 @@ public class Event
     public string imgFile;
     public string date;
     public int approval;
-    public bool answered;
+    [HideInInspector] public bool answered;
 }
