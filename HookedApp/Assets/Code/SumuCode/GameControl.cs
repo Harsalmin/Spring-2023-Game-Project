@@ -12,6 +12,15 @@ public class GameControl : MonoBehaviour
     private static string gameState;
     public static Dictionary<string, List<Message>> conversationHistory;
     public static string logText;
+    EventInviteState eventOneState = EventInviteState.Unanswered;
+    EventInviteState eventTwoState = EventInviteState.Unanswered;
+
+    public enum EventInviteState
+    {
+        Unanswered,
+        Going,
+        NotGoing
+    }
 
     private void Awake()
     {
@@ -29,7 +38,7 @@ public class GameControl : MonoBehaviour
 
         if (gameState == null)
         {
-            gameState = "character.1 convo";
+            gameState = "Megismarko convo";
         }
         else
         {
@@ -47,19 +56,47 @@ public class GameControl : MonoBehaviour
         gameState = state;
         switch (state)
         {
-            case "character.1 convo":
-                string characterName = "character.1";
+            case "Megismarko convo":
+                string characterName = "Megismarko";
                 StartDialogue(characterName);
                 break;
 
-            case "character.2 convo":
-                characterName = "character.2";
+            case "Portsarinviesti":
+                characterName = "Portsari";
                 StartDialogue(characterName);
                 break;
 
-            case "Test event invite":
-                uiControl.AddEventButton("Test event");
-                uiControl.AddEventButton("Test event 2");
+            case "Tapahtumakutsut":
+                uiControl.AddEventButton("Työmessut");
+                uiControl.AddEventButton("Baari-ilta");
+                break;
+
+            case "Kolmashahmo":
+                characterName = "Kolmashahmo";
+                StartDialogue(characterName);
+                break;
+
+            case "Neljäshahmo":
+                characterName = "Neljäshahmo";
+                StartDialogue(characterName);
+                break;
+
+            case "Haastis":
+                Debug.Log("Ending: " + state);
+                loader.SetFinalPoints(stats.GetApproval());
+                loader.LoadLevel("Ending");
+                break;
+
+            case "Huonoloppu":
+                Debug.Log("Ending: " + state);
+                loader.SetFinalPoints(stats.GetApproval());
+                loader.LoadLevel("Ending");
+                break;
+
+            case "Shutin":
+                Debug.Log("Ending: " + state);
+                loader.SetFinalPoints(stats.GetApproval());
+                loader.LoadLevel("Ending");
                 break;
         }
     }
@@ -83,53 +120,69 @@ public class GameControl : MonoBehaviour
         switch (stateName)
         {
                 // test
-            case "character.1 convo: Testi1":
-                logText += "You said yes to character.1 \n";
-                GameState("character.2 convo");
+            case "Megismarko convo: Portsarinviesti":
+                logText += "Sanoit Megismarkolle kyllä \n";
+                GameState("Portsarinviesti");
                 break;
 
                 // test
-            case "character.1 convo: Testi2":
-                logText += "You said no to character.1 \n";
-                GameState("character.2 convo");
+            case "Megismarko convo: Portsarinviesti2":
+                logText += "Sanoit Megismarkolle ei \n";
+                GameState("Portsarinviesti");
                 break;
 
                 // test
-            case "character.2 convo: Testi1":
-                logText += "You said yes to character.2 \n";
+            case "Portsarinviesti: Tapahtumakutsut":
+                logText += "Sanoit Portsarille kyllä \n";
                 messageControl.SaveMessages();
-                GameState("Test event invite");
+                GameState("Tapahtumakutsut");
                 break;
 
             // test
-            case "character.2 convo: Testi2":
-                logText += "You said no to character.2 \n";
+            case "Portsarinviesti: Tapahtumakutsut2":
+                logText += "Sanoit Portsarille ei \n";
                 messageControl.SaveMessages();
-                GameState("Test event invite");
+                GameState("Tapahtumakutsut");
                 break;
 
-            case "Yes:Test event":
-                Debug.Log("Game ends, you said yes to event 1");
-                loader.SetFinalPoints(stats.GetApproval());
-                loader.LoadLevel("Ending");
+            case "Yes:Työmessut":
+                logText += "Lähdit työmessuille. Siellä tapahtui kaikenlaista kivaa. \n";
+                eventOneState = EventInviteState.Going;
+                GameState("Kolmashahmo");
                 break;
 
-            case "No:Test event":
-                Debug.Log("Game ends, you said no to event 1");
-                loader.SetFinalPoints(stats.GetApproval());
-                loader.LoadLevel("Ending");
+            case "No:Työmessut":
+                logText += "Et lähtenyt työmessuille";
+                eventOneState = EventInviteState.NotGoing;
+                if(eventTwoState == EventInviteState.NotGoing)
+                {
+                    GameState("Shutin");
+                }
                 break;
 
-            case "Yes:Test event 2":
-                Debug.Log("Game ends, you said yes to event 2");
-                loader.SetFinalPoints(stats.GetApproval());
-                loader.LoadLevel("Ending");
+            case "Yes:Baari-ilta":
+                logText += "Lähdit baariin. Siellä tapahtui kaikenlaista kivaa. \n";
+                eventTwoState = EventInviteState.Going;
+                GameState("Neljäshahmo");
                 break;
 
-            case "No:Test event 2":
-                Debug.Log("Game ends, you said no to event 2");
-                loader.SetFinalPoints(stats.GetApproval());
-                loader.LoadLevel("Ending");
+            case "No:Baari-ilta":
+                logText += "Kieltäydyit baari-illasta";
+                eventTwoState = EventInviteState.NotGoing;
+                if (eventOneState == EventInviteState.NotGoing)
+                {
+                    GameState("Shutin");
+                }
+                break;
+
+            case "Kolmashahmo: Haastis":
+            case "Neljäshahmo: Haastis":
+                GameState("Haastis");
+                break;
+
+            case "Kolmashahmo: Huonoloppu":
+            case "Neljäshahmo: Huonoloppu":
+                GameState("Huonoloppu");
                 break;
         }
     }

@@ -1,0 +1,5 @@
+0	Hei	1	[cont]
+1	Haluutko että tutustutan sut Portsariin	2	Joo	30	3	En	-10
+2	Ok cool käsken sitä laittaa sulle viestiä	-1	[next:]Portsarinviesti
+3	Sääli juttu käskin sen jo laittaa sulle viestiä 	4	[cont]
+4	Hähää	-1	[next:]Portsarinviesti2
