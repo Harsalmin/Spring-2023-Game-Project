@@ -1731,6 +1731,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3643829948174922915, guid: a4659830826fc5b46a204f32550ace93, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1633467168, guid: cc6be14a068efae43b97f0db98681f0c, type: 3}
+    - target: {fileID: 3643829948174922915, guid: a4659830826fc5b46a204f32550ace93, type: 3}
+      propertyPath: m_PreserveAspect
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4204826550445189971, guid: a4659830826fc5b46a204f32550ace93, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -2383,6 +2391,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3643829948174922915, guid: a4659830826fc5b46a204f32550ace93, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 146081576, guid: cc6be14a068efae43b97f0db98681f0c, type: 3}
+    - target: {fileID: 3643829948174922915, guid: a4659830826fc5b46a204f32550ace93, type: 3}
+      propertyPath: m_PreserveAspect
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4204826550445189971, guid: a4659830826fc5b46a204f32550ace93, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -2410,6 +2426,18 @@ PrefabInstance:
     - target: {fileID: 4204826550445189971, guid: a4659830826fc5b46a204f32550ace93, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4707167084427357252, guid: a4659830826fc5b46a204f32550ace93, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4707167084427357252, guid: a4659830826fc5b46a204f32550ace93, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4707167084427357252, guid: a4659830826fc5b46a204f32550ace93, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7280112049717786445, guid: a4659830826fc5b46a204f32550ace93, type: 3}
       propertyPath: m_Name
@@ -3902,6 +3930,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3643829948174922915, guid: a4659830826fc5b46a204f32550ace93, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1819025445, guid: ffe8d7311b40c6046a9bf98cbaade8d8, type: 3}
     - target: {fileID: 4204826550445189971, guid: a4659830826fc5b46a204f32550ace93, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -6199,6 +6231,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3643829948174922915, guid: a4659830826fc5b46a204f32550ace93, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1597423533, guid: cc6be14a068efae43b97f0db98681f0c, type: 3}
     - target: {fileID: 4204826550445189971, guid: a4659830826fc5b46a204f32550ace93, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
