@@ -144,6 +144,7 @@ public class UIcontrol : MonoBehaviour
 
     public void AddEventButton(string eventName)
     {
+        Debug.Log("Adding event button");
         // Adds a button for an event
         if (!eventApp.transform.Find(CONTAINERNAME).transform.Find(EVENTINDICATOR + eventName))
         {
@@ -152,6 +153,7 @@ public class UIcontrol : MonoBehaviour
             newEventBtn.GetComponent<Button>().onClick.AddListener(delegate { OpenEvent(eventName); });
             newEventBtn.GetComponentInChildren<TMP_Text>().text = eventName;
             eventManager.EventUnlocked(eventManager.GetEventByName(eventName));
+            Debug.Log("Event button added " + eventName);
         }
     }
 
@@ -177,8 +179,8 @@ public class UIcontrol : MonoBehaviour
     public void DisableEventButtons(bool isAnswered)
     {
         // Disables (or activates) event buttons
-        eventWindow.transform.Find(CONTAINERNAME).transform.Find("Yes").GetComponent<Button>().enabled = !isAnswered;
-        eventWindow.transform.Find(CONTAINERNAME).transform.Find("No").GetComponent<Button>().enabled = !isAnswered;
+        eventWindow.transform.Find(CONTAINERNAME).transform.Find("Yes").GetComponent<Button>().interactable = !isAnswered;
+        eventWindow.transform.Find(CONTAINERNAME).transform.Find("No").GetComponent<Button>().interactable = !isAnswered;
     }
 
     public void CloseEventScreen()

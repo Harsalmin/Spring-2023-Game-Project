@@ -4,27 +4,38 @@ using UnityEngine;
 
 public class Stats : MonoBehaviour
 {
-    private int approval;
+    private static int approval;
+    private static bool newGame = false;
 
-    public void AddPoints(int amount)
+    public static void AddPoints(int amount)
     {
         Debug.Log(amount + " points added");
         approval += amount;
     }
 
-    public void RemovePoints(int amount)
+    public static void RemovePoints(int amount)
     {
         Debug.Log(amount + " points removed");
         approval -= amount;
     }
 
-    public int GetApproval()
+    public static int GetApproval()
     {
         return approval;
     }
 
-    public void SetApproval(int amount)
+    public static void SetApproval(int amount)
     {
         approval = amount;
+    }
+
+    public static void SetNewGame(bool setNewGame)
+    {
+        newGame = setNewGame;
+    }
+
+    public static bool IsNewGame()
+    {
+        return newGame;
     }
 }

@@ -9,7 +9,7 @@ public class Choices : MonoBehaviour
     [SerializeField] string fileName;
     public string characterName;
     private DialogueNode currDialogue;
-    private Stats stats;
+    // private Stats stats;
     private MessageControl messageControl;
     private GameControl gameControl;
     private string stateName;
@@ -19,7 +19,7 @@ public class Choices : MonoBehaviour
     void Start()
     {
         gameControl = GetComponent<GameControl>();
-        stats = GetComponent<Stats>();
+        // stats = GetComponent<Stats>();
         messageControl = GetComponent<MessageControl>();
         LoadFromFile();
     }
@@ -93,7 +93,7 @@ public class Choices : MonoBehaviour
                 // If there is no answer, do not add points
                 if (!currDialogue.Answers[answer].StartsWith(moveToNext))
                 {
-                    stats.AddPoints(currDialogue.Approval[answer]);
+                    Stats.AddPoints(currDialogue.Approval[answer]);
                 }
                 currDialogue = dn;
                 return;

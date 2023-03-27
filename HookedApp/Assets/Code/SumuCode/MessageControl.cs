@@ -152,7 +152,6 @@ public class MessageControl : MonoBehaviour
             List<int> processedIDs = new List<int>();
             foreach (Message msg in conversationHistory[s])
             {
-                Debug.Log(msg + " from " + s);
                 // prevents duplicates
                 if (processedIDs.Contains(msg.id))
                 {

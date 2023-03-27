@@ -8,9 +8,12 @@ public class GameControl : MonoBehaviour
     MessageControl messageControl;
     Choices[] choices;
     LevelLoader loader;
-    Stats stats;
+    SaveLoad saveLoad;
+    EventManager events;
+    // Stats stats;
     private static string gameState;
     public static Dictionary<string, List<Message>> conversationHistory;
+    public static List<Event> eventHistory;
     public static string logText;
     EventInviteState eventOneState = EventInviteState.Unanswered;
     EventInviteState eventTwoState = EventInviteState.Unanswered;
@@ -28,13 +31,19 @@ public class GameControl : MonoBehaviour
         messageControl = GetComponent<MessageControl>();
         choices = GetComponents<Choices>();
         loader = GameObject.Find("Loader").GetComponent<LevelLoader>();
-        stats = GetComponent<Stats>();
-        DontDestroyOnLoad(gameObject);
+        saveLoad = GetComponent<SaveLoad>();
+        events = GetComponent<EventManager>();
+        // stats = GetComponent<Stats>();
     }
 
     private void Start()
     {
-        StartCoroutine(uiControl.RefreshReferences());
+        if(Stats.IsNewGame())
+        {
+            saveLoad.StartFresh();
+            gameState = "Megismarko convo";
+        }
+        // StartCoroutine(uiControl.RefreshReferences());
 
         if (gameState == null)
         {
@@ -42,8 +51,8 @@ public class GameControl : MonoBehaviour
         }
         else
         {
-            Debug.Log(conversationHistory.Count);
             messageControl.SetConversationHistory(conversationHistory);
+            events.LoadUnlockedEvents(eventHistory);
         }
 
         GameState(gameState);
@@ -83,19 +92,20 @@ public class GameControl : MonoBehaviour
 
             case "Haastis":
                 Debug.Log("Ending: " + state);
-                loader.SetFinalPoints(stats.GetApproval());
+                loader.SetFinalPoints(Stats.GetApproval());
+                // gameState = "Megismarko convo";
                 loader.LoadLevel("Ending");
                 break;
 
             case "Huonoloppu":
                 Debug.Log("Ending: " + state);
-                loader.SetFinalPoints(stats.GetApproval());
+                loader.SetFinalPoints(Stats.GetApproval());
                 loader.LoadLevel("Ending");
                 break;
 
             case "Shutin":
                 Debug.Log("Ending: " + state);
-                loader.SetFinalPoints(stats.GetApproval());
+                loader.SetFinalPoints(Stats.GetApproval());
                 loader.LoadLevel("Ending");
                 break;
         }

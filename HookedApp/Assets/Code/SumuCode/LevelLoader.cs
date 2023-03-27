@@ -6,10 +6,20 @@ using UnityEngine.SceneManagement;
 public class LevelLoader : MonoBehaviour
 {
     private int finalPoints;
+    private static LevelLoader loader;
 
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
+
+        if (loader == null)
+        {
+            loader = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     // when the game is about to end

@@ -7,12 +7,12 @@ public class EventManager : MonoBehaviour
 {
     [SerializeField] private Event[] allEvents;
     private List<Event> unlockedEvents;
-    Stats stats;
+    // Stats stats;
     UIcontrol uiControl;
     GameControl gameControl;
     private void Start()
     {
-        stats = GetComponent<Stats>();
+        // stats = GetComponent<Stats>();
         uiControl = GetComponent<UIcontrol>();
         gameControl = GetComponent<GameControl>();
     }
@@ -22,7 +22,7 @@ public class EventManager : MonoBehaviour
         string eventName = eventTitle.GetComponent<TMP_Text>().text;
         // If agreed to go to the event, add approval points
         Event e = GetEventByName(eventName);
-        stats.AddPoints(e.approval);
+        Stats.AddPoints(e.approval);
         e.answered = true;
 
         DateFull(e.date);
@@ -85,15 +85,30 @@ public class EventManager : MonoBehaviour
     // returns unlocked events for saving purposes
     public List<Event> GetUnlockedEvents()
     {
+        foreach (Event e in unlockedEvents)
+            Debug.Log(e.name + " got");
+
         return unlockedEvents;
     }
 
+    // loads all previously unlocked events
     public void LoadUnlockedEvents(List<Event> eventHistory)
     {
         if(eventHistory != null)
         {
             unlockedEvents = new List<Event>(eventHistory);
+            foreach(Event e in eventHistory)
+            {
+                Debug.Log(e.name);
+                uiControl.AddEventButton(e.name);
+            }
         }
+    }
+
+    public void ResetEvents()
+    {
+        if(unlockedEvents != null)
+            unlockedEvents = null;
     }
 }
 

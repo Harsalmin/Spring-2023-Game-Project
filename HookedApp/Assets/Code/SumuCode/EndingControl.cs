@@ -11,6 +11,7 @@ public class EndingControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Stats.SetNewGame(true);
         if (GameObject.Find("Loader") != null)
         {
             int finalPoints = GameObject.Find("Loader").GetComponent<LevelLoader>().GetFinalPoints();

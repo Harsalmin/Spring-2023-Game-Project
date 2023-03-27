@@ -8,7 +8,7 @@ using UnityEngine;
 public class SaveLoad : MonoBehaviour
 {
     GameControl control;
-    Stats stats;
+    // Stats stats;
     EventManager events;
     MessageControl messages;
     UIcontrol uiControl;
@@ -24,7 +24,7 @@ public class SaveLoad : MonoBehaviour
     {
         levelLoader = GameObject.Find("Loader").GetComponent<LevelLoader>();
         control = GetComponent<GameControl>();
-        stats = GetComponent<Stats>();
+        // stats = GetComponent<Stats>();
         events = GetComponent<EventManager>();
         messages = GetComponent<MessageControl>();
         uiControl = GetComponent<UIcontrol>();
@@ -51,9 +51,8 @@ public class SaveLoad : MonoBehaviour
         // gets the data
         GameData data = new GameData();
         data.gameState = GameControl.GetGameState();
-        data.approval = stats.GetApproval();
+        data.approval = Stats.GetApproval();
         data.conversationHistory = messages.GetConversationHistory();
-        Debug.Log("Saved : " + data.conversationHistory.Count);
         data.eventHistory = events.GetUnlockedEvents();
         data.logText = GameControl.logText;
 
@@ -77,15 +76,21 @@ public class SaveLoad : MonoBehaviour
             file.Close();
 
             // sets the data 
-            stats.SetApproval(data.approval);
+            Stats.SetApproval(data.approval);
 
             if (data.conversationHistory != null)
             {
                 GameControl.conversationHistory = data.conversationHistory;
             }
-            events.LoadUnlockedEvents(data.eventHistory);
+
+            if(data.eventHistory != null)
+            {
+                GameControl.eventHistory = data.eventHistory;
+            }
+
             GameControl.logText = data.logText;
             GameControl.SetGameState(data.gameState);
+            Stats.SetNewGame(false);
             levelLoader.LoadLevel("SumuPlayground");
             //control.GameState(data.gameState);
         }
@@ -93,6 +98,17 @@ public class SaveLoad : MonoBehaviour
         {
             Debug.Log("File does not exist");
         }
+    }
+
+    public void StartFresh()
+    {
+        Debug.Log("New game start");
+        Stats.SetApproval(0);
+        GameControl.conversationHistory = null;
+        events.ResetEvents();
+        GameControl.logText = "";
+        GameControl.SetGameState("Megismarko convo");
+        Stats.SetNewGame(true);
     }
 }
 
