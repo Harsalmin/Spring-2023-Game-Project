@@ -14,7 +14,7 @@ public class GameControl : MonoBehaviour
     private static string gameState;
     public static Dictionary<string, List<Message>> conversationHistory;
     public static List<Event> eventHistory;
-    public static string logText;
+    public static string logText, logTextEnglish;
     EventInviteState eventOneState = EventInviteState.Unanswered;
     EventInviteState eventTwoState = EventInviteState.Unanswered;
 
@@ -132,18 +132,21 @@ public class GameControl : MonoBehaviour
                 // test
             case "Megismarko convo: Portsarinviesti":
                 logText += "Sanoit Megismarkolle kyllä \n";
+                logTextEnglish += "You said yes to Megismarko \n";
                 GameState("Portsarinviesti");
                 break;
 
                 // test
             case "Megismarko convo: Portsarinviesti2":
                 logText += "Sanoit Megismarkolle ei \n";
+                logTextEnglish += "You said no to Megismarko \n";
                 GameState("Portsarinviesti");
                 break;
 
                 // test
             case "Portsarinviesti: Tapahtumakutsut":
                 logText += "Sanoit Portsarille kyllä \n";
+                logTextEnglish += "You said yes to Portsari \n";
                 messageControl.SaveMessages();
                 GameState("Tapahtumakutsut");
                 break;
@@ -151,18 +154,21 @@ public class GameControl : MonoBehaviour
             // test
             case "Portsarinviesti: Tapahtumakutsut2":
                 logText += "Sanoit Portsarille ei \n";
+                logTextEnglish += "You said no to Portsari \n";
                 messageControl.SaveMessages();
                 GameState("Tapahtumakutsut");
                 break;
 
             case "Yes:Työmessut":
                 logText += "Lähdit työmessuille. Siellä tapahtui kaikenlaista kivaa. \n";
+                logTextEnglish += "You went to a work fair. There happened lots of great things \n";
                 eventOneState = EventInviteState.Going;
                 GameState("Kolmashahmo");
                 break;
 
             case "No:Työmessut":
                 logText += "Et lähtenyt työmessuille";
+                logTextEnglish += "You didn't go to the work fair \n";
                 eventOneState = EventInviteState.NotGoing;
                 if(eventTwoState == EventInviteState.NotGoing)
                 {
@@ -172,12 +178,14 @@ public class GameControl : MonoBehaviour
 
             case "Yes:Baari-ilta":
                 logText += "Lähdit baariin. Siellä tapahtui kaikenlaista kivaa. \n";
+                logTextEnglish += "You went to a bar. You had fun \n";
                 eventTwoState = EventInviteState.Going;
                 GameState("Neljäshahmo");
                 break;
 
             case "No:Baari-ilta":
                 logText += "Kieltäydyit baari-illasta";
+                logTextEnglish += "You said no to a fun bar night \n";
                 eventTwoState = EventInviteState.NotGoing;
                 if (eventOneState == EventInviteState.NotGoing)
                 {
@@ -218,5 +226,25 @@ public class GameControl : MonoBehaviour
     public static void SetGameState(string state)
     {
         gameState = state;
+    }
+
+    public void ChangeLanguage(bool finnish)
+    {
+        if (finnish)
+        {
+            Stats.language = "fi";
+        }
+        else
+        {
+            Debug.Log("english");
+            Stats.language = "en";
+        }
+
+        // changes language and loads from file
+        foreach (Choices ch in choices)
+        {
+            ch.LoadFromFile();
+        }
+        GameState(gameState);
     }
 }

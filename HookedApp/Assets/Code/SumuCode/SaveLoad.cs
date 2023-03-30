@@ -24,7 +24,6 @@ public class SaveLoad : MonoBehaviour
     {
         levelLoader = GameObject.Find("Loader").GetComponent<LevelLoader>();
         control = GetComponent<GameControl>();
-        // stats = GetComponent<Stats>();
         events = GetComponent<EventManager>();
         messages = GetComponent<MessageControl>();
         uiControl = GetComponent<UIcontrol>();
@@ -55,6 +54,9 @@ public class SaveLoad : MonoBehaviour
         data.conversationHistory = messages.GetConversationHistory();
         data.eventHistory = events.GetUnlockedEvents();
         data.logText = GameControl.logText;
+        data.logTextEnglish = GameControl.logTextEnglish;
+        data.language = Stats.language;
+        Debug.Log("saved in " + Stats.language);
 
         // does the saving
         BinaryFormatter bf = new BinaryFormatter();
@@ -76,6 +78,8 @@ public class SaveLoad : MonoBehaviour
             file.Close();
 
             // sets the data 
+            Stats.language = data.language;
+            control.ChangeLanguage(Stats.language == "fi");
             Stats.SetApproval(data.approval);
 
             if (data.conversationHistory != null)
@@ -89,10 +93,11 @@ public class SaveLoad : MonoBehaviour
             }
 
             GameControl.logText = data.logText;
+            GameControl.logTextEnglish = data.logTextEnglish;
             GameControl.SetGameState(data.gameState);
             Stats.SetNewGame(false);
+          
             levelLoader.LoadLevel("SumuPlayground");
-            //control.GameState(data.gameState);
         }
         else
         {
@@ -117,7 +122,8 @@ class GameData
 {
     public string gameState;
     public int approval;
+    public string language;
     public Dictionary<string, List<Message>> conversationHistory;
     public List<Event> eventHistory;
-    public string logText;
+    public string logText, logTextEnglish;
 }

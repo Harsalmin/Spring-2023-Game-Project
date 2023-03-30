@@ -14,6 +14,7 @@ public class Choices : MonoBehaviour
     private GameControl gameControl;
     private string stateName;
     private string moveToNext = "[cont]";
+    // public string language;
     
     // Start is called before the first frame update
     void Start()
@@ -104,7 +105,9 @@ public class Choices : MonoBehaviour
     // Reads the text file containing information about this conversation
     public void LoadFromFile()
     {
-        TextAsset textData = Resources.Load("Story/" + fileName) as TextAsset; 
+        dialogue = new List<DialogueNode>();
+        TextAsset textData = Resources.Load("Story/" + Stats.language + "/" + fileName) as TextAsset;
+        Debug.Log("Loaded data in " + Stats.language);
         string txt = textData.text;
         var lines = txt.Split("\n");
 
@@ -152,7 +155,6 @@ public class Choices : MonoBehaviour
             }
             dialogue.Add(dn);
         }
-
         currDialogue = dialogue[0];
     }
 

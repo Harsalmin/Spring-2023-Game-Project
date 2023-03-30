@@ -6,6 +6,7 @@ public class Stats : MonoBehaviour
 {
     private static int approval;
     private static bool newGame = false;
+    public static string language = "fi";
 
     public static void AddPoints(int amount)
     {

@@ -85,6 +85,11 @@ public class EventManager : MonoBehaviour
     // returns unlocked events for saving purposes
     public List<Event> GetUnlockedEvents()
     {
+        if(unlockedEvents == null)
+        {
+            return null;
+        }
+
         foreach (Event e in unlockedEvents)
             Debug.Log(e.name + " got");
 
@@ -115,8 +120,8 @@ public class EventManager : MonoBehaviour
 [System.Serializable]
 public class Event
 {
-    public string name;
-    public string description;
+    public string name, englishName;
+    public string description, englishDescription;
     public string imgFile;
     public string date;
     public int approval;

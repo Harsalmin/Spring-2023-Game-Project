@@ -10,6 +10,8 @@ public class UIcontrol : MonoBehaviour
 {
     [SerializeField] private GameObject chatApp, eventApp, logsApp, settingsApp;
     [SerializeField] private GameObject hub, button, convoWindow, conversations, eventWindow;
+    [SerializeField] private TMP_Dropdown languages;
+    [SerializeField] private TMP_Text attending, notAttending, chatText, eventsText, logsText, settingsText;
     private GameObject viewport;
     EventManager eventManager;
     GameControl control;
@@ -34,6 +36,22 @@ public class UIcontrol : MonoBehaviour
         conversations.SetActive(false);
         eventWindow.SetActive(false);
         viewport = conversations.transform.Find("Scroll View/Viewport").gameObject;
+        ChangeLanguage();
+    }
+
+    private void Start()
+    {
+        if (Stats.language == "en")
+        {
+            languages.value = 1;
+        }
+        languages.onValueChanged.AddListener(delegate {LanguageChanged(languages); });
+    }
+
+    private void LanguageChanged(TMP_Dropdown languageOptions)
+    {
+        ChangeLanguage();
+        control.ChangeLanguage(languageOptions.value == 0);
     }
 
     public IEnumerator RefreshReferences()
@@ -74,6 +92,10 @@ public class UIcontrol : MonoBehaviour
         // Opens and closes events app
         eventApp.SetActive(!eventApp.activeInHierarchy);
         hub.SetActive(!hub.activeInHierarchy);
+        if (eventApp.activeInHierarchy)
+        {
+            ChangeLanguage();
+        }
     }
 
     public void ToggleLogsApp()
@@ -86,7 +108,14 @@ public class UIcontrol : MonoBehaviour
         {
             GameObject logs = logsApp.transform.Find(CONTAINERNAME).transform.Find("Logs").gameObject;
             TMP_Text logsText = logs.GetComponent<TMP_Text>();
-            logsText.text = GameControl.logText;
+            if (Stats.language == "fi")
+            {
+                logsText.text = GameControl.logText;
+            }
+            else
+            {
+                logsText.text = GameControl.logTextEnglish;
+            }
         }
     }
 
@@ -157,11 +186,62 @@ public class UIcontrol : MonoBehaviour
         }
     }
 
+    public void ChangeLanguage()
+    {
+        foreach(Transform t in eventApp.transform.Find(CONTAINERNAME))
+        {
+            Debug.Log(t.name);
+            if (t.name.StartsWith(EVENTINDICATOR))
+            {
+                string originalName = t.name.Replace(EVENTINDICATOR, "");
+                Event e = eventManager.GetEventByName(originalName);
+                if (Stats.language == "fi")
+                {
+                    t.GetComponentInChildren<TMP_Text>().text = e.name;
+                }
+                else
+                {
+                    t.GetComponentInChildren<TMP_Text>().text = e.englishName;
+                }
+            }
+        }
+
+        if(Stats.language == "fi")
+        {
+            attending.text = "Osallistun";
+            notAttending.text = "En osallistu";
+            chatText.text = "Keskustelut";
+            eventsText.text = "Tapahtumat";
+            logsText.text = "Loki";
+            settingsText.text = "Asetukset";
+        }
+        else
+        {
+            attending.text = "Attending";
+            notAttending.text = "Not attending";
+            chatText.text = "Chat";
+            eventsText.text = "Events";
+            logsText.text = "Logs";
+            settingsText.text = "Settings";
+        }
+    }
+
     private void OpenEvent(string eventName)
     {
         // Opens an event screen and changes its contents
         Event e = eventManager.GetEventByName(eventName);
-        eventWindow.transform.Find(CONTAINERNAME).transform.Find("Title").GetComponent<TMP_Text>().text = e.name;
+
+        // changes texts to match the language
+        if(Stats.language == "fi")
+        {
+            eventWindow.transform.Find(CONTAINERNAME).transform.Find("Title").GetComponent<TMP_Text>().text = e.name;
+            eventWindow.transform.Find(CONTAINERNAME).transform.Find("Description").GetComponent<TMP_Text>().text = e.description;
+        }
+        else
+        {
+            eventWindow.transform.Find(CONTAINERNAME).transform.Find("Title").GetComponent<TMP_Text>().text = e.englishName;
+            eventWindow.transform.Find(CONTAINERNAME).transform.Find("Description").GetComponent<TMP_Text>().text = e.englishDescription;
+        }
 
         if (e.imgFile != "" || e.imgFile != null)
         {
@@ -172,7 +252,6 @@ public class UIcontrol : MonoBehaviour
 
         DisableEventButtons(e.answered);
         eventWindow.transform.Find(CONTAINERNAME).transform.Find("Date").GetComponent<TMP_Text>().text = e.date;
-        eventWindow.transform.Find(CONTAINERNAME).transform.Find("Description").GetComponent<TMP_Text>().text = e.description;
         eventWindow.SetActive(true);
     }
 

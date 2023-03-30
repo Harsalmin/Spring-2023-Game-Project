@@ -1,0 +1,5 @@
+0	Hey	1	[cont]
+1	Do you wanna get to know Portsari	2	Yeah	30	3	No	-10
+2	Ok cool I'll tell him to message you	-1	[next:]Portsarinviesti
+3	What a shame i already told him to message you 	4	[cont]
+4	Haha	-1	[next:]Portsarinviesti2
