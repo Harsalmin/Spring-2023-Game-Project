@@ -113,7 +113,6 @@ public class GameControl : MonoBehaviour
 
     void StartDialogue(string characterName)
     {
-        // print("start dialogue" + characterName);
         uiControl.AddConvoButton(characterName);
         // messageControl.ChangeConversation(characterName);
         messageControl.SendMessage("ChangeConversation", characterName);
@@ -245,6 +244,8 @@ public class GameControl : MonoBehaviour
         {
             ch.LoadFromFile();
         }
+
+        uiControl.ChangeLanguage();
         GameState(gameState);
     }
 }

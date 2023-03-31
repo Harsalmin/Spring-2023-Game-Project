@@ -29,6 +29,14 @@ public class EventManager : MonoBehaviour
 
         // tell that this phase has ended with the player agreeing
         gameControl.EndPhase("Yes:" + eventName);
+        uiControl.FadePopup(true);
+
+        // change text depending on the language
+        if (Stats.language == "fi")
+            uiControl.ChangePopupText("P‰‰tit menn‰ tapahtumaan: " + eventName);
+        else
+            uiControl.ChangePopupText("You went to an event: " + e.englishName);
+
         uiControl.DisableEventButtons(true);
     }
 
@@ -74,7 +82,7 @@ public class EventManager : MonoBehaviour
     {
         foreach(Event e in allEvents)
         {
-            if (e.name == name)
+            if (e.name == name || e.englishName == name)
             {
                 return e;
             }

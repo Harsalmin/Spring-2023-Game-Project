@@ -11,12 +11,16 @@ public class UIcontrol : MonoBehaviour
     [SerializeField] private GameObject chatApp, eventApp, logsApp, settingsApp;
     [SerializeField] private GameObject hub, button, convoWindow, conversations, eventWindow;
     [SerializeField] private TMP_Dropdown languages;
-    [SerializeField] private TMP_Text attending, notAttending, chatText, eventsText, logsText, settingsText;
+    [SerializeField] private TMP_Text attending, notAttending, chatText, eventsText, logsText, logsTitle, settingsText;
+    [SerializeField] private TMP_Text scoreText, eventPopupText;
+    [SerializeField] private Animator starAnim, eventPopupAnim, notification;
+    [SerializeField] private Image fade;
     private GameObject viewport;
     EventManager eventManager;
     GameControl control;
     LevelLoader levelLoader;
     SaveLoad saves;
+    bool animOn = false;
 
     private const string CONTAINERNAME = "Container";
     private const string CHARACTERINDICATOR = "Character_";
@@ -46,6 +50,39 @@ public class UIcontrol : MonoBehaviour
             languages.value = 1;
         }
         languages.onValueChanged.AddListener(delegate {LanguageChanged(languages); });
+        UpdatePoints();
+    }
+
+    private void Update()
+    {
+        if (scoreText.text != Stats.GetApproval().ToString() && !animOn)
+        {
+            starAnim.SetTrigger("getPoints");
+            animOn = true;
+        }
+    }
+
+    public void UpdatePoints()
+    {
+        scoreText.text = Stats.GetApproval().ToString();
+        animOn = false;
+    }
+
+    public void FadePopup(bool fadeIn)
+    {
+        if(fadeIn)
+        {
+            StartCoroutine(FadeInPopUp());
+        }
+        else
+        {
+            StartCoroutine(FadeOutPopUp());
+        }
+    }
+
+    public void ChangePopupText(string text)
+    {
+        eventPopupText.text = text;
     }
 
     private void LanguageChanged(TMP_Dropdown languageOptions)
@@ -54,30 +91,34 @@ public class UIcontrol : MonoBehaviour
         control.ChangeLanguage(languageOptions.value == 0);
     }
 
-    public IEnumerator RefreshReferences()
+    public IEnumerator FadeInPopUp()
     {
-        // Refreshed the references to gameobjects
-        // maybe test if this is even needed
-        GameObject[] rootObjects = SceneManager.GetActiveScene().GetRootGameObjects();
-        GameObject canvas;
-        foreach(GameObject go in rootObjects)
+        float timer = 0;
+        float duration = 1;
+        while(timer <= duration)
         {
-            if (go.name == "Canvas")
-            {
-                canvas = go;
-                hub = canvas.transform.Find("Hub").gameObject;
-                chatApp = canvas.transform.Find("APP: Chat").gameObject;
-                foreach(Transform t in chatApp.transform.Find(CONTAINERNAME).transform)
-                {
-                    print("children: " + t.name);
-                }
-                eventApp = canvas.transform.Find("APP: Events").gameObject;
-
-            }
+            timer += Time.deltaTime * 2;
+            fade.color = new Color(0, 0, 0, timer);
+            yield return null;
         }
+        fade.color = new Color(0, 0, 0, 1);
+        CloseEventScreen();
+        ToggleEventsApp();
+        ToggleLogsApp();
+        eventPopupAnim.SetTrigger("show");
+    }
 
-        Debug.Log("Refreshed");
-        yield return null;
+    public IEnumerator FadeOutPopUp()
+    {
+        float timer = 0;
+        float duration = 1;
+        while (timer <= duration)
+        {
+            timer += Time.deltaTime;
+            fade.color = new Color(0, 0, 0, 1 - timer);
+            yield return null;
+        }
+        fade.color = new Color(0, 0, 0, 0);
     }
 
     public void ToggleChatApp()
@@ -128,6 +169,7 @@ public class UIcontrol : MonoBehaviour
 
     public void AddConvoButton(string name)
     {
+        notification.SetTrigger("newMessage");
         // Adds a button and a conversation window for a character
         if (!chatApp.transform.Find(CONTAINERNAME).transform.Find(CONVERSATIONINDICATOR + name))
         {
@@ -173,6 +215,7 @@ public class UIcontrol : MonoBehaviour
 
     public void AddEventButton(string eventName)
     {
+        notification.SetTrigger("newEvent");
         Debug.Log("Adding event button");
         // Adds a button for an event
         if (!eventApp.transform.Find(CONTAINERNAME).transform.Find(EVENTINDICATOR + eventName))
@@ -188,6 +231,7 @@ public class UIcontrol : MonoBehaviour
 
     public void ChangeLanguage()
     {
+        // Event names and descriptions
         foreach(Transform t in eventApp.transform.Find(CONTAINERNAME))
         {
             Debug.Log(t.name);
@@ -206,6 +250,53 @@ public class UIcontrol : MonoBehaviour
             }
         }
 
+        // Settings 
+        foreach(Transform t in settingsApp.transform.Find(CONTAINERNAME))
+        {
+            if(Stats.language == "fi")
+            {
+                switch(t.name)
+                {
+                    case "Title":
+                        t.GetComponent<TMP_Text>().text = "Asetukset";
+                        break;
+                    case "Description":
+                        t.GetComponent<TMP_Text>().text = "T‰‰ll‰ on asetukset";
+                        break;
+                    case "Save":
+                        t.GetComponentInChildren<TMP_Text>().text = "Tallenna peli";
+                        break;
+                    case "Load":
+                        t.GetComponentInChildren<TMP_Text>().text = "Lataa peli";
+                        break;
+                    case "Exit":
+                        t.GetComponentInChildren<TMP_Text>().text = "Poistu p‰‰valikkoon";
+                        break;
+                }
+            }
+            else
+            {
+                switch (t.name)
+                {
+                    case "Title":
+                        t.GetComponent<TMP_Text>().text = "Settings";
+                        break;
+                    case "Description":
+                        t.GetComponent<TMP_Text>().text = "Here be the settings";
+                        break;
+                    case "Save":
+                        t.GetComponentInChildren<TMP_Text>().text = "Save";
+                        break;
+                    case "Load":
+                        t.GetComponentInChildren<TMP_Text>().text = "Load";
+                        break;
+                    case "Exit":
+                        t.GetComponentInChildren<TMP_Text>().text = "Exit to main menu";
+                        break;
+                }
+            }
+        }
+
         if(Stats.language == "fi")
         {
             attending.text = "Osallistun";
@@ -213,6 +304,7 @@ public class UIcontrol : MonoBehaviour
             chatText.text = "Keskustelut";
             eventsText.text = "Tapahtumat";
             logsText.text = "Loki";
+            logsTitle.text = "Loki";
             settingsText.text = "Asetukset";
         }
         else
@@ -222,6 +314,7 @@ public class UIcontrol : MonoBehaviour
             chatText.text = "Chat";
             eventsText.text = "Events";
             logsText.text = "Logs";
+            logsTitle.text = "Logs";
             settingsText.text = "Settings";
         }
     }
