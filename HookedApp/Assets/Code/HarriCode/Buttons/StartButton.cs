@@ -6,6 +6,6 @@ public class StartButton : MonoBehaviour
 {
     public void StartGame()
     {
-        GameManager.LoadScene("SumuPlayground");
+        GameManager.LoadScene("Game");
     }
 }

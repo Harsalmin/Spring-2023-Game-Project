@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/OptionsMenu.unity
     guid: dd148e36455fffa47bc95d88e0c7f192
   - enabled: 1
-    path: Assets/Scenes/SumuPlayground.unity
+    path: Assets/Scenes/Game.unity
     guid: 18ecbcd93fbd61c459b7daa751a4391c
   - enabled: 1
     path: Assets/Scenes/Ending.unity

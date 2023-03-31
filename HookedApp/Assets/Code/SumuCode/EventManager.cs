@@ -22,6 +22,7 @@ public class EventManager : MonoBehaviour
         string eventName = eventTitle.GetComponent<TMP_Text>().text;
         // If agreed to go to the event, add approval points
         Event e = GetEventByName(eventName);
+        eventName = e.name;
         Stats.AddPoints(e.approval);
         e.answered = true;
 
@@ -44,6 +45,7 @@ public class EventManager : MonoBehaviour
     {
         string eventName = eventTitle.GetComponent<TMP_Text>().text;
         Event e = GetEventByName(eventName);
+        eventName = e.name;
         e.answered = true;
 
         // if the player says no to an event, tell that this phase has ended as such

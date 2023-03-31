@@ -7,6 +7,8 @@ public class Stats : MonoBehaviour
     private static int approval;
     private static bool newGame = false;
     public static string language = "fi";
+    private static string endCreditsTitle = "Peli loppui!";
+    private static string endCreditsDesc = "Sinulle tuli paljon työtarjouksia!";
 
     public static void AddPoints(int amount)
     {
@@ -38,5 +40,21 @@ public class Stats : MonoBehaviour
     public static bool IsNewGame()
     {
         return newGame;
+    }
+
+    public static void ChangeEndCredits(string title, string desc)
+    {
+        endCreditsTitle = title;
+        endCreditsDesc = desc;
+    }
+
+    public static string GetEndCreditsTitle()
+    {
+        return endCreditsTitle;
+    }
+
+    public static string GetEndCreditsDesc()
+    {
+        return endCreditsDesc;
     }
 }

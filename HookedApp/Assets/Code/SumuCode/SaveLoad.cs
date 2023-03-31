@@ -97,7 +97,7 @@ public class SaveLoad : MonoBehaviour
             GameControl.SetGameState(data.gameState);
             Stats.SetNewGame(false);
           
-            levelLoader.LoadLevel("SumuPlayground");
+            levelLoader.LoadLevel("Game");
         }
         else
         {

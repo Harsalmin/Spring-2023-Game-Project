@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameControl : MonoBehaviour
 {
@@ -93,6 +94,20 @@ public class GameControl : MonoBehaviour
             case "Haastis":
                 Debug.Log("Ending: " + state);
                 loader.SetFinalPoints(Stats.GetApproval());
+                if(Stats.language == "fi")
+                {
+                    Stats.ChangeEndCredits(
+                        "Peli loppui!",
+                        "Sait paljon työhaastatteluita! Jee"
+                        );
+                }
+                else
+                {
+                    Stats.ChangeEndCredits(
+                        "Game over!",
+                        "You got a ton of job interviews! Yay"
+                        );
+                }
                 // gameState = "Megismarko convo";
                 loader.LoadLevel("Ending");
                 break;
@@ -100,12 +115,40 @@ public class GameControl : MonoBehaviour
             case "Huonoloppu":
                 Debug.Log("Ending: " + state);
                 loader.SetFinalPoints(Stats.GetApproval());
+                if (Stats.language == "fi")
+                {
+                    Stats.ChangeEndCredits(
+                        "Peli loppui!",
+                        "Sait huonon lopun :/"
+                        );
+                }
+                else
+                {
+                    Stats.ChangeEndCredits(
+                        "Game over!",
+                        "You got a bad ending :/"
+                        );
+                }
                 loader.LoadLevel("Ending");
                 break;
 
             case "Shutin":
                 Debug.Log("Ending: " + state);
                 loader.SetFinalPoints(Stats.GetApproval());
+                if (Stats.language == "fi")
+                {
+                    Stats.ChangeEndCredits(
+                        "Peli loppui!",
+                        "Et mennyt mihinkään! Pysyit kotona! Et saanut työhaastatteluita!"
+                        );
+                }
+                else
+                {
+                    Stats.ChangeEndCredits(
+                        "Game over!",
+                        "You stayed at home! That's no way to get job interviews!"
+                        );
+                }
                 loader.LoadLevel("Ending");
                 break;
         }
@@ -123,7 +166,7 @@ public class GameControl : MonoBehaviour
     // When a conversation ends, it comes back here
     public void EndPhase(string stateName)
     {
-        // Debug.Log("Phase ended: " +stateName);
+        Debug.Log("Phase ended: " +stateName);
         stateName = stateName.Trim();
 
         switch (stateName)
