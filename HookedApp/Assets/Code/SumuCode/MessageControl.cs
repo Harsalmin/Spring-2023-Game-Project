@@ -16,6 +16,7 @@ public class MessageControl : MonoBehaviour
     List<GameObject> buttons = new List<GameObject>();
     private int index = 0;
     UIcontrol uiControl;
+    public bool languageChanged = false;
 
     private const string CHARACTERINDICATOR = "Character_";
     // private const string CONVERSATIONINDICATOR = "Conversation_";
@@ -106,6 +107,7 @@ public class MessageControl : MonoBehaviour
 
         foreach (Message msg in messages)
         {
+            Debug.Log("Added " + msg.text + " to list");
             conversationHistory[currentNpc].Add(msg);
         }
     }
@@ -113,10 +115,13 @@ public class MessageControl : MonoBehaviour
     // Changes which conversation is active currently
     public void ChangeConversation(string characterName)
     {
-        print("conversation: " + characterName);
-        if (currentNpc != null)
+        Debug.Log("conversation: " + characterName);
+
+        // saves messages
+        if (currentNpc != null && !languageChanged)
         {
             SaveMessages();
+            languageChanged = false;
         }
         currentNpc = characterName;
         messages.Clear();

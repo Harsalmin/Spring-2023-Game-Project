@@ -278,9 +278,9 @@ public class GameControl : MonoBehaviour
         }
         else
         {
-            Debug.Log("english");
             Stats.language = "en";
         }
+        messageControl.languageChanged = true;
 
         // changes language and loads from file
         foreach (Choices ch in choices)

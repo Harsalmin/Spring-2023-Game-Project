@@ -13,6 +13,12 @@ public class Intro : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (!Stats.IsNewGame())
+        {
+            Destroy(fade.gameObject);
+            return;
+        }
+
         Time.timeScale = 0;
         if (introTexts.Length >= 1)
         {

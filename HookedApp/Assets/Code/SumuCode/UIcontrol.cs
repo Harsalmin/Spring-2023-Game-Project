@@ -10,7 +10,6 @@ public class UIcontrol : MonoBehaviour
 {
     [SerializeField] private GameObject chatApp, eventApp, logsApp, settingsApp;
     [SerializeField] private GameObject hub, button, convoWindow, conversations, eventWindow;
-    [SerializeField] private TMP_Dropdown languages;
     [SerializeField] private TMP_Text attending, notAttending, chatText, eventsText, logsText, logsTitle, settingsText;
     [SerializeField] private TMP_Text scoreText, eventPopupText;
     [SerializeField] private Animator starAnim, eventPopupAnim, notification;
@@ -45,11 +44,6 @@ public class UIcontrol : MonoBehaviour
 
     private void Start()
     {
-        if (Stats.language == "en")
-        {
-            languages.value = 1;
-        }
-        languages.onValueChanged.AddListener(delegate {LanguageChanged(languages); });
         UpdatePoints();
     }
 

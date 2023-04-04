@@ -107,7 +107,6 @@ public class Choices : MonoBehaviour
     {
         dialogue = new List<DialogueNode>();
         TextAsset textData = Resources.Load("Story/" + Stats.language + "/" + fileName) as TextAsset;
-        Debug.Log("Loaded data in " + Stats.language);
         string txt = textData.text;
         var lines = txt.Split("\n");
 
