@@ -2,5 +2,5 @@
 1	Olis tollanen työmessutapahtuma tulossa. Kiinnostaako?	2	Joo	30	4	Ei	-10
 2	Kiva laitan sulle tapahtumakutsun	3	[cont]
 3	Tai itse asiassa laitan kaksi. Kato kumpi kiinnostaa enemmän.	-1	[next:]Tapahtumakutsut
-4	Aha ei sitten. 	4	[cont]
+4	Aha ei sitten. 	5	[cont]
 5	Paitsi että tää on demoversio eikä sulla oo vaihtoehtoja. Ota tapahtumakutsuja	-1	[next:]Tapahtumakutsut2
