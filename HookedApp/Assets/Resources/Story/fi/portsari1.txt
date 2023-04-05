@@ -1,0 +1,4 @@
+0	Päivää. Aattelin että sua saattais kiinnostaa työmessut. Sellaset ois huomenna.	1	[cont]
+1	Lähetän sulle kutsun, nähdään toivottavasti siellä.	2	Kiitos kutsusta! Koitan tulla paikalle	3	3	Ok emt kerkeenkö kyl	-2
+2	Hyvä kuulla. Näkemiin.	-1	[next:]Messukutsu
+3	No, ihan oma päätöksesi.	-1	[next:]Messukutsu

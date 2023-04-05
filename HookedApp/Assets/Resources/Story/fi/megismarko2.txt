@@ -1,0 +1,8 @@
+0	Oli kyl tosi kovat bileet eilen!	1	Oli kyllä!	1	6	Lähetään heti tänään uudestaan!	1
+1	Sulla oli aika hyvät setit sen mun kaverin Miran kanssa	2	[cont]
+2	Se pyysi että antaisin sun numeron sille	3	Anna vaan	2	4	Ei meillä niin hyvät setit ollut	-2
+3	Jees, se varmaan laittaa sulle viestiä pian!	-1	[next:]Miranviesti
+4	Aijaa. Noh, sääli. Lähetäänkö bailaa tänään?	5	Ai taas? Ei kiitos	0	7	Joo lähdetään vaan!	1
+5	No ei kai sitten, katotaan joku toinen päivä	-1	[next:]Portsarikaipaa
+6	No todellakin! Löysin just hyvän eventin minne voidaan mennä, laitan sulle kutsun	-1	[next:]Baari2
+7	Hyvä! Löysin tosi hyvän tapahtuman mihin voitais mennä, laitan sulle kutsun	-1	[next:]Baari2

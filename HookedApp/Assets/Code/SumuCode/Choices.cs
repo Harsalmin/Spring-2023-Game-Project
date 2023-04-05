@@ -8,6 +8,7 @@ public class Choices : MonoBehaviour
     private List<DialogueNode> dialogue = new List<DialogueNode>();
     [SerializeField] string fileName;
     public string characterName;
+    public string actualName;
     private DialogueNode currDialogue;
     // private Stats stats;
     private MessageControl messageControl;
@@ -34,7 +35,7 @@ public class Choices : MonoBehaviour
     // Player has pressed a button in this conversation
     public void ButtonClicked(int btnNumber)
     {
-        messageControl.AddMessage(currDialogue.Answers[btnNumber], Message.Sender.player);
+        messageControl.AddMessage(currDialogue.Answers[btnNumber], Message.Sender.player, actualName);
         ChooseAnswer(btnNumber);
         StartCoroutine(SendDelay());
     }
@@ -44,7 +45,7 @@ public class Choices : MonoBehaviour
     {
         float delay = Random.Range(0.5f, 1f);
         yield return new WaitForSeconds(delay);
-        messageControl.AddMessage(currDialogue.Line, Message.Sender.npc);
+        messageControl.AddMessage(currDialogue.Line, Message.Sender.npc, actualName);
 
         // Automatically sends a new message if the npc double texts
         while (currDialogue.Answers[0].StartsWith(moveToNext))
@@ -52,7 +53,7 @@ public class Choices : MonoBehaviour
             ChooseAnswer(0);
             delay = Random.Range(0.5f, 1f);
             yield return new WaitForSeconds(delay);
-            messageControl.AddMessage(currDialogue.Line, Message.Sender.npc);
+            messageControl.AddMessage(currDialogue.Line, Message.Sender.npc, actualName);
 
             // If the next line ends the conversation, break this loop
             if (currDialogue.Answers.Count == 0)
@@ -79,7 +80,7 @@ public class Choices : MonoBehaviour
             // Adds buttons if there is a choice to be made
             for (int i = 0; i < currDialogue.Answers.Count; i++)
             {
-                messageControl.AddButton(currDialogue.Answers[i], i, this);
+                messageControl.AddButton(currDialogue.Answers[i], i, this, actualName);
             }
         }
     }
@@ -107,6 +108,7 @@ public class Choices : MonoBehaviour
     {
         dialogue = new List<DialogueNode>();
         TextAsset textData = Resources.Load("Story/" + Stats.language + "/" + fileName) as TextAsset;
+        Debug.Log("Trying to load " + fileName);
         string txt = textData.text;
         var lines = txt.Split("\n");
 

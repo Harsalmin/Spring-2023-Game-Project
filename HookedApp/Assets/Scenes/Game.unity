@@ -4066,6 +4066,8 @@ GameObject:
   - component: {fileID: 1210620965}
   - component: {fileID: 1210620969}
   - component: {fileID: 1210620968}
+  - component: {fileID: 1210620972}
+  - component: {fileID: 1210620971}
   - component: {fileID: 1210620963}
   - component: {fileID: 1210620961}
   - component: {fileID: 1210620962}
@@ -4091,8 +4093,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e86d17fca57f71248905dd75b304abe6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fileName: megismarkoTest
+  fileName: megismarko1
   characterName: Megismarko
+  actualName: Megismarko
 --- !u!4 &1210620960
 Transform:
   m_ObjectHideFlags: 0
@@ -4180,7 +4183,7 @@ MonoBehaviour:
     englishDescription: Work fair! It's so nice in here!
     imgFile: workfair background
     date: 1.1.2020
-    approval: 100
+    approval: 20
     answered: 0
   - name: Baari-ilta
     englishName: Bar night
@@ -4188,7 +4191,23 @@ MonoBehaviour:
     englishDescription: You can network here too!
     imgFile: party background
     date: 1.1.2020
-    approval: 100
+    approval: 10
+    answered: 0
+  - name: "Ty\xF6messut 2"
+    englishName: Work fair 2
+    description: "Ty\xF6messut oli niin kova hitti ett\xE4 teimme ty\xF6messut 2"
+    englishDescription: Work fair was such a hit that we made work fair 2
+    imgFile: workfair background
+    date: 14.1.2020
+    approval: 20
+    answered: 0
+  - name: DJ ilta
+    englishName: DJ night
+    description: "Tule kuuntelemaan eritt\xE4in hyv\xE4\xE4 DJ:t\xE4!"
+    englishDescription: Come to party with the most awesome DJ
+    imgFile: party background
+    date: 14.1.2020
+    approval: 5
     answered: 0
 --- !u!114 &1210620964
 MonoBehaviour:
@@ -4214,8 +4233,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e86d17fca57f71248905dd75b304abe6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fileName: portsariTest
+  fileName: portsari1
   characterName: Portsari
+  actualName: Portsari
 --- !u!114 &1210620967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4240,8 +4260,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e86d17fca57f71248905dd75b304abe6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fileName: kolmasTest
-  characterName: "Nelj\xE4shahmo"
+  fileName: portsari2
+  characterName: Portsari 2
+  actualName: Portsari
 --- !u!114 &1210620969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4254,8 +4275,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e86d17fca57f71248905dd75b304abe6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fileName: kolmasTest
-  characterName: Kolmashahmo
+  fileName: megismarko2
+  characterName: Megismarko 2
+  actualName: Megismarko
 --- !u!114 &1210620970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4272,6 +4294,36 @@ MonoBehaviour:
   introTexts:
   - {fileID: 492283061}
   - {fileID: 1269000527}
+--- !u!114 &1210620971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1210620957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e86d17fca57f71248905dd75b304abe6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fileName: portsari3
+  characterName: Portsari 3
+  actualName: Portsari
+--- !u!114 &1210620972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1210620957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e86d17fca57f71248905dd75b304abe6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fileName: mira1
+  characterName: Mira
+  actualName: Mira
 --- !u!1 &1225854369
 GameObject:
   m_ObjectHideFlags: 0

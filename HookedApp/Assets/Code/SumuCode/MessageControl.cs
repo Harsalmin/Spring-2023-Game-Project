@@ -14,6 +14,7 @@ public class MessageControl : MonoBehaviour
     private GameObject messageContainer;
     [SerializeField] private Color npcColor, playerColor;
     List<GameObject> buttons = new List<GameObject>();
+    Dictionary<string, List<GameObject>> answerButtons = new Dictionary<string, List<GameObject>>();
     private int index = 0;
     UIcontrol uiControl;
     public bool languageChanged = false;
@@ -27,14 +28,15 @@ public class MessageControl : MonoBehaviour
     }
 
     // Sends a message to the chat window
-    public void AddMessage(string text, Message.Sender sender)
+    public void AddMessage(string text, Message.Sender sender, string characterName)
     {
         index++;
         Message newMessage = new Message();
         newMessage.id = index;
         newMessage.text = text;
         newMessage.sender = sender;
-        GameObject newText = Instantiate(textObj, messageContainer.transform);
+        // GameObject newText = Instantiate(textObj, messageContainer.transform);
+        GameObject newText = Instantiate(textObj, viewport.transform.Find(CHARACTERINDICATOR + characterName));
         TMP_Text txt = newText.GetComponent<TMP_Text>();
         txt.text = newMessage.text;
         //txt.color = MsgColor(sender);
@@ -55,23 +57,33 @@ public class MessageControl : MonoBehaviour
     }
 
     // Adds a button and a listener
-    public void AddButton(string text, int number, Choices choiceScript)
+    public void AddButton(string text, int number, Choices choiceScript, string characterName)
     {
-        GameObject newButton = Instantiate(buttonObj, messageContainer.transform);
+        GameObject newButton = Instantiate(buttonObj, viewport.transform.Find(CHARACTERINDICATOR + characterName));
         newButton.GetComponentInChildren<TMP_Text>().text = text;
-        newButton.GetComponent<Button>().onClick.AddListener(delegate { ButtonClick(number, choiceScript); });
+        newButton.GetComponent<Button>().onClick.AddListener(delegate { ButtonClick(number, choiceScript, choiceScript.actualName); });
         buttons.Add(newButton);
+        if (!answerButtons.ContainsKey(characterName))
+        {
+            answerButtons.Add(characterName, new List<GameObject>());
+        }
+        answerButtons[characterName].Add(newButton);
     }
 
-    public void ButtonClick(int number, Choices choiceScript)
+    public void ButtonClick(int number, Choices choiceScript, string characterName)
     {
         choiceScript.ButtonClicked(number);
-
+        foreach(GameObject btn in answerButtons[characterName])
+        {
+            Destroy(btn);
+        }
+        /*
         // Destroys all buttons
         foreach(GameObject g in buttons)
         {
             Destroy(g);
         }
+        */
     }
 
     // Changes the color of the message depending on who the sender is
@@ -125,6 +137,7 @@ public class MessageControl : MonoBehaviour
         }
         currentNpc = characterName;
         messages.Clear();
+        Debug.Log(characterName);
         messageContainer = viewport.transform.Find(CHARACTERINDICATOR + characterName).gameObject;
     }
 

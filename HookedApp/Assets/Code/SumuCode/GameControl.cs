@@ -42,13 +42,13 @@ public class GameControl : MonoBehaviour
         if(Stats.IsNewGame())
         {
             saveLoad.StartFresh();
-            gameState = "Megismarko convo";
+            gameState = "Megismarko1";
         }
         // StartCoroutine(uiControl.RefreshReferences());
 
         if (gameState == null)
         {
-            gameState = "Megismarko convo";
+            gameState = "Megismarko1";
         }
         else
         {
@@ -56,45 +56,88 @@ public class GameControl : MonoBehaviour
             events.LoadUnlockedEvents(eventHistory);
         }
 
-        GameState(gameState);
+        StartCoroutine(ReadFilesFirst());
+        //GameState(gameState);
     }
 
-    // Controls the game flow
+    // controls game flow
     public void GameState(string state)
     {
         // print("Game state: " + state);
         gameState = state;
         switch (state)
         {
-            case "Megismarko convo":
+            case "Megismarko1":
+                Debug.Log("Start game");
                 string characterName = "Megismarko";
+                uiControl.AddConvoButton(characterName);
+                StartDialogue(characterName);
+                GameState("Portsari");
+                break;
+
+            case "Megismarko2":
+                characterName = "Megismarko";
+                messageControl.SendMessage("ChangeConversation", characterName);
+                characterName += " 2";
                 StartDialogue(characterName);
                 break;
 
-            case "Portsarinviesti":
+            case "Portsari":
                 characterName = "Portsari";
+                uiControl.AddConvoButton(characterName);
                 StartDialogue(characterName);
                 break;
 
-            case "Tapahtumakutsut":
-                uiControl.AddEventButton("Työmessut");
+            case "Portsari2":
+                characterName = "Portsari";
+                messageControl.SendMessage("ChangeConversation", characterName);
+                characterName += " 2";
+                StartDialogue(characterName);
+                break;
+
+            case "Bilekutsu":
                 uiControl.AddEventButton("Baari-ilta");
                 break;
 
-            case "Kolmashahmo":
-                characterName = "Kolmashahmo";
+            case "Messukutsu":
+                Debug.Log("Messukutsu");
+                uiControl.AddEventButton("Työmessut");
+                break;
+
+            case "DJ":
+                uiControl.AddEventButton("DJ ilta");
+                break;
+
+            case "Messut ja DJ":
+                uiControl.AddEventButton("DJ ilta");
+                uiControl.AddEventButton("Työmessut 2");
+                break;
+
+            case "Messut":
+                uiControl.AddEventButton("Työmessut 2");
+                break;
+
+            case "Portsarikaipaa":
+                characterName = "Portsari";
+                messageControl.SendMessage("ChangeConversation", characterName);
+                characterName += " 3";
                 StartDialogue(characterName);
                 break;
 
-            case "Neljäshahmo":
-                characterName = "Neljäshahmo";
+            case "Miranviesti":
+                characterName = "Mira";
+                uiControl.AddConvoButton(characterName);
                 StartDialogue(characterName);
+                break;
+
+            case "Baari2":
+                uiControl.AddEventButton("Baari-ilta 2");
                 break;
 
             case "Haastis":
                 Debug.Log("Ending: " + state);
                 loader.SetFinalPoints(Stats.GetApproval());
-                if(Stats.language == "fi")
+                if (Stats.language == "fi")
                 {
                     Stats.ChangeEndCredits(
                         "Peli loppui!",
@@ -156,14 +199,15 @@ public class GameControl : MonoBehaviour
 
     void StartDialogue(string characterName)
     {
-        uiControl.AddConvoButton(characterName);
+        // uiControl.AddConvoButton(characterName);
         // messageControl.ChangeConversation(characterName);
-        messageControl.SendMessage("ChangeConversation", characterName);
+        // messageControl.SendMessage("ChangeConversation", characterName);
         getDialogueByName(characterName).SetStateName(gameState);
         StartCoroutine(getDialogueByName(characterName).SendDelay());
     }
 
     // When a conversation ends, it comes back here
+    // adds text to logs and starts the next phase
     public void EndPhase(string stateName)
     {
         Debug.Log("Phase ended: " +stateName);
@@ -172,40 +216,88 @@ public class GameControl : MonoBehaviour
         switch (stateName)
         {
                 // test
-            case "Megismarko convo: Portsarinviesti":
-                logText += "Sanoit Megismarkolle kyllä \n";
-                logTextEnglish += "You said yes to Megismarko \n";
-                GameState("Portsarinviesti");
+            case "Megismarko1: Bilekutsu":
+                logText += "Megismarko kutsui sinut bilettämään \n";
+                logTextEnglish += "Megismarko has invited you to party \n";
+                GameState("Bilekutsu");
                 break;
 
                 // test
-            case "Megismarko convo: Portsarinviesti2":
-                logText += "Sanoit Megismarkolle ei \n";
-                logTextEnglish += "You said no to Megismarko \n";
-                GameState("Portsarinviesti");
+            case "Megismarko2: Miranviesti":
+                logText += "Annoit Megismarkolle luvan antaa numerosi Miralle \n";
+                logTextEnglish += "You allowed Megismarko to give your number to Mira \n";
+                GameState("Miranviesti");
                 break;
 
                 // test
-            case "Portsarinviesti: Tapahtumakutsut":
-                logText += "Sanoit Portsarille kyllä \n";
-                logTextEnglish += "You said yes to Portsari \n";
+            case "Megismarko2: Portsarikaipaa":
+                logText += "Et suostunut bilettämään Megismarkon kanssa uudestaan \n";
+                logTextEnglish += "You didn't want to party with Megismarko again \n";
                 messageControl.SaveMessages();
-                GameState("Tapahtumakutsut");
+                GameState("Portsarikaipaa");
                 break;
 
             // test
-            case "Portsarinviesti: Tapahtumakutsut2":
-                logText += "Sanoit Portsarille ei \n";
-                logTextEnglish += "You said no to Portsari \n";
+            case "Megismarko2: Baari2":
+                logText += "Megismarko kutsui sinut uudestaan bilettämään \n";
+                logTextEnglish += "Megismarko has invited you to a party again \n";
                 messageControl.SaveMessages();
-                GameState("Tapahtumakutsut");
+                GameState("Baari2");
+                break;
+
+            case "Portsari: Messukutsu":
+                logText += "Portsari kutsui sinut työmessuille \n";
+                logTextEnglish += "Portsari has invited you to a work fair \n";
+                GameState("Messukutsu");
+                break;
+
+            case "Portsari2: Messut ja DJ":
+                logText += "Portsari on lähettänyt sinulle kutsun uusille messuille ja DJ:n keikalle \n";
+                logTextEnglish += "Portsari has invited you to a work fair and a DJ's gig \n";
+                GameState("Messut ja DJ");
+                break;
+
+            case "Portsari2: DJ":
+                logText += "Portsari on kutsunut sinut DJ:n keikalle \n";
+                logTextEnglish += "Portsari has invited you to a DJ's gig \n";
+                GameState("DJ");
+                break;
+
+            case "Portsari2: Shutin":
+                GameState("Shutin");
+                break;
+
+            case "Portsari3: Messut":
+                logText += "Portsari on kutsunut sinut työmessuille \n";
+                logTextEnglish += "Portsari has invited you to a work fair \n";
+                GameState("Messut");
+                break;
+
+            case "Portsari3: Shutin":
+                GameState("Shutin");
+                break;
+
+            case "Mira1: DJ":
+                logText += "Mira kutsui sinut DJ:n keikalle \n";
+                logTextEnglish += "Mira has invited you to a DJ's gig \n";
+                GameState("DJ");
+                break;
+
+            case "Mira1: Messut":
+                logText += "Mira kutsui sinut työmessuille \n";
+                logTextEnglish += "Mira has invited you to a work fair \n";
+                GameState("Messut");
+                break;
+
+            case "Mira1: Shutin":
+                GameState("Shutin");
                 break;
 
             case "Yes:Työmessut":
                 logText += "Lähdit työmessuille. Siellä tapahtui kaikenlaista kivaa. \n";
                 logTextEnglish += "You went to a work fair. There happened lots of great things \n";
                 eventOneState = EventInviteState.Going;
-                GameState("Kolmashahmo");
+                GameState("Portsari2");
                 break;
 
             case "No:Työmessut":
@@ -222,12 +314,46 @@ public class GameControl : MonoBehaviour
                 logText += "Lähdit baariin. Siellä tapahtui kaikenlaista kivaa. \n";
                 logTextEnglish += "You went to a bar. You had fun \n";
                 eventTwoState = EventInviteState.Going;
-                GameState("Neljäshahmo");
+                GameState("Megismarko2");
                 break;
 
             case "No:Baari-ilta":
-                logText += "Kieltäydyit baari-illasta";
+                logText += "Kieltäydyit baari-illasta \n";
                 logTextEnglish += "You said no to a fun bar night \n";
+                eventTwoState = EventInviteState.NotGoing;
+                if (eventOneState == EventInviteState.NotGoing)
+                {
+                    GameState("Shutin");
+                }
+                break;
+
+            case "Yes:Työmessut 2":
+                logText += "Menit työmessuille. Olet saanut uusia ystäviä. \n";
+                logTextEnglish += "You went to a workfair. You got new friends. \n";
+                eventTwoState = EventInviteState.Going;
+                GameState("Haastis");
+                break;
+
+            case "No:Työmessut 2":
+                logText += "Kieltäydyit työmessuista \n";
+                logTextEnglish += "You said no to the epic work fair 2 \n";
+                eventTwoState = EventInviteState.NotGoing;
+                if (eventOneState == EventInviteState.NotGoing)
+                {
+                    GameState("Huonoloppu");
+                }
+                break;
+
+            case "Yes:DJ ilta":
+                logText += "Lähdit kuuntelemaan DJ:n keikkaa. Sinulla oli hyvä meno! \n";
+                logTextEnglish += "You wen to a DJ's gig. You had fun! \n";
+                eventTwoState = EventInviteState.Going;
+                GameState("Huonoloppu");
+                break;
+
+            case "No:DJ ilta":
+                logText += "Kieltäydyit DJ:n keikasta. \n";
+                logTextEnglish += "You refused to got to a DJ's gig \n";
                 eventTwoState = EventInviteState.NotGoing;
                 if (eventOneState == EventInviteState.NotGoing)
                 {
@@ -289,6 +415,17 @@ public class GameControl : MonoBehaviour
         }
 
         uiControl.ChangeLanguage();
+        GameState(gameState);
+    }
+
+    IEnumerator ReadFilesFirst()
+    {
+        foreach(Choices ch in choices)
+        {
+            ch.LoadFromFile();
+            yield return null;
+        }
+
         GameState(gameState);
     }
 }

@@ -112,7 +112,7 @@ public class SaveLoad : MonoBehaviour
         GameControl.conversationHistory = null;
         GetComponent<EventManager>().ResetEvents();
         GameControl.logText = "";
-        GameControl.SetGameState("Megismarko convo");
+        GameControl.SetGameState("Megismarko1");
         Stats.SetNewGame(true);
     }
 }
