@@ -1,0 +1,4 @@
+0	Hello. I thought you might be intersted in a work fair. They're gonna have one tomorrow	1	[cont]
+1	I'll invite you. Hopefully we'll see there	2	Thanks! I'll try to be there.	3	3	Ok idk if i have the time tho	-2
+2	Nice to hear. Goodbye	-1	[next:]Messukutsu
+3	Well, it's your decision	-1	[next:]Messukutsu

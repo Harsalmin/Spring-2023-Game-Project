@@ -1,0 +1,9 @@
+0	It was nice to see you at the work fair.	1	Likewise	1	5	Wish i had gone to a bar	-1
+1	There's gonna be another one next week	2	[cont]
+2	But it's at the same time as this famous DJ's gig...	3	[cont]
+3	But if you're interested in either of those, I'll invite you to them.	4	Thanks, I'll try to make it to either!	1	7	I don't wanna go anywhere	-2
+4	Brilliant!	-1	[next:]Messut ja DJ
+5	Well, there is this famous DJ's gig coming up if that's what interests you more.	6	Yeah!!	1	7	Nope, not interested.	-2
+6	Alright I'll invite you	-1	[next:]DJ
+7	I won't force you	8	[cont]
+8	:/	-1	[next:]Shutin

@@ -1,0 +1,5 @@
+0	Hey buddy	1	[cont]
+1	Wanna go to a party tomorrow?	2	Yeah!!	1	4	Not this time	0
+2	Hey cool	3	[cont]
+3	I'll send you an invite	-1	[next:]Bilekutsu
+4	Well damn. I'll send you an invite anyway in case you change your mind	-1	[next:]Bilekutsu
