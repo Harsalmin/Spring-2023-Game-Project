@@ -13,6 +13,7 @@ public class GameControl : MonoBehaviour
     EventManager events;
     // Stats stats;
     private static string gameState;
+    public static string lastGameState;
     public static Dictionary<string, List<Message>> conversationHistory;
     public static List<Event> eventHistory;
     public static string logText, logTextEnglish;
@@ -41,11 +42,13 @@ public class GameControl : MonoBehaviour
     {
         if(Stats.IsNewGame())
         {
+            Debug.Log("New game started");
             saveLoad.StartFresh();
             gameState = "Megismarko1";
         }
         // StartCoroutine(uiControl.RefreshReferences());
 
+        Debug.Log("Checking for saves");
         if (gameState == null)
         {
             gameState = "Megismarko1";
@@ -69,6 +72,7 @@ public class GameControl : MonoBehaviour
         {
             case "Megismarko1":
                 Debug.Log("Start game");
+                lastGameState = state;
                 string characterName = "Megismarko";
                 uiControl.AddConvoButton(characterName);
                 StartDialogue(characterName);
@@ -76,6 +80,7 @@ public class GameControl : MonoBehaviour
                 break;
 
             case "Megismarko2":
+                lastGameState = state;
                 characterName = "Megismarko";
                 messageControl.SendMessage("ChangeConversation", characterName);
                 characterName += " 2";
@@ -89,6 +94,7 @@ public class GameControl : MonoBehaviour
                 break;
 
             case "Portsari2":
+                lastGameState = state;
                 characterName = "Portsari";
                 messageControl.SendMessage("ChangeConversation", characterName);
                 characterName += " 2";
@@ -96,28 +102,33 @@ public class GameControl : MonoBehaviour
                 break;
 
             case "Bilekutsu":
+                lastGameState = state;
                 uiControl.AddEventButton("Baari-ilta");
                 break;
 
             case "Messukutsu":
-                Debug.Log("Messukutsu");
+                lastGameState = state;
                 uiControl.AddEventButton("Työmessut");
                 break;
 
             case "DJ":
+                lastGameState = state;
                 uiControl.AddEventButton("DJ ilta");
                 break;
 
             case "Messut ja DJ":
+                lastGameState = state;
                 uiControl.AddEventButton("DJ ilta");
                 uiControl.AddEventButton("Työmessut 2");
                 break;
 
             case "Messut":
+                lastGameState = state;
                 uiControl.AddEventButton("Työmessut 2");
                 break;
 
             case "Portsarikaipaa":
+                lastGameState = state;
                 characterName = "Portsari";
                 messageControl.SendMessage("ChangeConversation", characterName);
                 characterName += " 3";
@@ -125,16 +136,19 @@ public class GameControl : MonoBehaviour
                 break;
 
             case "Miranviesti":
+                lastGameState = state;
                 characterName = "Mira";
                 uiControl.AddConvoButton(characterName);
                 StartDialogue(characterName);
                 break;
 
             case "Baari2":
+                lastGameState = state;
                 uiControl.AddEventButton("Baari-ilta 2");
                 break;
 
             case "Haastis":
+                lastGameState = state;
                 Debug.Log("Ending: " + state);
                 loader.SetFinalPoints(Stats.GetApproval());
                 if (Stats.language == "fi")
@@ -156,6 +170,7 @@ public class GameControl : MonoBehaviour
                 break;
 
             case "Huonoloppu":
+                lastGameState = state;
                 Debug.Log("Ending: " + state);
                 loader.SetFinalPoints(Stats.GetApproval());
                 if (Stats.language == "fi")
@@ -176,6 +191,7 @@ public class GameControl : MonoBehaviour
                 break;
 
             case "Shutin":
+                lastGameState = state;
                 Debug.Log("Ending: " + state);
                 loader.SetFinalPoints(Stats.GetApproval());
                 if (Stats.language == "fi")
@@ -354,6 +370,23 @@ public class GameControl : MonoBehaviour
             case "No:DJ ilta":
                 logText += "Kieltäydyit DJ:n keikasta. \n";
                 logTextEnglish += "You refused to got to a DJ's gig \n";
+                eventTwoState = EventInviteState.NotGoing;
+                if (eventOneState == EventInviteState.NotGoing)
+                {
+                    GameState("Shutin");
+                }
+                break;
+
+            case "Yes:Baari-ilta 2":
+                logText += "Lähdit baariin. Taas! \n";
+                logTextEnglish += "You went to a bar again \n";
+                eventTwoState = EventInviteState.Going;
+                GameState("Huonoloppu");
+                break;
+
+            case "No:Baari-ilta 2":
+                logText += "Et mennyt baariin. \n";
+                logTextEnglish += "You didn't go to a bar this time \n";
                 eventTwoState = EventInviteState.NotGoing;
                 if (eventOneState == EventInviteState.NotGoing)
                 {

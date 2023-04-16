@@ -9,6 +9,7 @@ public class Stats : MonoBehaviour
     public static string language = "fi";
     private static string endCreditsTitle = "Peli loppui!";
     private static string endCreditsDesc = "Sinulle tuli paljon työtarjouksia!";
+    public static int day = 0;
 
     public static void AddPoints(int amount)
     {

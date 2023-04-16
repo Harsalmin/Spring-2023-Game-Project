@@ -14,6 +14,7 @@ public class UIcontrol : MonoBehaviour
     [SerializeField] private TMP_Text scoreText, eventPopupText;
     [SerializeField] private Animator starAnim, eventPopupAnim, notification;
     [SerializeField] private Image fade;
+    [SerializeField] private ScrollRect scroll;
     private GameObject viewport;
     EventManager eventManager;
     GameControl control;
@@ -188,6 +189,7 @@ public class UIcontrol : MonoBehaviour
         {
             if(convo.gameObject.name == CHARACTERINDICATOR + name)
             {
+                scroll.content = convo.gameObject.GetComponent<RectTransform>();
                 convo.gameObject.SetActive(true);
             }
         }
@@ -235,6 +237,7 @@ public class UIcontrol : MonoBehaviour
                 Event e = eventManager.GetEventByName(originalName);
                 if (Stats.language == "fi")
                 {
+                    Debug.Log(e.name);
                     t.GetComponentInChildren<TMP_Text>().text = e.name;
                 }
                 else

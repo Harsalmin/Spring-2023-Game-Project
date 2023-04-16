@@ -4127,6 +4127,7 @@ MonoBehaviour:
   textObj: {fileID: 1034684300052585356, guid: 86c7365fe6153314bb5915eaacd6394c, type: 3}
   buttonObj: {fileID: 3217020803709463193, guid: f9dd8980a3e554e4381caf4222c2a566, type: 3}
   convoObj: {fileID: 6602435533075900303, guid: 838fa850b5bb2ee4e8750dee8df94a49, type: 3}
+  lineObj: {fileID: 2239048747397054831, guid: d24f019807d53e5438cd68e2930d9607, type: 3}
   npcColor: {r: 0, g: 0.1546892, b: 0.6603774, a: 1}
   playerColor: {r: 0, g: 0, b: 0, a: 1}
   languageChanged: 0
@@ -4164,6 +4165,7 @@ MonoBehaviour:
   eventPopupAnim: {fileID: 2073695215}
   notification: {fileID: 113666383}
   fade: {fileID: 1089509081}
+  scroll: {fileID: 1123022471}
 --- !u!114 &1210620963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4208,6 +4210,14 @@ MonoBehaviour:
     imgFile: party background
     date: 14.1.2020
     approval: 5
+    answered: 0
+  - name: Baari-ilta 2
+    englishName: Bar Night 2
+    description: Kaljaa!
+    englishDescription: Beer!
+    imgFile: party background
+    date: 13.1.2020
+    approval: 2
     answered: 0
 --- !u!114 &1210620964
 MonoBehaviour:

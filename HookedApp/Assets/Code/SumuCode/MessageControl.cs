@@ -10,7 +10,7 @@ public class MessageControl : MonoBehaviour
     List<Message> messages = new List<Message>();
     Dictionary<string, List<Message>> conversationHistory;
     private string currentNpc;
-    public GameObject viewport, textObj, buttonObj, convoObj;
+    public GameObject viewport, textObj, buttonObj, convoObj, lineObj;
     private GameObject messageContainer;
     [SerializeField] private Color npcColor, playerColor;
     List<GameObject> buttons = new List<GameObject>();
@@ -18,6 +18,8 @@ public class MessageControl : MonoBehaviour
     private int index = 0;
     UIcontrol uiControl;
     public bool languageChanged = false;
+
+    private List<string> phaseCharacters = new List<string>();
 
     private const string CHARACTERINDICATOR = "Character_";
     // private const string CONVERSATIONINDICATOR = "Conversation_";
@@ -27,20 +29,49 @@ public class MessageControl : MonoBehaviour
         uiControl = GetComponent<UIcontrol>();
     }
 
+    public void NewPhase()
+    {
+        phaseCharacters.Clear();
+    }
+
+    // Starts a new day and destroys all buttons
+    public void NewDay()
+    {
+        List<GameObject> convos = new List<GameObject>();
+        foreach (Transform t in viewport.transform)
+        {
+            if (t.name.StartsWith(CHARACTERINDICATOR))
+            {
+                convos.Add(t.gameObject);
+                Instantiate(lineObj, t);
+                string charName = t.name.Replace(CHARACTERINDICATOR, "");
+                foreach (GameObject g in answerButtons[charName])
+                {
+                    Destroy(g);
+                }
+            }
+        }
+    }
+
     // Sends a message to the chat window
     public void AddMessage(string text, Message.Sender sender, string characterName)
     {
         index++;
+        currentNpc = characterName;
         Message newMessage = new Message();
         newMessage.id = index;
         newMessage.text = text;
         newMessage.sender = sender;
-        // GameObject newText = Instantiate(textObj, messageContainer.transform);
+        newMessage.character = characterName;
         GameObject newText = Instantiate(textObj, viewport.transform.Find(CHARACTERINDICATOR + characterName));
         TMP_Text txt = newText.GetComponent<TMP_Text>();
         txt.text = newMessage.text;
-        //txt.color = MsgColor(sender);
         newText.GetComponent<TextMeshProUGUI>().faceColor = MsgColor(newMessage.sender);
+
+        if(!phaseCharacters.Contains(characterName))
+        {
+            phaseCharacters.Add(characterName);
+        }
 
         // Changes the alignment depending on who send the message
         switch (sender)
@@ -54,6 +85,7 @@ public class MessageControl : MonoBehaviour
         }
 
         messages.Add(newMessage);
+        SaveMessages();
     }
 
     // Adds a button and a listener
@@ -70,6 +102,7 @@ public class MessageControl : MonoBehaviour
         answerButtons[characterName].Add(newButton);
     }
 
+    // Destroys all answer buttons in current conversation
     public void ButtonClick(int number, Choices choiceScript, string characterName)
     {
         choiceScript.ButtonClicked(number);
@@ -77,13 +110,6 @@ public class MessageControl : MonoBehaviour
         {
             Destroy(btn);
         }
-        /*
-        // Destroys all buttons
-        foreach(GameObject g in buttons)
-        {
-            Destroy(g);
-        }
-        */
     }
 
     // Changes the color of the message depending on who the sender is
@@ -105,24 +131,27 @@ public class MessageControl : MonoBehaviour
     // Saves all messages that are currently stored
     public void SaveMessages()
     {
-        // create dictionary if it doesn't already exist
-        if (conversationHistory == null)
+        if(conversationHistory == null)
         {
             conversationHistory = new Dictionary<string, List<Message>>();
         }
 
-        // add current npc to the dictionary if it isn't there already
-        if (!conversationHistory.ContainsKey(currentNpc))
+        foreach(Message msg in messages)
         {
-            conversationHistory.Add(currentNpc, new List<Message>());
-        }
+            if(!conversationHistory.ContainsKey(msg.character))
+            {
+                Debug.Log(msg.character + " added to list");
+                conversationHistory.Add(msg.character, new List<Message>());
+            }
 
-        foreach (Message msg in messages)
-        {
-            Debug.Log("Added " + msg.text + " to list");
-            conversationHistory[currentNpc].Add(msg);
+            if (!conversationHistory[msg.character].Contains(msg))
+            {
+                Debug.Log("Stored: " + msg.text + " to " + msg.character);
+                conversationHistory[msg.character].Add(msg);
+            }
         }
     }
+
 
     // Changes which conversation is active currently
     public void ChangeConversation(string characterName)
@@ -137,7 +166,6 @@ public class MessageControl : MonoBehaviour
         }
         currentNpc = characterName;
         messages.Clear();
-        Debug.Log(characterName);
         messageContainer = viewport.transform.Find(CHARACTERINDICATOR + characterName).gameObject;
     }
 
@@ -151,6 +179,13 @@ public class MessageControl : MonoBehaviour
     // returns the dictionary for saving
     public Dictionary<string, List<Message>> GetConversationHistory()
     {
+        foreach(string s in conversationHistory.Keys)
+        {
+            foreach(Message msg in conversationHistory[s])
+            {
+                Debug.Log(msg.text + " added to " + s);
+            }
+        }
         return conversationHistory;
     }
 
@@ -162,22 +197,28 @@ public class MessageControl : MonoBehaviour
             return;
         }
 
+        Debug.Log(convoHistory.Keys.ToList().Count);
+
         conversationHistory = convoHistory;
         foreach(string s in conversationHistory.Keys.ToList())
         {
             uiControl.AddConvoButton(s);
             ChangeConversation(s);
             List<int> processedIDs = new List<int>();
+            Debug.Log(s);
             foreach (Message msg in conversationHistory[s])
             {
+                Debug.Log(msg.id);
                 // prevents duplicates
                 if (processedIDs.Contains(msg.id))
                 {
+                    Debug.Log("Contains");
                     continue;
                 }
                 processedIDs.Add(msg.id);
 
                 GameObject newText = Instantiate(textObj, messageContainer.transform);
+                Debug.Log(msg.text + " added to " + s);
                 TMP_Text txt = newText.GetComponent<TMP_Text>();
                 txt.text = msg.text;
                 // txt.color = MsgColor(msg.sender);
@@ -204,6 +245,7 @@ public class Message
     public string text;
     public Sender sender;
     public int id;
+    public string character;
 
     public enum Sender
     {

@@ -49,7 +49,7 @@ public class SaveLoad : MonoBehaviour
         Debug.Log("Saving");
         // gets the data
         GameData data = new GameData();
-        data.gameState = GameControl.GetGameState();
+        data.gameState = GameControl.lastGameState;
         data.approval = Stats.GetApproval();
         data.conversationHistory = messages.GetConversationHistory();
         data.eventHistory = events.GetUnlockedEvents();

@@ -10,15 +10,18 @@ public class EventManager : MonoBehaviour
     // Stats stats;
     UIcontrol uiControl;
     GameControl gameControl;
+    MessageControl msgControl;
+
     private void Start()
     {
-        // stats = GetComponent<Stats>();
         uiControl = GetComponent<UIcontrol>();
         gameControl = GetComponent<GameControl>();
+        msgControl = GetComponent<MessageControl>();
     }
 
     public void AnswerYesToInvite(GameObject eventTitle)
     {
+        msgControl.NewDay();
         string eventName = eventTitle.GetComponent<TMP_Text>().text;
         // If agreed to go to the event, add approval points
         Event e = GetEventByName(eventName);
