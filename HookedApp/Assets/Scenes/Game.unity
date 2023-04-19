@@ -8901,7 +8901,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Score
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dcd4177ba8c1f9e4fb2e8c133740c275, type: 2}
   m_sharedMaterial: {fileID: 1324671024752192285, guid: dcd4177ba8c1f9e4fb2e8c133740c275, type: 2}
@@ -10556,9 +10556,11 @@ MonoBehaviour:
   conversationContainer: {fileID: 85022799}
   chatbuttonContainer: {fileID: 449344167}
   eventbuttonContainer: {fileID: 746934984}
+  score: {fileID: 1717195936}
   npcColor: {r: 0, g: 0.15294118, b: 0.65882355, a: 1}
   playerColor: {r: 0, g: 0, b: 0, a: 1}
   notificationAnimator: {fileID: 113666383}
+  scoreAnimator: {fileID: 1337291527}
 --- !u!114 &2082532481
 MonoBehaviour:
   m_ObjectHideFlags: 0
