@@ -1,6 +1,0 @@
-0	Hei. Et tullut työmessuille.	1	[cont]
-1	Mutta hätä ei ole tämän näköinen.	2	[cont]
-2	On tulossa toisetkin työmessut. Kiinnostaisiko sellaiset?	3	Joo, laita kutsu!	2	4	Ei oikeastaan	-1
-3	Kiva. Laitan.	-1	[next:]Messut
-4	No hyvä on.	5	[cont]
-5	:/	-1	[next:]Shutin

@@ -7,13 +7,16 @@ using UnityEngine;
 
 public class SaveLoad : MonoBehaviour
 {
+    Control control;
+    EventControl events;
+    /*
     GameControl control;
     // Stats stats;
     EventManager events;
     MessageControl messages;
     UIcontrol uiControl;
     LevelLoader levelLoader;
-
+    */
     private const string STATE = "State";
     private const string APPROVALPOINTS = "Approval";
     private const string EVENTCOUNT = "Event count";
@@ -22,28 +25,65 @@ public class SaveLoad : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        control = GetComponent<Control>();
+        events = GetComponent<EventControl>();
+        /*
         levelLoader = GameObject.Find("Loader").GetComponent<LevelLoader>();
         control = GetComponent<GameControl>();
         events = GetComponent<EventManager>();
         messages = GetComponent<MessageControl>();
         uiControl = GetComponent<UIcontrol>();
+        */
     }
 
-    private void Update()
+    public void SaveGame()
     {
-        // FOR TESTING ONLY
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            SaveGame();
-        }
+        GameData data = new GameData();
+        data.approval = Stats.GetApproval();
+        data.conversationHistory = control.GetConversationHistory();
+        data.eventHistory = events.GetUnlockedEvents();
+        data.logText = events.GetLogs();
 
-        // FOR TESTING ONLY
-        if (Input.GetKeyDown(KeyCode.D))
+        // does the saving
+        BinaryFormatter bf = new BinaryFormatter();
+        FileStream file;
+        file = File.Create(Application.persistentDataPath + "/save.dat");
+        bf.Serialize(file, data);
+        file.Close();
+    }
+
+    public void LoadGame()
+    {
+        if (File.Exists(Application.persistentDataPath + "/save.dat"))
         {
-            LoadGame();
+            //loads file
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream file = File.Open(Application.persistentDataPath + "/save.dat", FileMode.Open);
+            GameData data = (GameData)bf.Deserialize(file);
+            file.Close();
+
+            control = GetComponent<Control>();
+            events = GetComponent<EventControl>();
+
+            events.SetLogs(data.logText);
+            events.SetUnlockedEvents(data.eventHistory);
+            control.SetConversationHistory(data.conversationHistory);
+            Stats.SetApproval(data.approval);
+        }
+        else
+        {
+            Debug.Log("File does not exist");
         }
     }
 
+    public void StartLoading()
+    {
+        Stats.SetNewGame(false);
+        LevelLoader loader = FindObjectOfType<LevelLoader>();
+        loader.LoadLevel("Game");
+    }
+    
+    /*
     public void SaveGame()
     {
         Debug.Log("Saving");
@@ -115,8 +155,19 @@ public class SaveLoad : MonoBehaviour
         GameControl.SetGameState("Megismarko1");
         Stats.SetNewGame(true);
     }
+    */
 }
 
+[System.Serializable]
+class GameData
+{
+    public int approval;
+    public Dictionary<string, List<SentMessage>> conversationHistory;
+    public List<EventInfo> eventHistory;
+    public string logText;
+}
+
+/*
 [System.Serializable] 
 class GameData
 {
@@ -127,3 +178,4 @@ class GameData
     public List<Event> eventHistory;
     public string logText, logTextEnglish;
 }
+*/

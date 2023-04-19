@@ -5,7 +5,7 @@ using UnityEngine;
 public class Stats : MonoBehaviour
 {
     private static int approval;
-    private static bool newGame = false;
+    private static bool newGame = true;
     public static string language = "fi";
     private static string endCreditsTitle = "Peli loppui!";
     private static string endCreditsDesc = "Sinulle tuli paljon työtarjouksia!";

@@ -238,18 +238,3 @@ public class MessageControl : MonoBehaviour
         }
     }
 }
-
-[System.Serializable]
-public class Message
-{
-    public string text;
-    public Sender sender;
-    public int id;
-    public string character;
-
-    public enum Sender
-    {
-        npc,
-        player
-    }
-}

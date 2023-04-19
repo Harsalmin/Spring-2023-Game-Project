@@ -13,12 +13,14 @@ public class Intro : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // if the game is loaded, there's no need to show the tutorial
         if (!Stats.IsNewGame())
         {
             Destroy(fade.gameObject);
             return;
         }
 
+        // prevents notifications from showing during the tutorial
         Time.timeScale = 0;
         if (introTexts.Length >= 1)
         {
@@ -28,6 +30,7 @@ public class Intro : MonoBehaviour
             }
         }
 
+        // intro texts in each language
         if (Stats.language == "fi")
         {
             introTexts[0].text = "Tässä pelissä tehtäväsi on verkostoitua mahdollisimman kattavasti!";
@@ -40,6 +43,7 @@ public class Intro : MonoBehaviour
         }
     }
 
+    // Show more text with each tap and then on the last one fade it away
     public void TapScreen()
     {
         tutorialCount++;
@@ -52,6 +56,7 @@ public class Intro : MonoBehaviour
         }
     }
 
+    // Fade animation, after which this gameobject is destroyed
     private IEnumerator FadeToGame()
     {
         Time.timeScale = 1;

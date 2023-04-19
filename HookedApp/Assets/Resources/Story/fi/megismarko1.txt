@@ -1,5 +1,0 @@
-0	Hei kaveri	1	[cont]
-1	Lähetäänkö huomenna bailaamaan!	2	Lähetään vaan!	1	4	Ei lähetä	0
-2	Hei siistii	3	[cont]
-3	Lähetän sulle heti kutsun!	-1	[next:]Bilekutsu
-4	No höh. Laitan sulle ton kutsun kuitenkin jos mieli muuttuu!	-1	[next:]Bilekutsu

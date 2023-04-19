@@ -1,0 +1,11 @@
+1	Baari-ilta	party background	Heidi's Bier Bar	1.1.2001	0
+2	Työmessut	workfair background	Tullintori	1.1.2001	0
+3	Klubikeikka	party background	H5	2.1.2001	0
+4	DJ-Keikka	party background	Ilona	3.1.2001	0
+5	Rekrymessut	workfair background	Tredu	3.1.2001	0
+6	DJ-Keikka	party background	Lola	5.1.2001	0
+7	Työmessut	workfair background	Kauppakeskus Ratina	5.1.2001	0
+8	Pelikahvila	workfair background	Lategame	7.1.2001	0
+9	Pelibaari	party background	Pelibaari	4.1.2001	0
+10	Kahvila	workfair background	Valkoinen puu	2.1.2001	0
+11	Baari-ilta	party background	Alepubi	3.1.2001	0

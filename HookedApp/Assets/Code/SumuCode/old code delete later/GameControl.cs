@@ -43,7 +43,7 @@ public class GameControl : MonoBehaviour
         if(Stats.IsNewGame())
         {
             Debug.Log("New game started");
-            saveLoad.StartFresh();
+            // saveLoad.StartFresh();
             gameState = "Megismarko1";
         }
         // StartCoroutine(uiControl.RefreshReferences());

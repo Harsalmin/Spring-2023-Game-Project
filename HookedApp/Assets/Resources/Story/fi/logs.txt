@@ -1,0 +1,22 @@
+1	Y	Vietitte Markon kanssa railakkaan illan baarissa. Myös Markon kavereita oli paikalla. Nyt on krapula.
+1	N	Et lähtenyt baariin tällä kertaa. Markolta tuli monta snappia illan aikana, mutta ajattelit kuitenkin hyvien yöunien olevan tärkeämmät.
+2	Y	Lähdit työmerruille. Törmäsitte siellä Jonin kanssa ja juttelitte hetken, ennen kuin jatkoit messujen kiertelyä.
+2	N	Et lähtenyt Tullintorin työmessuille, tämä saattaa hankaloittaa työllistymistäsi.
+3	Y	Klubilla oli mieletön meininki ja artisti pisti parastaan. Tunnelma oli katossa! Tanssitte Markon ja hänen kavereidensa kanssa pilkkuun asti. 
+3	N	Et taaskaan lähtenyt Markon kanssa radalle, vaan keskityit muihin asioihin. Marko laittoi kuvia keikasta, ja kaduit hieman päätöstäsi.
+4	Y	DJ veti huikean keikan! Joni oli töissä ovella, mutta saitte vaihdettua muutaman sanan sekä hänen, että hänen työkaverinsa kanssa.
+4	N	Et mennyt DJ:n keikalle.
+5	Y	Lähdit uudelleen työmessuille mieluista työpaikkaa etsiskellen. Törmäsit uudestaan Joniin, joka esitteli sinut yhdelle paikalla olleista työnantajien edustajista.
+5	N	Et osallistunut näille työmessuille.
+6	Y	DJ veti mielettömän setin, ja törmäsitte Miran kanssa keikalla. Tanssitte yhdessä ja nautitte toistenne seurasta.
+6	N	Et lähtenyt DJ-keikalle Miran kanssa. Mira ei ollut tyytyväinen, hän ei ole viestitellyt sen koommin.
+7	Y	Ratinassa oli melkoinen vilske. Useilla kymmenillä työnantajilla oli oma pöytänsä, jossa heillä oli esitteitä tarjolla olevista töistä. Kiinnostuit useista paikoista, ja uskalsit kertoa omasta koulutuksestasi ja työnhaustasi. Pari työnantajaa osoitti kiinnostustaan, ja lupasit lähettää heille CV:n.
+7	N	Et lähtenyt työmessuille Ratinaan.
+8	Y	Pelasitte yhdessä Miran kanssa erilaisia pelejä ja nauroitte toisillenne. Mira osoittautui oikein kilpailuhenkiseksi ja sait laittaa parastasi hänet päihittääksesi.
+8	N	Et lähtenyt Miran kanssa pelaamaan lupauksestasi huolimatta. Mira ei ole iloinen. 
+9	Y	tba
+9	N	tba
+10	Y	Kahvittelu mummon kanssa sujuu mukavasti ja on kiva vaihtaa kuulumisia ja kuulla muiden sukulaisten tapahtumia. Keskustelu kääntyy pian sinun lähestyvään valmistumiseen ja työtilanteeseen. Mummo muistaa jutelleensa setäsi kanssa, joka on työnjohtajana paikallisessa rakennusfirmassa. Setä oli puhunut, kuinka on vaikeaa löytää nuoria työntekijöitä kesätyöntekijöiksi. Kiinnostuit aiheesta ja mummo lupaa ottaa puheeksi sedän kanssa sinun kiinnostuksesi töitä kohtaan ja kehottaa setää ottamaan sinuun yhteyttä.
+10	N	Olet julma
+11	Y	Keskustelu Raimon kanssa soljuu mukavasti ja kuulet paljon hyviä vinkkejä rakennusalaan liittyen ja mitä ala pitää sisällään. Kiinnostut kovasti kesätyömahdollisuudesta
+11	N	Et lähtenytkään baariin setäsi kanssa lupauksestasi huolimatta. Setäsi ei ole iloinen.

@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class PointAnimator : MonoBehaviour
 {
-    UIcontrol uiControl;
+    Control control;
 
     private void Start()
     {
-        uiControl = FindObjectOfType<UIcontrol>();
+        control = FindObjectOfType<Control>();
     }
 
     public void AnimationEnded()
     {
-        uiControl.UpdatePoints();
+        control.UpdatePoints();
     }
 }

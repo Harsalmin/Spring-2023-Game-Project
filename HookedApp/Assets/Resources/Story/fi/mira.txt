@@ -1,0 +1,36 @@
+1	Hei. Oli kiva tavata eilen.	2	Kuin myös	0	15	Kukas sä olitkaan?	0
+2	Meillä jäi vähän juttu kesken	3	[cont]
+3	Sanoit, että etsit töitä. Ensi viikolla on tulossa aika siistit työmessut kauppakeskuksessa keskustassa.	4	Pistäisitkö tapahtumakutsun?	0	8	Jaa	0
+4	Joo, laitan kutsun tulemaan!	5	[cont]
+5	Itse en tosin pääse sinne, kun menen itse DJ-keikalle samana päivänä	6	Harmi. Kiitos kuitenkin kutsusta	0	7	Itse asiassa DJ kiinnostaisi enemmän	0
+6	Eipä kestä :)	[E]7
+7	Aijaa! Mä laitan sulle sinne kutsun kanssa, ehkä nähdään siellä!	[E]7+6
+8	Ei vissiin kiinnosta	9	[cont]
+9	Ois myös tulossa hyvä DJ-keikka ens viikolla Lolassa	10	[cont]
+10	Kiinnostasko se enemmän?	11	Kiinnostaa!	0	12	Ei sekään oikein	0
+11	No niin! Laitan infoa, nähdään ehkä siellä!	[E]6
+12	Aijaa. No älä sit tee mitään.	13	[cont]
+13	:/	14	[cont]
+14	Huono loppu:Verkostoituminen edellyttää yleensä kotoa poistumista	[X]
+15	Olen Mira. Etkö muista?	2	Ai niin joo. Juteltiin eilen.	0	16	Ei mitään muistikuvia	0
+16	Juteltiin eilen aika pitkään.	17	[cont]
+17	Noh, kuitenkin. Halusin vain kertoa, että lähetin sulle kutsun työmessuille.	18	[cont]
+18	Kun eilen valitit työnhausta.	19	[cont]
+19	Näkemiin.	[E]7
+20	Hei, oli tosi kiva ilta!	21	Oli aivan mahtava keikka!	0	22	Joo, vähän väsyttää nyt	0
+21	Toi DJ oli niin hyvä!	23	[cont]
+22	Joo, sama täällä	23	[cont]
+23	Kiinnostaisko lähteä pelikahvilaan, voitais vaikka pelata jollain konsolilla ja jutella?	24	En mä oo mikään gamer	0	25	Joo kiinnostaa!	0
+24	Selvä juttu, mutta ollaan yhteydessä jos tulis joku kiva keikka taas	0
+25	Ihan mahtavaa!	26	[cont]
+26	Mä laitan vaikka infoa, nähdään siellä.	[E]8
+27	Voisit vaikka ilmoittaa edes, jos et tulekaan paikalle, ei ollut kiva istua siellä kahvilassa yksinään.	28	[cont]
+28	Ollaan yhteydessä, ehkä.	29	O-ou	0	29	O-ou	0
+29	Huono loppu:Ghostaajista ei pidä kukaan.	[X]
+30	Oli ihan törkeän hauska ilta eilen :)	31	Ensi kerralla päihitän sut kunnolla ;)	0	32	En olekaan pelaillut kunnolla pitkään aikaan!	0
+31	No voooi, eikä kantti kestä kun saat köniisi naiselta?	32	[cont]
+32	Siellä muuten törmäsin yhteen Pasiin, se on opettajana TAMKilla.	33	[cont]
+33	Sen kanssa juttu kuistaa, kun se on niin kova puhumaan. Pasi kertoi vähän pelialasta ja siellä olevista työmahdollisuuksista	34	[cont]
+34	Se kertoi, että opiskelijoilla on tulossa jotkut pelimessut, missä ne esittelee tekemiään mobiilipelejä. Annanko sille sun yhteystiedot?	35	Ei oikein kiinnosta	0	36	Anna vaan, pelimessut kuulostaa kivalta.	0
+35	Selvä juttu, ollaan yhteydessä!	0
+36	Okei, se varmaan laittaa sulle viestiä pian.	[M]Pasi:1

@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class EventPopupAnimator : MonoBehaviour
 {
-    UIcontrol uIcontrol;
+    EventControl eventControl;
     // Start is called before the first frame update
     void Start()
     {
-        uIcontrol = FindObjectOfType<UIcontrol>();
+        eventControl = FindObjectOfType<EventControl>();
     }
 
     public void AnimationPlayed()
     {
-        uIcontrol.FadePopup(false);
+        eventControl.FadePopup(false);
     }
 }

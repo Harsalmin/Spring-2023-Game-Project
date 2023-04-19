@@ -1,9 +1,0 @@
-0	Olipa kiva nähdä sut eilen työmessuilla.	1	Kuin myös	1	5	Olisinpa mennyt baariin mielummin	-1
-1	Ensi viikolla olisi myös ihan mielenkiintoinen tapahtuma tulossa.	2	[cont]
-2	Se on kyllä samaan aikaan tuon suositun DJ:n keikan kanssa...	3	[cont]
-3	Mutta jos kumpikaan näistä kiinnostaa, niin taas olis tapahtumakutsua tarjolla.	4	Kiitos, koitan keretä ainakin toiseen tapahtumaan!	1	7	En kyllä haluu lähtee yhtään mihinkään	-2
-4	Loistavaa!	-1	[next:]Messut ja DJ
-5	No, olis tossa tulossa kyllä suositun DJ:n keikka, jos sellanen kiinnostaa enemmän	6	Noniii asiaa!	1	7	Ei sekään kiinnosta	-2
-6	Noniin laitan kutsun sinne sitten.	-1	[next:]DJ
-7	No ei pakko oo	8	[cont]
-8	:/	-1	[next:]Shutin
