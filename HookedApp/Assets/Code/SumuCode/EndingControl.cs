@@ -16,16 +16,19 @@ public class EndingControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Makes sure that starting a new game doesn't load the game instead
         Stats.SetNewGame(true);
+
+        /*
         if (GameObject.Find("Loader") != null)
         {
             finalPoints = GameObject.Find("Loader").GetComponent<LevelLoader>().GetFinalPoints();
-        }
+        }*/
 
         if(Stats.language == "fi")
-            pointsText.text = "Sinä sait " + finalPoints + " tähtipistettä!";
+            pointsText.text = "Sinä sait " + Stats.GetApproval() + " tähtipistettä!";
         else
-            pointsText.text = "And you got " + finalPoints + " approval points!";
+            pointsText.text = "And you got " + Stats.GetApproval() + " approval points!";
 
         title.text = Stats.GetEndCreditsTitle();
         description.text = Stats.GetEndCreditsDesc();
@@ -91,6 +94,7 @@ public class EndingControl : MonoBehaviour
         } 
         else
         {
+            Stats.SetNewGame(true);
             SceneManager.LoadScene("StartMenu");
         }
     }

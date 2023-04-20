@@ -9,42 +9,34 @@ public class SaveLoad : MonoBehaviour
 {
     Control control;
     EventControl events;
-    /*
-    GameControl control;
-    // Stats stats;
-    EventManager events;
-    MessageControl messages;
-    UIcontrol uiControl;
-    LevelLoader levelLoader;
-    */
+
     private const string STATE = "State";
     private const string APPROVALPOINTS = "Approval";
     private const string EVENTCOUNT = "Event count";
     private const string EVENT = "Event";
+    private const string SAVEEXISTS = "Save exists";
 
     // Start is called before the first frame update
     void Start()
     {
         control = GetComponent<Control>();
         events = GetComponent<EventControl>();
-        /*
-        levelLoader = GameObject.Find("Loader").GetComponent<LevelLoader>();
-        control = GetComponent<GameControl>();
-        events = GetComponent<EventManager>();
-        messages = GetComponent<MessageControl>();
-        uiControl = GetComponent<UIcontrol>();
-        */
     }
 
     public void SaveGame()
     {
+        // Saves the fact that there is a save
+        PlayerPrefs.SetInt(SAVEEXISTS, 1);
+        control.ActivateLoadButton();
+
+        // Adds the data
         GameData data = new GameData();
         data.approval = Stats.GetApproval();
         data.conversationHistory = control.GetConversationHistory();
         data.eventHistory = events.GetUnlockedEvents();
         data.logText = events.GetLogs();
 
-        // does the saving
+        // Does the saving
         BinaryFormatter bf = new BinaryFormatter();
         FileStream file;
         file = File.Create(Application.persistentDataPath + "/save.dat");
@@ -56,7 +48,7 @@ public class SaveLoad : MonoBehaviour
     {
         if (File.Exists(Application.persistentDataPath + "/save.dat"))
         {
-            //loads file
+            // Loads file
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Open(Application.persistentDataPath + "/save.dat", FileMode.Open);
             GameData data = (GameData)bf.Deserialize(file);
@@ -65,6 +57,7 @@ public class SaveLoad : MonoBehaviour
             control = GetComponent<Control>();
             events = GetComponent<EventControl>();
 
+            // Unpacks the data to their correct places
             events.SetLogs(data.logText);
             events.SetUnlockedEvents(data.eventHistory);
             control.SetConversationHistory(data.conversationHistory);
@@ -72,90 +65,18 @@ public class SaveLoad : MonoBehaviour
         }
         else
         {
+            // Should never come here
             Debug.Log("File does not exist");
         }
     }
 
+    // Notifies the stats that there is a save to load, and reloads the game scene
     public void StartLoading()
     {
         Stats.SetNewGame(false);
         LevelLoader loader = FindObjectOfType<LevelLoader>();
         loader.LoadLevel("Game");
     }
-    
-    /*
-    public void SaveGame()
-    {
-        Debug.Log("Saving");
-        // gets the data
-        GameData data = new GameData();
-        data.gameState = GameControl.lastGameState;
-        data.approval = Stats.GetApproval();
-        data.conversationHistory = messages.GetConversationHistory();
-        data.eventHistory = events.GetUnlockedEvents();
-        data.logText = GameControl.logText;
-        data.logTextEnglish = GameControl.logTextEnglish;
-        data.language = Stats.language;
-        Debug.Log("saved in " + Stats.language);
-
-        // does the saving
-        BinaryFormatter bf = new BinaryFormatter();
-        FileStream file;
-        file = File.Create(Application.persistentDataPath + "/save.dat");
-        bf.Serialize(file, data);
-        file.Close();
-    }
-
-    public void LoadGame()
-    {
-        Debug.Log("Loading");
-        if (File.Exists(Application.persistentDataPath + "/save.dat"))
-        {
-            //loads file
-            BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.Open(Application.persistentDataPath + "/save.dat", FileMode.Open);
-            GameData data = (GameData)bf.Deserialize(file);
-            file.Close();
-
-            // sets the data 
-            Stats.language = data.language;
-            control.ChangeLanguage(Stats.language == "fi");
-            Stats.SetApproval(data.approval);
-
-            if (data.conversationHistory != null)
-            {
-                GameControl.conversationHistory = data.conversationHistory;
-            }
-
-            if(data.eventHistory != null)
-            {
-                GameControl.eventHistory = data.eventHistory;
-            }
-
-            GameControl.logText = data.logText;
-            GameControl.logTextEnglish = data.logTextEnglish;
-            GameControl.SetGameState(data.gameState);
-            Stats.SetNewGame(false);
-          
-            levelLoader.LoadLevel("Game");
-        }
-        else
-        {
-            Debug.Log("File does not exist");
-        }
-    }
-
-    public void StartFresh()
-    {
-        Debug.Log("New game start");
-        Stats.SetApproval(0);
-        GameControl.conversationHistory = null;
-        GetComponent<EventManager>().ResetEvents();
-        GameControl.logText = "";
-        GameControl.SetGameState("Megismarko1");
-        Stats.SetNewGame(true);
-    }
-    */
 }
 
 [System.Serializable]
@@ -166,16 +87,3 @@ class GameData
     public List<EventInfo> eventHistory;
     public string logText;
 }
-
-/*
-[System.Serializable] 
-class GameData
-{
-    public string gameState;
-    public int approval;
-    public string language;
-    public Dictionary<string, List<Message>> conversationHistory;
-    public List<Event> eventHistory;
-    public string logText, logTextEnglish;
-}
-*/

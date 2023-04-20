@@ -150,7 +150,7 @@ public class GameControl : MonoBehaviour
             case "Haastis":
                 lastGameState = state;
                 Debug.Log("Ending: " + state);
-                loader.SetFinalPoints(Stats.GetApproval());
+                // loader.SetFinalPoints(Stats.GetApproval());
                 if (Stats.language == "fi")
                 {
                     Stats.ChangeEndCredits(
@@ -172,7 +172,7 @@ public class GameControl : MonoBehaviour
             case "Huonoloppu":
                 lastGameState = state;
                 Debug.Log("Ending: " + state);
-                loader.SetFinalPoints(Stats.GetApproval());
+                // loader.SetFinalPoints(Stats.GetApproval());
                 if (Stats.language == "fi")
                 {
                     Stats.ChangeEndCredits(
@@ -193,7 +193,7 @@ public class GameControl : MonoBehaviour
             case "Shutin":
                 lastGameState = state;
                 Debug.Log("Ending: " + state);
-                loader.SetFinalPoints(Stats.GetApproval());
+                // loader.SetFinalPoints(Stats.GetApproval());
                 if (Stats.language == "fi")
                 {
                     Stats.ChangeEndCredits(

@@ -31,18 +31,21 @@ public class MessageSender : MonoBehaviour
 
     private void Update()
     {
+        // For testing only
         if(Input.GetKeyDown(KeyCode.Space))
         {
             StartCoroutine(StartMessages(1));
         }
     }
 
+    // Change the sprite to unopened letter if there are unread messages
     public void UnreadMessages()
     {
         Sprite[] sprites = Resources.LoadAll<Sprite>("Art/icons");
         newMessagesImg.sprite = sprites[0];
     }
 
+    // Starts the message sender
     public void StartWrapper(int index)
     {
         StartCoroutine(StartMessages(index));
@@ -63,18 +66,28 @@ public class MessageSender : MonoBehaviour
     // Starts to send messages and adding a delay
     public IEnumerator StartMessages(int index)
     {
+
+        // Displays the notification and changes the icon if this screen is not active currently
         if (!conversationParent.activeInHierarchy)
         {
             control.NewMessagesNotif();
-            Sprite[] sprites = Resources.LoadAll<Sprite>("Art/icons");
-            newMessagesImg.sprite = sprites[0];
+            UnreadMessages();
         }
 
         currDialogue = GetDialogueById(index);
+
+        // Checks if the game is supposed to end before sending a message
+        if (currDialogue.Next == NextAction.Ending)
+        {
+            control.GameEnds(currDialogue.EndingTitle, currDialogue.Text);
+        }
+
+        // Posts the first message with a randomized delay
         float delay = Random.Range(0.5f, 1f);
         yield return new WaitForSeconds(delay);
         AddMessage(currDialogue.Text, SentMessage.Sender.NPC);
 
+        // Keeps sending new messages as long as it's supposed to go on
         while(currDialogue.Next == NextAction.Continue)
         {
             currDialogue = GetDialogueById(currDialogue.AnswerOneId);
@@ -85,13 +98,17 @@ public class MessageSender : MonoBehaviour
 
         if (currDialogue.Next == NextAction.Option)
         {
+            // Adds a choice button 
             savedTexts[savedTexts.Count - 1].OpenChoice = true;
             AddButton(currDialogue.AnswerOneText, 0);
+
+            // Adds another too if the options are different
             if (currDialogue.AnswerTwoText != currDialogue.AnswerOneText)
                 AddButton(currDialogue.AnswerTwoText, 1);
         }
         else if (currDialogue.Next == NextAction.EventInvite)
         {
+            // Gets an event invite or two
             control.EventUnlocked(currDialogue.EventId);
             if(currDialogue.EventIdTwo != 0)
             {
@@ -100,21 +117,23 @@ public class MessageSender : MonoBehaviour
         }
         else if(currDialogue.Next == NextAction.NewConversation)
         {
-            Debug.Log("Next conversation");
+            // Starts a new conversation with someone else
             string[] nextConvo = currDialogue.NewConversationName.Split(":");
             control.StartConversation(nextConvo[0], int.Parse(nextConvo[1]));
         }
         else if (currDialogue.Next == NextAction.Ending)
         {
-            Debug.Log("Ending");
+            // Ends the game
             control.GameEnds(currDialogue.EndingTitle, currDialogue.Text);
         }
         else if (currDialogue.Next == NextAction.Wait)
         {
+            // Waits until some time has passed before this conversation goes on
             Debug.Log("Wait");
         }
         else
         {
+            // The conversation just ends here and nothing happens after it
             Debug.Log("End of conversation");
         }
     }
@@ -132,6 +151,8 @@ public class MessageSender : MonoBehaviour
         return null;
     }
 
+    // Adds messages to the conversation without saving them
+    // This is called only after loading the game
     public void AddMessagesLoad(string text, SentMessage.Sender sender)
     {
         GameObject newText = Instantiate(Resources.Load("Message") as GameObject, conversationWindow.transform);
@@ -152,6 +173,7 @@ public class MessageSender : MonoBehaviour
     // sends messages to the container
     public void AddMessage(string text, SentMessage.Sender sender)
     {
+        // Saves the message to a list for asy saving
         SentMessage newMessage = new SentMessage();
         newMessage.Text = text;
         newMessage.SentBy = sender;
@@ -159,14 +181,17 @@ public class MessageSender : MonoBehaviour
         newMessage.Id = currDialogue.Id;
         savedTexts.Add(newMessage);
         
+        // Sends the message
         GameObject newText = Instantiate(Resources.Load("Message") as GameObject, conversationWindow.transform);
         newText.GetComponentInChildren<TMP_Text>().text = text;
         switch(sender)
         {
+            // The sender is NPC
             case SentMessage.Sender.NPC:
                 newText.GetComponentInChildren<TMP_Text>().alignment = TextAlignmentOptions.Left;
                 newText.GetComponentInChildren<TMP_Text>().color = npcColor;
                 break;
+                // The sender is the player
             case SentMessage.Sender.Player:
                 newText.GetComponentInChildren<TMP_Text>().alignment = TextAlignmentOptions.Right;
                 newText.GetComponentInChildren<TMP_Text>().color = playerColor;
@@ -190,17 +215,20 @@ public class MessageSender : MonoBehaviour
 
         if (number == 0)
         {
+            // Chose the first option
             Stats.AddPoints(currDialogue.AnswerOneApproval);
             AddMessage(currDialogue.AnswerOneText, SentMessage.Sender.Player);
             StartCoroutine(StartMessages(currDialogue.AnswerOneId));
         }
         else
         {
+            // Chose the second option
             Stats.AddPoints(currDialogue.AnswerTwoApproval);
             AddMessage(currDialogue.AnswerTwoText, SentMessage.Sender.Player);
             StartCoroutine(StartMessages(currDialogue.AnswerTwoId));
         }
 
+        // Destroys all buttons when one of them is clicked
         foreach(GameObject btn in buttons)
         {
             Destroy(btn);
@@ -210,7 +238,6 @@ public class MessageSender : MonoBehaviour
     // initializes the game objects
     public void SetGameObjects(GameObject conversations, GameObject chatButtons)
     {
-        Debug.Log("Set containers");
         conversationWindow = conversations.transform.Find("Conversation_" + characterName).Find("Scroll View").Find("Viewport").Find("Conversation").gameObject;
         conversationParent = conversations.transform.Find("Conversation_" + characterName).gameObject;
         conversationParent.SetActive(false);
@@ -230,40 +257,49 @@ public class MessageSender : MonoBehaviour
         TextAsset textData = Resources.Load("Story/" + Stats.language + "/" + characterName.ToLower()) as TextAsset;
         string txt = textData.text;
         var lines = txt.Split("\n");
+
         foreach(var line in lines)
         {
             string[] parts = line.Split("\t");
             Dialogue d = new Dialogue();
 
+            // Id and text is always there
             d.Id = int.Parse(parts[0]);
             d.Text = parts[1];
 
             if (parts[2].StartsWith(EVENT))
             {
+                // There is an indicator telling that this line leads to an event invite
                 d.Next = NextAction.EventInvite;
                 string eventString = parts[2].Replace(EVENT, "");
+
                 if(eventString.Contains("+"))
                 {
+                    // If there's two event invites incoming
                     string[] events = eventString.Split("+");
                     d.EventId = int.Parse(events[0]);
                     d.EventIdTwo = int.Parse(events[1]);
                 }
                 else
                 {
+                    // There's only one event invite incoming
                     d.EventId = int.Parse(eventString);
                 }
             }
             else if (parts[2].StartsWith(WAIT))
             {
+                // This line makes the player wait for the conversation to continue
                 d.Next = NextAction.Wait;
             }
             else if (parts[2].StartsWith(NEWCONVO))
             {
+                // This line makes another character send messsages to the player
                 d.Next = NextAction.NewConversation;
                 d.NewConversationName = parts[2].Replace(NEWCONVO, "");
             }
             else if (parts[2].StartsWith(END))
             {
+                // This line makes the game end
                 d.Next = NextAction.Ending;
                 string[] endingString = parts[1].Split(":");
                 d.EndingTitle = endingString[0];
@@ -273,15 +309,18 @@ public class MessageSender : MonoBehaviour
             {
                 if(parts.Length <= 3)
                 {
+                    // The conversation stops here
                     d.Next = NextAction.EndConversation;
                 }
                 else if (parts[3].StartsWith(CONTINUE))
                 {
+                    // The conversation automatically continues
                     d.Next = NextAction.Continue;
                     d.AnswerOneId = int.Parse(parts[2]);
                 }
                 else
                 {
+                    // There is an option to make
                     d.Next = NextAction.Option;
                     d.AnswerOneId = int.Parse(parts[2]);
                     d.AnswerOneText = parts[3];
@@ -296,21 +335,25 @@ public class MessageSender : MonoBehaviour
         }
     }
 
+    // Returns the name of this character
     public string GetName()
     {
         return characterName;
     }
 
+    // Gets this characters conversation history for easy saving
     public List<SentMessage> GetHistory()
     {
         return savedTexts;
     }
 
+    // Sets the history for this character
     public void SetHistory(List<SentMessage> history)
     {
         savedTexts = history;
     }
 
+    // Sets the current dialogue so the conversation won't start from the beginning
     public void SetCurrentDialogue(Dialogue d)
     {
         currDialogue = d;

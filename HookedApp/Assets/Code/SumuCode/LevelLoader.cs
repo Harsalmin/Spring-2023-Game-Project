@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelLoader : MonoBehaviour
 {
-    private int finalPoints;
+    // private int finalPoints;
     private static LevelLoader loader;
 
     private void Awake()
@@ -20,20 +20,6 @@ public class LevelLoader : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
-
-    // when the game is about to end
-    // set the final score here
-    public void SetFinalPoints(int points)
-    {
-        finalPoints = points;
-    }
-
-    // when the ending scene is loaded
-    // use this to show the score
-    public int GetFinalPoints()
-    {
-        return finalPoints;
     }
 
     public void LoadLevel(string levelName)

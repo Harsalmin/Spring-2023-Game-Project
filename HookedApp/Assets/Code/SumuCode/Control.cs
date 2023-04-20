@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Control : MonoBehaviour
 {
@@ -11,20 +12,25 @@ public class Control : MonoBehaviour
     EventControl eventControl;
     [SerializeField] Color npcColor, playerColor;
     [SerializeField] Animator notificationAnimator, scoreAnimator;
+    [SerializeField] Button loadButton;
     GameObject[] apps;
     bool animOn = false;
 
     private void Awake()
     {
+        // Get the important stuff first
         messageSenders = GetComponents<MessageSender>();
         eventControl = GetComponent<EventControl>();
+
+        // Set the gameobjects and colors to each sender script
         foreach(MessageSender ms in messageSenders)
         {
             ms.SetGameObjects(conversationContainer, chatbuttonContainer);
             ms.SetColors(npcColor, playerColor);
         }
-
         conversationContainer.SetActive(false);
+
+        // Initially deactivate all apps
         apps = GameObject.FindGameObjectsWithTag("App");
         foreach(GameObject g in apps)
         {
@@ -46,6 +52,16 @@ public class Control : MonoBehaviour
             SaveLoad gameLoader = GetComponent<SaveLoad>();
             gameLoader.LoadGame();
         }
+
+        // disables the load button if there is no save
+        if(PlayerPrefs.GetInt("Save exists") != 1)
+        {
+            loadButton.interactable = false;
+        }
+        else
+        {
+            loadButton.interactable = true;
+        }
     }
 
     private void Update()
@@ -65,10 +81,10 @@ public class Control : MonoBehaviour
         animOn = false;
     }
 
-
+    // Starts a fresh new game
     void StartNewGame()
     {
-        // hides everyone but the initial conversations
+        // hides everyone but the initial conversation buttons
         foreach (Transform t in chatbuttonContainer.transform)
         {
             if (t.name != "Character_Marko")
@@ -90,9 +106,11 @@ public class Control : MonoBehaviour
     // Starts a new conversation from a specified index
     public void StartConversation(string characterName, int conversationIndex)
     {
+        // If this is a first message from this person, activate their button too
         if (!chatbuttonContainer.transform.Find("Character_" + characterName).gameObject.activeInHierarchy)
             chatbuttonContainer.transform.Find("Character_" + characterName).gameObject.SetActive(true);
 
+        // Start a conversation by telling the message sender to start from a specified index
         foreach (MessageSender sender in messageSenders)
         {
             if (sender.GetName() == characterName)
@@ -102,7 +120,7 @@ public class Control : MonoBehaviour
         }
     }
 
-    // tells the animator to display the notification
+    // Tells the animator to display the notification
     public void NewMessagesNotif()
     {
         notificationAnimator.SetTrigger("newMessage");
@@ -160,23 +178,26 @@ public class Control : MonoBehaviour
         return history;
     }
 
-    // Sets the conversation history for each conversation
+    // Sets the conversation history for each conversation by cycling through every key-value pair that is saved
     public void SetConversationHistory(Dictionary<string, List<SentMessage>> history)
     {
         foreach (KeyValuePair<string, List<SentMessage>> pair in history)
         {
             foreach(MessageSender sender in messageSenders)
             {
+                // Finds the sender that has the same name as the current key
                 if (sender.GetName() == pair.Key)
                 {
+                    // Adds the message list to it
                     sender.SetHistory(pair.Value);
 
-                    // adds the texts
+                    // Adds the texts to their windows
                     foreach(SentMessage sm in pair.Value)
                     {
                         sender.AddMessagesLoad(sm.Text, sm.SentBy);
                     }
 
+                    // Check open choices only if there is something in the list
                     if (pair.Value.Count >= 1)
                     {
                         // if there's an open choice, add the choice button(s) too
@@ -186,6 +207,8 @@ public class Control : MonoBehaviour
                             Dialogue d = sender.GetDialogueById(pair.Value[pair.Value.Count - 1].Id);
                             sender.SetCurrentDialogue(d);
                             sender.AddButton(d.AnswerOneText, 0);
+
+                            // add the second choice button only if it is different from the first
                             if (d.AnswerOneText != d.AnswerTwoText)
                                 sender.AddButton(d.AnswerTwoText, 1);
                         }
@@ -197,18 +220,26 @@ public class Control : MonoBehaviour
         // hides the buttons that shouldn't be visible yet
         foreach (Transform t in chatbuttonContainer.transform)
         {
+            // Hides the buttons that don't even have their stories
             if (!history.ContainsKey(t.name.Replace("Character_", "")))
             {
                 t.gameObject.SetActive(false);
             }
             else
             {
+                // Hides the conversations that have no messages in them
                 if(history[t.name.Replace("Character_", "")].Count <= 0)
                 {
                     t.gameObject.SetActive(false);
                 }
             }
         }
+    }
+
+    // Makes the load button interactable
+    public void ActivateLoadButton()
+    {
+        loadButton.interactable = true;
     }
 }
 

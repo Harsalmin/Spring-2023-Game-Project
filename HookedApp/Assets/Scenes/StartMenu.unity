@@ -156,6 +156,7 @@ MonoBehaviour:
   load: {fileID: 827213529}
   options: {fileID: 1842414797}
   quit: {fileID: 751114434}
+  loadButton: {fileID: 1324101217}
 --- !u!4 &53496992
 Transform:
   m_ObjectHideFlags: 0
