@@ -14,9 +14,19 @@
 7	N	Et lähtenyt työmessuille Ratinaan.
 8	Y	Pelasitte yhdessä Miran kanssa erilaisia pelejä ja nauroitte toisillenne. Mira osoittautui oikein kilpailuhenkiseksi ja sait laittaa parastasi hänet päihittääksesi.
 8	N	Et lähtenyt Miran kanssa pelaamaan lupauksestasi huolimatta. Mira ei ole iloinen. 
-9	Y	tba
-9	N	tba
+9	Y	Pelasitte yhdessä Villen kanssa koko illan. Ville voitti sinut helposti mätkintäpeleissä, mutta annoit samalla mitalla takaisin ajopeleissä.
+9	N	Et lähtenytkään Villen kanssa pelaamaan.
 10	Y	Kahvittelu mummon kanssa sujuu mukavasti ja on kiva vaihtaa kuulumisia ja kuulla muiden sukulaisten tapahtumia. Keskustelu kääntyy pian sinun lähestyvään valmistumiseen ja työtilanteeseen. Mummo muistaa jutelleensa setäsi kanssa, joka on työnjohtajana paikallisessa rakennusfirmassa. Setä oli puhunut, kuinka on vaikeaa löytää nuoria työntekijöitä kesätyöntekijöiksi. Kiinnostuit aiheesta ja mummo lupaa ottaa puheeksi sedän kanssa sinun kiinnostuksesi töitä kohtaan ja kehottaa setää ottamaan sinuun yhteyttä.
 10	N	Olet julma
 11	Y	Keskustelu Raimon kanssa soljuu mukavasti ja kuulet paljon hyviä vinkkejä rakennusalaan liittyen ja mitä ala pitää sisällään. Kiinnostut kovasti kesätyömahdollisuudesta
 11	N	Et lähtenytkään baariin setäsi kanssa lupauksestasi huolimatta. Setäsi ei ole iloinen.
+12	Y	Hiki virtasi ja tsemppasitte Villen kanssa toisianne sarjoja tehdessä. Tuntui totisesti siltä, että jotain on tehty. Treenin ohella juttelitte työtilanteestasi.
+12	N	Et mennyt Villen kanssa puntille.
+13	Y	Pelaatte Villen kanssa sulkapallovuoron, molemmat ottivat homman tosissaan ja vuoron lopuksi kummatkin olivat hiestä märkänä.
+13	N	Et lähtenytkään pelaamaan sulkapalloa Villen kanssa. Pahoittelit asiaa Villelle, joka sanoi etsivänsä vuorolle uuden pelikaverin.
+14	Y	Menit nuorisotalolle, jossa tapasit Liisan ja hänen kaverinsa Aatun. Aatu halusi pelata biljardia, mutta Liisa ei oikein välittänyt siitä, joten sinä pelasit Aatun kanssa. Huomasit, että tulet hyvin juttuun Aatun kanssa ja keskustelun lomassa kävi ilmi, että hän on mukana järjestämässä opiskelijatapahtumia. Vaihdoitte yhteystietoja ja puhuitte, että olisi mukava tavata uudestaan porukalla jossain.
+14	N	Et lähtenyt Liisan kanssa nuorisotalolle, ja menetit mahdollisuuden tutustua hänen kaveriinsa Aatuun.
+15	Y	Vietit kauniin kesäpäivän ulkoilun merkeissä Arboretumissa. Aatun kanssa tuli puheeksi työasiat ja hän oli vasta aloittanut työt uudessa paikassa.
+15	N	Vietit kauniin kesäpäivän kotona pelaten videopelejä, etkä osallistunut ulkoilutapahtumaan.
+16	Y	Lähdet pelimessuille, ja kuuntelet mielenkiinnolla opiskelijoiden peliesittelyitä. Törmäät messuilla Pasiin, jonka kanssa rupattelette TAMKin opiskelumahdollisuuksista. Paikalla on myös peliyritysten edustajia, joiden kanssa päädyt juttelemaan valmistumisestasi.
+16	N	Et lähtenyt pelimessuille. Pasista ei kuulunut sen koommin.

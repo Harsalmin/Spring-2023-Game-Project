@@ -120,6 +120,13 @@ public class MessageSender : MonoBehaviour
             // Starts a new conversation with someone else
             string[] nextConvo = currDialogue.NewConversationName.Split(":");
             control.StartConversation(nextConvo[0], int.Parse(nextConvo[1]));
+
+            // starts another conversation if there is one
+            if(currDialogue.NewConversationNameTwo != null)
+            {
+                string[] nextConvoTwo = currDialogue.NewConversationNameTwo.Split(":");
+                control.StartConversation(nextConvoTwo[0], int.Parse(nextConvoTwo[1]));
+            }
         }
         else if (currDialogue.Next == NextAction.Ending)
         {
@@ -130,6 +137,21 @@ public class MessageSender : MonoBehaviour
         {
             // Waits until some time has passed before this conversation goes on
             Debug.Log("Wait");
+            if(characterName == "Leevi")
+            {
+                if(Stats.GetApproval() > 100)
+                {
+                    control.StartConversation("Leevi", 4);
+                }
+                else
+                {
+                    control.StartConversation("Leevi", 3);
+                }
+            }
+            else if(characterName == "Tero")
+            {
+
+            }
         }
         else
         {
@@ -241,6 +263,7 @@ public class MessageSender : MonoBehaviour
         conversationWindow = conversations.transform.Find("Conversation_" + characterName).Find("Scroll View").Find("Viewport").Find("Conversation").gameObject;
         conversationParent = conversations.transform.Find("Conversation_" + characterName).gameObject;
         conversationParent.SetActive(false);
+        Debug.Log("Trying to find " + characterName);
         newMessagesImg = chatButtons.transform.Find("Character_" + characterName).Find("Image").GetComponent<Image>();
     }
 
@@ -295,7 +318,18 @@ public class MessageSender : MonoBehaviour
             {
                 // This line makes another character send messsages to the player
                 d.Next = NextAction.NewConversation;
-                d.NewConversationName = parts[2].Replace(NEWCONVO, "");
+
+                if (parts[2].Contains("+"))
+                {
+                    // if there's two conversations incoming after this one
+                    string[] convos = parts[2].Replace(NEWCONVO, "").Split("+");
+                    d.NewConversationName = convos[0];
+                    d.NewConversationNameTwo = convos[1];
+                }
+                else
+                {
+                    d.NewConversationName = parts[2].Replace(NEWCONVO, "");
+                }
             }
             else if (parts[2].StartsWith(END))
             {
@@ -375,6 +409,7 @@ public class Dialogue
     public int EventId;
     public int EventIdTwo;
     public string NewConversationName;
+    public string NewConversationNameTwo;
     public string EndingTitle;
 }
 

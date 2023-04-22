@@ -1,0 +1,12 @@
+1	No terve!	2	[cont]
+2	Näin sut salilla eilen ja kuulin et olisit töitä vailla	3	[cont]
+3	Mulla ois sulle mallin keikkaa tarjolla T: Kari	4	Taidan jättää väliin, kiitos	0	7	Ai, mitä siitä maksettais?	0
+4	Älä nyt heti tyrmää!	5	[cont]
+5	Tää on hyvä keikka hei	6	[cont]
+6	helppoa rahaa ja saat kuvia portfolioon myöhempää käyttöä varten	8	[cont]
+7	Kyllä sulle sopiva korvaus keksitään ;)	8	[cont]
+8	Mä en tätä tarjoa joka tyypille	9	[cont]
+9	mut sul on semmonen fysiikka, et kyllä tuut tällä alalla menestymään..	10	[cont]
+10	Miten on, sovitaanko keikka?	11	Ei kiitos, äläkä enää ole yhteydessä	0	12	No mikä jottei	0
+11	Missaat hyvän tilaisuuden, mutta olkoon..	0
+12	Huono loppu:Ihan kaikkiin työtarjouksiin ei kannata vastata kyllä	[X]

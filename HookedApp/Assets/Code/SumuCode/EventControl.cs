@@ -17,6 +17,7 @@ public class EventControl : MonoBehaviour
     int currentEvent;
     Control control;
     LanguageControl language;
+    bool waitForTero = false;
 
     [SerializeField] private Image fade;
     [SerializeField] Animator popupAnimator;
@@ -45,8 +46,12 @@ public class EventControl : MonoBehaviour
 
         switch(currentEvent)
         {
+            // Baari-ilta Heidi's
             case 1:
                 control.StartConversation("Eila-mummo", 1);
+                control.StartConversation("Ville", 1);
+                control.StartConversation("Liisa", 1);
+
                 if (e.Went)
                 {
                     control.StartConversation("Marko", 7);
@@ -57,10 +62,20 @@ public class EventControl : MonoBehaviour
                 }
                 break;
 
+            // Työmessut Tullintori
             case 2:
                 control.StartConversation("Eila-mummo", 1);
+                control.StartConversation("Ville", 1);
+                control.StartConversation("Liisa", 1);
+
+                if(e.Went)
+                {
+                    control.StartConversation("Joni", 5);
+                }
+
                 break;
 
+            // Klubikeikka H5
             case 3:
                 if(e.Went)
                 {
@@ -72,6 +87,7 @@ public class EventControl : MonoBehaviour
                 }
                 break;
 
+            // DJ-keikka Ilona
             case 4:
                 if(e.Went)
                 {
@@ -83,23 +99,35 @@ public class EventControl : MonoBehaviour
                 }
                 break;
 
+            // Rekrymessut Tredu
             case 5:
+                if(e.Went)
+                {
+                    control.StartConversation("Tero", 1);
+                }
                 break;
 
+            // DJ-keikka Lola
             case 6:
                 if(e.Went)
                 {
                     control.StartConversation("Mira", 20);
                 }
-                else
-                {
 
-                }
+                CheckTeroStatus();
                 break;
 
+            // Työmessut Ratina
             case 7:
+                if(e.Went)
+                {
+                    control.StartConversation("Juhani", 1);
+                }
+
+                CheckTeroStatus();
                 break;
 
+            // Pelikahvila Lategame
             case 8:
                 if(e.Went)
                 {
@@ -111,12 +139,31 @@ public class EventControl : MonoBehaviour
                 }
                 break;
 
+            // Pelibaari Save file
             case 9:
+                if(e.Went)
+                {
+                    control.StartConversation("Ville", 7);
+                }
+                else
+                {
+                    control.StartConversation("Ville", 13);
+                }
                 break;
 
+            // Kahvila Valkoinen puu
             case 10:
+                if(e.Went)
+                {
+                    control.StartConversation("Raimo", 1);
+                }
+                else
+                {
+                    control.GameEnds("Huono loppu", "Arvosta mummoasi, julmuri");
+                }
                 break;
 
+            // Baari-ilta Alepubi
             case 11:
                 if(e.Went)
                 {
@@ -126,6 +173,58 @@ public class EventControl : MonoBehaviour
                 {
                     control.GameEnds("Huono loppu", "Arvosta mummoasi, julmuri");
                 }
+
+                CheckTeroStatus();
+                break;
+
+            // Kuntosali 
+            case 12:
+                if(e.Went)
+                {
+                    control.StartConversation("Ville", 16);
+                }
+                else
+                {
+                    control.StartConversation("Ville", 14);
+                }
+                break;
+
+            // Sulkapallo
+            case 13:
+                if(e.Went)
+                {
+                    control.StartConversation("Ville", 24);
+                }
+
+                CheckTeroStatus();
+                break;
+
+            // Nuorisotalo
+            case 14:
+                if(e.Went)
+                {
+                    control.StartConversation("Aatu", 1);
+                }
+                break;
+
+            // Opiskelijatapahtuma
+            case 15:
+                if(e.Went)
+                {
+                    control.StartConversation("Aatu", 5);
+                }
+
+                CheckTeroStatus();
+                break;
+
+            // Pelimessut TAMK
+            case 16:
+                if(e.Went)
+                {
+                    control.StartConversation("Pasi", 5);
+                }
+
+                CheckTeroStatus();
                 break;
         }
     }
@@ -366,6 +465,27 @@ public class EventControl : MonoBehaviour
     public void SetLogs(string loadedLogs)
     {
         logTexts.text = loadedLogs;
+    }
+
+    // knows that Tero should message at some point
+    public void WaitForTero()
+    {
+        waitForTero = true;
+    }
+
+    void CheckTeroStatus()
+    {
+        if (waitForTero)
+        {
+            if (Stats.GetApproval() > 100)
+            {
+                control.StartConversation("Tero", 7);
+            }
+            else
+            {
+                control.StartConversation("Tero", 11);
+            }
+        }
     }
 }
 

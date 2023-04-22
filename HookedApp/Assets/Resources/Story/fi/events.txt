@@ -6,6 +6,11 @@
 6	DJ-Keikka	party background	Lola	5.1.2001	0
 7	Työmessut	workfair background	Kauppakeskus Ratina	5.1.2001	0
 8	Pelikahvila	workfair background	Lategame	7.1.2001	0
-9	Pelibaari	party background	Pelibaari	4.1.2001	0
+9	Pelibaari	party background	Save file	4.1.2001	0
 10	Kahvila	workfair background	Valkoinen puu	2.1.2001	0
 11	Baari-ilta	party background	Alepubi	3.1.2001	0
+12	Kuntosali	party background	Kuntosali	4.1.2001	0
+13	Sulkapallo	party background	Kuntosali	6.1.2001	0
+14	Nuorisotalo	party background	Nuorisotalo	4.1.2001	0
+15	Opiskelijatapahtuma	party background	Arboretum	6.1.2001	0
+16	Pelimessut	workfair background	TAMK	3.1.2001	0

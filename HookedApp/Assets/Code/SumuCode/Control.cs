@@ -25,6 +25,7 @@ public class Control : MonoBehaviour
         // Set the gameobjects and colors to each sender script
         foreach(MessageSender ms in messageSenders)
         {
+            Debug.Log(ms.GetName());
             ms.SetGameObjects(conversationContainer, chatbuttonContainer);
             ms.SetColors(npcColor, playerColor);
         }
@@ -240,6 +241,12 @@ public class Control : MonoBehaviour
     public void ActivateLoadButton()
     {
         loadButton.interactable = true;
+    }
+
+    // Tell event control that it needs to wait for Tero to think about things
+    public void WaitForTero()
+    {
+        eventControl.WaitForTero();
     }
 }
 
