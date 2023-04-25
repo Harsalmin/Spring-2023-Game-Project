@@ -1,5 +1,5 @@
 1	Hei kultaseni! En ole nähnyt sinua aikoihin, joten ajattelin tulla sinne kotikaupunkiisi käymään.	2	[cont]
-2	Lähtisitkö kanssani kahville sinne kaupungin keskustaan, siellä on kuulemma monta hyvää kahvilaa?	3	Tottakai, lähden mielelläni!	0	4	Mummo rakas, ei minulla ole aikaa ja on krapula.	0
+2	Lähtisitkö kanssani kahville sinne kaupungin keskustaan, siellä on kuulemma monta hyvää kahvilaa?	3	Tottakai, lähden mielelläni!	5	4	Mummo rakas, ei minulla ole aikaa ja on krapula.	-10
 3	Ihanaa, nähdään siellä. Muistathan syödä hyvin ja terveellisesti, ja nukkua kunnolla.	[E]10
 4	Voi sentään, olisin niin kovasti halunnut nähdä sinut.	5	Näitä sattuu	0	5	Näitä sattuu	0
 5	Huono loppu:Arvosta mummoasi, julmuri	[X]

@@ -58,6 +58,7 @@ public class EventControl : MonoBehaviour
                 }
                 else
                 {
+                    Stats.AddPoints(10);
                     control.StartConversation("Marko", 13);
                 }
                 break;
@@ -70,6 +71,7 @@ public class EventControl : MonoBehaviour
 
                 if(e.Went)
                 {
+                    Stats.AddPoints(-5);
                     control.StartConversation("Joni", 5);
                 }
 
@@ -83,6 +85,7 @@ public class EventControl : MonoBehaviour
                 }
                 else
                 {
+                    Stats.AddPoints(-5);
                     control.StartConversation("Marko", 22);
                 }
                 break;
@@ -95,6 +98,7 @@ public class EventControl : MonoBehaviour
                 }
                 else
                 {
+                    Stats.AddPoints(-5);
                     control.StartConversation("Joni", 22);
                 }
                 break;
@@ -105,6 +109,10 @@ public class EventControl : MonoBehaviour
                 {
                     control.StartConversation("Tero", 1);
                 }
+                else
+                {
+                    Stats.AddPoints(-10);
+                }
                 break;
 
             // DJ-keikka Lola
@@ -112,6 +120,10 @@ public class EventControl : MonoBehaviour
                 if(e.Went)
                 {
                     control.StartConversation("Mira", 20);
+                }
+                else
+                {
+                    Stats.AddPoints(-5);
                 }
 
                 CheckTeroStatus();
@@ -122,6 +134,10 @@ public class EventControl : MonoBehaviour
                 if(e.Went)
                 {
                     control.StartConversation("Juhani", 1);
+                }
+                else
+                {
+                    Stats.AddPoints(-10);
                 }
 
                 CheckTeroStatus();
@@ -135,6 +151,7 @@ public class EventControl : MonoBehaviour
                 }
                 else
                 {
+                    Stats.AddPoints(-5);
                     control.StartConversation("Mira", 27);
                 }
                 break;
@@ -147,6 +164,7 @@ public class EventControl : MonoBehaviour
                 }
                 else
                 {
+                    Stats.AddPoints(-5);
                     control.StartConversation("Ville", 13);
                 }
                 break;
@@ -159,6 +177,7 @@ public class EventControl : MonoBehaviour
                 }
                 else
                 {
+                    Stats.AddPoints(-20);
                     control.GameEnds("Huono loppu", "Arvosta mummoasi, julmuri");
                 }
                 break;
@@ -167,11 +186,12 @@ public class EventControl : MonoBehaviour
             case 11:
                 if(e.Went)
                 {
-                    control.StartConversation("Raimo", 1);
+                    control.StartConversation("Raimo", 6);
                 }
                 else
                 {
-                    control.GameEnds("Huono loppu", "Arvosta mummoasi, julmuri");
+                    Stats.AddPoints(-20);
+                    control.GameEnds("Huono loppu", "Arvosta sukulaisiasi");
                 }
 
                 CheckTeroStatus();
@@ -185,6 +205,7 @@ public class EventControl : MonoBehaviour
                 }
                 else
                 {
+                    Stats.AddPoints(-5);
                     control.StartConversation("Ville", 14);
                 }
                 break;
@@ -194,6 +215,10 @@ public class EventControl : MonoBehaviour
                 if(e.Went)
                 {
                     control.StartConversation("Ville", 24);
+                }
+                else
+                {
+                    Stats.AddPoints(-5);
                 }
 
                 CheckTeroStatus();
@@ -205,6 +230,10 @@ public class EventControl : MonoBehaviour
                 {
                     control.StartConversation("Aatu", 1);
                 }
+                else
+                {
+                    Stats.AddPoints(-5);
+                }
                 break;
 
             // Opiskelijatapahtuma
@@ -212,6 +241,10 @@ public class EventControl : MonoBehaviour
                 if(e.Went)
                 {
                     control.StartConversation("Aatu", 5);
+                }
+                else
+                {
+                    Stats.AddPoints(-5);
                 }
 
                 CheckTeroStatus();
@@ -222,6 +255,10 @@ public class EventControl : MonoBehaviour
                 if(e.Went)
                 {
                     control.StartConversation("Pasi", 5);
+                }
+                else
+                {
+                    Stats.AddPoints(-5);
                 }
 
                 CheckTeroStatus();
@@ -293,7 +330,7 @@ public class EventControl : MonoBehaviour
         eventWindow.Find("Title").GetComponent<TMP_Text>().text = eventInvite.Name;
         Sprite img = Resources.Load<Sprite>("Art/Events/" + eventInvite.ImageName);
         eventWindow.Find("Image").GetComponent<Image>().sprite = img;
-        // eventWindow.Find("Date").GetComponent<TMP_Text>().text = eventInvite.Date;
+        eventWindow.Find("Date").GetComponent<TMP_Text>().text = eventInvite.Date;
         eventWindow.Find("Description").GetComponent<TMP_Text>().text = eventInvite.Description;
 
         // makes buttons non-interactable if the event has already been answered to 
@@ -360,6 +397,7 @@ public class EventControl : MonoBehaviour
         }
     }
 
+    // loads all logs from a text file
     void LoadLogs()
     {
         TextAsset textData = Resources.Load("Story/" + Stats.language + "/" + logName.ToLower()) as TextAsset;
@@ -379,13 +417,27 @@ public class EventControl : MonoBehaviour
         }
     }
 
+    // Start the event popup fade
     public void FadePopup(bool fadeIn)
     {
         foreach (GameObject btn in eventButtons)
         {
             if (btn.name == "Event_" + currentEvent)
             {
-                btn.GetComponent<Image>().color = Color.gray;
+                Sprite inviteImg;
+                if(GetEventById(currentEvent).Went)
+                {
+                    // Loads the "went to an event" sprite
+                    inviteImg = Resources.Load<Sprite>("Art/invite_yes");
+                }
+                else
+                {
+                    // Loads the "did not go to event" sprite
+                    inviteImg = Resources.Load<Sprite>("Art/invite_no");
+                }
+
+                // Adds the sprite
+                btn.transform.Find("Image").GetComponent<Image>().sprite = inviteImg;
             }
         }
 
@@ -400,6 +452,7 @@ public class EventControl : MonoBehaviour
         }
     }
 
+    // Fade in
     public IEnumerator FadeInPopUp()
     {
         float timer = 0;
@@ -417,6 +470,7 @@ public class EventControl : MonoBehaviour
         popupAnimator.SetTrigger("show");
     }
 
+    // fade out
     public IEnumerator FadeOutPopUp()
     {
         float timer = 0;
@@ -430,11 +484,13 @@ public class EventControl : MonoBehaviour
         fade.color = new Color(0, 0, 0, 0);
     }
 
+    // returns all currently unlocked events
     public List<EventInfo> GetUnlockedEvents()
     {
         return unlockedEvents;
     }
 
+    // when loading a save, sets the unlocked events
     public void SetUnlockedEvents(List<EventInfo> events)
     {
         unlockedEvents = events;
@@ -450,8 +506,22 @@ public class EventControl : MonoBehaviour
                 {
                     btn.SetActive(true);
                     if (e.Answered)
-                        btn.GetComponent<Image>().color = Color.gray;
-                        btn.GetComponent<Image>().color = Color.gray;
+                    {
+                        Sprite inviteImg;
+                        if (e.Went)
+                        {
+                            // Loads the "went to an event" sprite
+                            inviteImg = Resources.Load<Sprite>("Art/invite_yes");
+                        }
+                        else
+                        {
+                            // Loads the "did not go to event" sprite
+                            inviteImg = Resources.Load<Sprite>("Art/invite_no");
+                        }
+
+                        // Adds the sprite
+                        btn.transform.Find("Image").GetComponent<Image>().sprite = inviteImg;
+                    }
                 }
             }
         }
