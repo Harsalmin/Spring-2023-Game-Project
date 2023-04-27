@@ -1,6 +1,6 @@
 1	Y	Vietitte Markon kanssa railakkaan illan baarissa. Myös Markon kavereita oli paikalla. Nyt on krapula.
 1	N	Et lähtenyt baariin tällä kertaa. Markolta tuli monta snappia illan aikana, mutta ajattelit kuitenkin hyvien yöunien olevan tärkeämmät.
-2	Y	Lähdit työmerruille. Törmäsitte siellä Jonin kanssa ja juttelitte hetken, ennen kuin jatkoit messujen kiertelyä.
+2	Y	Lähdit työmessuille. Törmäsitte siellä Jonin kanssa ja juttelitte hetken, ennen kuin jatkoit messujen kiertelyä.
 2	N	Et lähtenyt Tullintorin työmessuille, tämä saattaa hankaloittaa työllistymistäsi.
 3	Y	Klubilla oli mieletön meininki ja artisti pisti parastaan. Tunnelma oli katossa! Tanssitte Markon ja hänen kavereidensa kanssa pilkkuun asti. 
 3	N	Et taaskaan lähtenyt Markon kanssa radalle, vaan keskityit muihin asioihin. Marko laittoi kuvia keikasta, ja kaduit hieman päätöstäsi.
