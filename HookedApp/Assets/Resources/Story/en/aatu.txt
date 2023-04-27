@@ -1,0 +1,10 @@
+1	Moro! Aatu tässä, oli hauska tutustua	2	[cont]
+2	Meillä olisi tämmöinen kiva holiton opiskelijatapahtuma Arboretumissa tulossa, haluaisitko tulla mukaan?	3	Ei oikein kuulosta mun jutulta	0	4	Kiinnostaa, onkin tullut kierreltyä baareissa vähän liikaa	0
+3	Selvä juttu, ymmärrän kyllä	0
+4	Kiva juttu! Mä laitan sulle tarkempaa aikataulua	[E]15
+5	Moi taas! Kiva kun pääsit tulemaan	6	[cont]
+6	Kuule, mun työpaikalla olisi alkamassa junioriakatemian rekrytointi.	7	[cont]
+7	Siinä siis otetaan nuoria, valmistuvia opiskelijoita varsinaiseen työhön valmentaviin positioihin	8	[cont]
+8	Laita ihmeettä hakemusta, jos kiinnostaa	9	Ei oikein nappaa tuollainen	0	10	Kiitos tiedosta! Laitan hakemusta menemään!	0
+9	Selvä, ajattelin vain ilmoittaa.	0
+10	Mahtavaa, mä yritän vähän puhua sun puolestas.	[M]Leevi:1

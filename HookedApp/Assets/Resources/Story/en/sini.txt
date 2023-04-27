@@ -1,0 +1,9 @@
+1	Hei! Olen Sini, ja toimin rekrytoijana meidän peliyrityksessä. Meillä voisi olla sinulle kesäksi tekemistä	2	[cont]
+2	Olemme nopeasti kasvava yritys, ja töitä on enemmän kuin tekijöitä	3	[cont]
+3	Tarvitsisimme apukäsiä vähän kaikenlaiseen työhön, kuten tapahtumajärjestelyyn, ei siis vain pelikehitykseen, ja suurin osa on helppo oppia.	4	[cont]
+4	Kiinnostaisiko tulla haastatteluun?	5	En ole kiinnostunut	0	7	Kiinnostaa!	0
+5	Selvä juttu, kiitos kuitenkin ajastasi	6	[cont]
+6	Huono loppu:Jos et mene työhaastatteluun, miksi edes pelaat täät peliä?	[X]
+7	Mahtava juttu! Sovitaan tarkempi ajankohta haastattelulle sähköpostitse.	8	[cont]
+8	Ota vaikka opintosuorite mukaan, niin katsotaan sinulle mielekästä tekemistä	9	Tehdään näin	0	9	Tehdään näin	0
+9	Hyvä loppu:Vaikka työpaikka ei olekaan sitä, mitä ajattelit, pääsit silti työhaastatteluun, onnittelut!	[X]

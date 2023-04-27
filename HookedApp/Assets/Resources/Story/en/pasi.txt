@@ -1,0 +1,8 @@
+1	Moro, Pasi täällä!	2	[cont]
+2	Sun kaveri antoi sun yhteystiedot. Meillä olisi pelimessut tulossa, kiinnostaisko osallistua?	3	Ei oikeastaan	0	4	Kiinnostaa kovasti!	0
+3	Harmi kuulla, eipä mulla muuta	0
+4	Mahtavaa! Minäpä laitan sulle sähköpostiin tarkempaa aikatualua	[E]16
+5	Mukavaa, että tulit paikalle! Tuossa yksi kaveri kyseli sun yhteystietoja, olit kuulemma jutellut työnhaustasi eikä hän muistanut kysyä niitä.	6	[cont]
+6	Sopiiko, että laitan yhteystietosi eteenpäin?	7	Ei kiitos	0	8	Sopii kyllä	0
+7	Selvä homma, mukavaa päivänjatkoa	0
+8	Hieno homma, sieltä tulee varmaan viestiä pian	[M]Sini:1

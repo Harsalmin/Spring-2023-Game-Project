@@ -1,0 +1,6 @@
+1	Terve! Juteltiin Ratinan työmessuilla, ja laitoit sovitusti CVsi sähköpostiini, kiitos!	2	[cont]
+2	Olemme rekrytiimissämme sitä mieltä, että meillä voisi olla juuri sinun osaamistasi vastaavaa työtä, kävisikö haastattelu?	3	Aivan mahtavaa! Tulen mielelläni haastatteluun	0	5	Valitettavasti en voi tulla haastatteluun	0
+3	Mahtava juttu! Sovitaan tarkempi ajankohta haastattelulle sähköpostitse.	4	Tehdään näin	0	4	Tehdään näin	0
+4	Hyvä loppu:Pääsit työhaastatteluun, onnittelut!	[X]
+5	Selvä juttu, kiitos kuitenkin mielenkiinnostasi	6	Jees	0	6	Jees	0
+6	Huono loppu:Jos et mene työhaastatteluun, miksi edes pelaat tätä peliä?	[X]

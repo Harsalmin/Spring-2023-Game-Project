@@ -1,0 +1,11 @@
+1	Moro! Tero tässä, juteltiin eilen sinun ja Jonin kanssa sinun työtilanteestasi	2	[cont]
+2	Juttelin tuossa muun rekrytiimin kanssa, ja ajattelimme, että meillä saattaisi olla sinulle sopivaa työtä tarjolla	3	[cont]
+3	Voisitko laittaa minulle CV:n vaikka sähköpostilla, ja kirjoittaisitko vielä perään, millaista koulutusta teillä on ammattikoulussa ollut, kursseja yms.	4	Mahtavaa, laitan sähköpostia tulemaan!	0	5	Kiitos, mutta en ole kiinnostunut	0
+4	Mahtava juttu, olemme yhteydessä työhaastattelun suhteen!	[WAIT]
+5	Okei, selvä homma. Kiitos mielenkiinnostasi	6	Kuulemiin	0	6	Kuulemiin	0
+6	Huono loppu:Jos et laita hakemusta menemään, kun sitä kysytään, miksi edes pelaat tätä peliä?	[X]
+7	Hei siitä sinun työhakemuksestasi. Haluaisimme kutsua sinut haastatteluun, kävisikö vaikka tällä viikolla?	8	Aivan mahtavaa! Tulen mielelläni haastatteluun	0	10	Valitettavasti en voi tulla haastatteluun	0
+8	Mahtava juttu! Sovitaan tarkempi ajankohta haastattelulle sähköpostitse.	9	Tehdään näin	0	9	Tehdään näin	0
+9	Hyvä loppu:Pääsit työhaastatteluun, onnittelut!	[X]
+10	Selvä juttu, kiitos kuitenkin mielenkiinnostasi	6	Jees	0	6	Jees	0
+11	Hei siitä sinun työhakemuksestasi. Valitettavasti valintamme ei tällä kertaa kohdistunut sinuun, kiitos kuitenkin mielenkiinnostasi.	0
