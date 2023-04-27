@@ -11,6 +11,22 @@ public class Stats : MonoBehaviour
     private static string endCreditsDesc = "Sinulle tuli paljon työtarjouksia!";
     public static int day = 0;
 
+    private static Stats stats;
+
+    private void Start()
+    {
+        DontDestroyOnLoad(gameObject);
+
+        // prevents duplicates
+        if (stats == null)
+        {
+            stats = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
     public static void AddPoints(int amount)
     {
         Debug.Log(amount + " points added");

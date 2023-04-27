@@ -1,9 +1,9 @@
 1	Morjens! Kiitos, että pidit seuraa äidille, hän tuppaa olemaan vähän yksinäinen	2	[cont]
 2	Teillä oli ilmeisesti sun työnhakus puheenaiheena	3	[cont]
-3	Jos tulen pyörähtämään sielläpäin ja käydään vaikka kaljalla ja jutellaan lisää?	4	Sopii oikein hyvin	0	5	En ole ihan varma siitä työpaikasta, mutta voin mä baariin lähteä	0
+3	Jos tulen pyörähtämään sielläpäin ja käydään vaikka kaljalla ja jutellaan lisää?	4	Sopii oikein hyvin	10	5	En ole ihan varma siitä työpaikasta, mutta voin mä baariin lähteä	5
 4	Asia selvä, nähdään pian	[E]11
 5	Selvä, käy minulle. Ei olekaan nähty vähään aikaan	[E]11
-6	Laitoin sinulle pomoni sähköpostiosoitteen, laitahan hakemusta ja CV:tä menemään. Eiköhän noin reippaalle nuorelle töitä keksitä.	7	Selvä, laitan hakemuksen heti!	0	9	En taida laittaa	0
+6	Laitoin sinulle pomoni sähköpostiosoitteen, laitahan hakemusta ja CV:tä menemään. Eiköhän noin reippaalle nuorelle töitä keksitä.	7	Selvä, laitan hakemuksen heti!	20	9	En taida laittaa	-20
 7	Hienoa, saat varmaan pian vastauksen. Kehun sinua vähän pomolle vielä.	8	Kiva	0	8	Kiva	0
 8	Hyvä loppu:Sait vastauksen samalla viikolla, ja sait töitä rakennusyrityksestä, edes haastatteluita ei tarvittu setäsi suosituksen perusteella.	[X]
 9	Ei ole pakko, jos et halua	10	Niin	0	10	Niin	0

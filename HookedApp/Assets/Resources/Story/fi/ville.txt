@@ -1,13 +1,13 @@
-1	Moro! Kiinnostaako yhtään lähteä pelaamaan Savefileen?	2	Sori, en nyt pysty	0	6	Todellakin! En oo käynyt siellä aikoihin.	0
+1	Moro! Kiinnostaako yhtään lähteä pelaamaan Savefileen?	2	Sori, en nyt pysty	0	6	Todellakin! En oo käynyt siellä aikoihin.	5
 2	Okei, keksitään muuta tekemistä	3	[cont]
-3	Lähekkö punttisalille?	4	Pumppia hakemaan	0	5	Ei kiitos	0
+3	Lähekkö punttisalille?	4	Pumppia hakemaan	5	5	Ei kiitos	-5
 4	Jes, laitetaan rauta nöyrtymään!	[E]12
 5	Heikkoutta, menen sitten itse	0
 6	Mahtavaa, nähdään siellä vaikka kello 18.00!	[E]9
 7	Moro! Oli kiva ilta eilen.	8	[cont]
 8	Törmäsin siellä muuten yhteen TAMKin opettajaan, juteltiin sen kanssa hetki pelialasta ja siellä olevista työmahdollisuuksista	9	[cont]
 9	Niillä on kuulemma jotkut pelimessut tulossa, missä opiskelijat esittelee omia mobiilipelejään.	10	[cont]
-10	Jos kiinnostaa, niin voin antaa sille sun yhteystiedot	11	Anna vaan	0	12	En mä halua kenenkään random opettajan ottavan yhteyttä	0
+10	Jos kiinnostaa, niin voin antaa sille sun yhteystiedot	11	Anna vaan	5	12	En mä halua kenenkään random opettajan ottavan yhteyttä	0
 11	Jees, se varmaan laittaa sulle viestiä piakkoin.	[M]Pasi:1+Ville:21
 12	Selvä homma, ymmärrän kyllä	0
 13	Ei oo fresh perua tollai ilmoittamatta	8	[cont]
@@ -15,13 +15,13 @@
 15	Sun pitää huolehtia kropastas, et ole nuori ikuisesti.	0
 16	Ai että tuli hyvä pumppi eilen! Oli vaikeeta nousta sängystä tänä aamuna	17	[cont]
 17	Muuten, yks tyyppi kysyi sun yhteystietoja, kuuli kun me puhuttiin sun olevan töitä vailla	18	[cont]
-18	Annanko ne sille?	19	Älä helkutissa	0	20	Anna vaan	0
+18	Annanko ne sille?	19	Älä helkutissa	5	20	Anna vaan	-5
 19	Joo, varmaan parempi niin, se oli vähän shady tyyppi.	0
 20	Okei, mut oo varovainen, en mä sitä tunne	[M]Kari:1
-21	Toisaalta voitais mennä yhdessä vaikka pelaamaan sulkapalloa	22	Pelimessut kuulostaa kiinnostavammalta.	0	23	Sulkapallo kiinnostais kyllä enemmän.	0
+21	Toisaalta voitais mennä yhdessä vaikka pelaamaan sulkapalloa	22	Pelimessut kuulostaa kiinnostavammalta.	5	23	Sulkapallo kiinnostais kyllä enemmän.	5
 22	Jees! Saatan itsekin poiketa siellä	0
 23	Okei, mä varaan meille vuoron!	[E]13
 24	Oli mahtavat pelit eilen!	25	[cont]
-25	Kuule, et sattuis tietämään ketään rakennusalalta? Jäi harjoittelut vähän viime tippaan ja tarttis saada töitä kesäksi	26	Joo, mun setäni on työnjohtaja raksalla, voin antaa sen sähköpostin	0	27	Sori, en tunne ketään	0
+25	Kuule, et sattuis tietämään ketään rakennusalalta? Jäi harjoittelut vähän viime tippaan ja tarttis saada töitä kesäksi	26	Joo, mun setäni on työnjohtaja raksalla, voin antaa sen sähköpostin	20	27	Sori, en tunne ketään	-5
 26	Kiitos paljon!	0
 27	Äh. No ei voi mitään, kiitos kuitenkin.	0
