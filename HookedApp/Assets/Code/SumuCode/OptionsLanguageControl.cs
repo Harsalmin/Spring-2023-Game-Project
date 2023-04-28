@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class OptionsLanguageControl : MonoBehaviour
 {
-    [SerializeField] private TMP_Text language, volume, backToMenu;
+    [SerializeField] private TMP_Text language, masterVolume, musicVolume, SFXVolume, backToMenu;
     [SerializeField] private TMP_Dropdown languageOptions;
 
     // Start is called before the first frame update
@@ -32,13 +32,17 @@ public class OptionsLanguageControl : MonoBehaviour
         if (finnish)
         {
             language.text = "Kieli";
-            volume.text = "ƒ‰nenvoimakkuus";
+            masterVolume.text = "P‰‰-‰‰nenvoimakkuus";
+            musicVolume.text = "Musiikki";
+            SFXVolume.text = "ƒ‰nitehosteet";
             backToMenu.text = "Takaisin p‰‰valikkoon";
         }
         else
         {
             language.text = "Language";
-            volume.text = "Volume";
+            masterVolume.text = "Master volume";
+            musicVolume.text = "Music volume";
+            SFXVolume.text = "SFX volume";
             backToMenu.text = "Back to main menu";
         }
     }

@@ -5,13 +5,21 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    private static GameManager manager;
     /// <summary>
     /// Start is called before the first frame update. Make the gameobject this script is attached to undestroyable between sceneloads, 
-    /// to retain it's functionality.
+    /// to retain it's functionality. Need to make sure no duplicates are made though.
     /// </summary>
     private void Start()
     {
         DontDestroyOnLoad(gameObject);
+        if (manager == null)
+        {
+            manager = this;
+        } else
+        {
+            Destroy(gameObject);
+        }
     }
 
     /// <summary>
