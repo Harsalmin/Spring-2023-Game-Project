@@ -1,24 +1,24 @@
-1	Hei kaveri!	2	[cont]
-2	Lähetäänkö huomenna bailaamaan?	3	Lähetään vaan!	5	5	Ei lähetä	5
-3	Hei siistii!	4	[cont]
-4	Laitan sulle heti kutsun!	[E]1
-5	No höh!	6	[cont]
-6	Laitan sulle kuitenkin ton kutsun jos mieli muuttuu	[E]1
-7	Oli kyllä kova meno eilen!	8	Oli kyllä!	5	11	Mennään tänään taas uudestaan!	-5
-8	Sulla oli aika hyvät setit sen mun kaverin Miran kanssa	9	[cont]
-9	Se pyysi että antaisin sun numeron sille	10	Anna vaan	5	19	Ei meillä niin hyvin synkannu.	0
-10	Jees, se varmaan laittaa sulle viestiä pian!	[M]Mira:1
-11	No todellakin, ois keikka huomenna H5:ssa	12	[cont]
-12	Laitan sulle tapahtumainfoa.	[E]3
-13	Missasit paljon eilen, ihan jäätävän kova meno!	14	[cont]
-14	Ens kerralla tuut kyllä mukaan!	15	[cont]
-15	Itse asiassa tänä iltana olis keikka H5:ssa, sinne!	16	Ai saakeli nyt kyllä tulen!	5	17	Sori, en tiedä pääsenkö	0
-16	Mahtavaa! Laitan sulle infoa	[E]3
-17	Okei, laitan sulle tapahtumakutsun joka tapauksessa	[E]3
-18	Mieletön keikka eilen!	8	Oli kyllä!	5	19	Vähän soi korvissa vieläkin	0
-19	Onko tälle illalle suunnitelmia, olis kotibileet tiedossa	-15	Bileet!	0	21	Ei enää bilettämistä vähään aikaan	5
-20	Huono loppu:Elämä ei ole pelkkää bilettämistä	[X]
-21	Ymmärrän, kiitti ku olit messissä!	0
-22	Missasit hyvän keikan eilen, onko kaikki okei?	23	Joo on, on ollu vaan kiireitä viime aikoina	0	23	Työnhaku vaan stressaa	0
-23	Joo ei siinä mitään, ymmärrän että sulla painaa valmistuminen päälle ja töitäkin pitäis etsiä	24	[cont]
-24	Ollaan yhteydessä, koitan kysellä jos sulle löytyis jotain.	0
+1	Hey buddy!	2	[cont]
+2	Why don't we go party tomorrow?	3	Yeah, let's go!	5	5	Nah	5
+3	Hey, cool!	4	[cont]
+4	I'll send you an invite right now!	[E]1
+5	Well damn!	6	[cont]
+6	But I'll send you an invitation if you change your mind.	[E]1
+7	It was wild last night!	8	Yeah, it was!	5	11	Let's go again tonight!	-5
+8	You had a pretty good thing going on with my friend Mira.	9	[cont]
+9	She asked me to give her your number.	10	Sure	5	19	We didn't get along that well.	0
+10	Yeah, she'll probably text you soon!	[M]Mira:1
+11	Oh yeah, there would be a gig tomorrow at H5	12	[cont]
+12	I'll send you event info.	[E]3
+13	You missed a lot last night, it was wild!	14	[cont]
+14	Next time, you're coming with me!	15	[cont]
+15	Actually, there would be a gig tonight at H5, let's go there!	16	I'm coming this time for sure!	5	17	Sorry, I don't think I'll make it.	0
+16	Great! I'll send you the info.	[E]3
+17	Ok, I'll send you the event invitation regardless.	[E]3
+18	Awesome gig yesterday!	8	It was!	5	19	My ears are still ringing.	0
+19	Do you have any plans for tonight? We've got a home party coming up.	-15	Party on!	0	21	No more partying for a while.	5
+20	Bad ending:There is more to life than partying.	[X]
+21	I understand, thanks for coming along.	0
+22	You missed a great gig yesterday, is everything alright?	23	Yeah, I've been just busy lately.	0	23	Job searching just stresses me out.	0
+23	Yeah, it's okay, I understand that you're about to graduate and you should be looking for a job.	24	[cont]
+24	We'll be in touch. I'll see if I can find anything for you.	0

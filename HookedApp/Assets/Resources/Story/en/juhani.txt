@@ -1,6 +1,6 @@
-1	Terve! Juteltiin Ratinan työmessuilla, ja laitoit sovitusti CVsi sähköpostiini, kiitos!	2	[cont]
-2	Olemme rekrytiimissämme sitä mieltä, että meillä voisi olla juuri sinun osaamistasi vastaavaa työtä, kävisikö haastattelu?	3	Aivan mahtavaa! Tulen mielelläni haastatteluun	20	5	Valitettavasti en voi tulla haastatteluun	-20
-3	Mahtava juttu! Sovitaan tarkempi ajankohta haastattelulle sähköpostitse.	4	Tehdään näin	0	4	Tehdään näin	0
-4	Hyvä loppu:Pääsit työhaastatteluun, onnittelut!	[X]
-5	Selvä juttu, kiitos kuitenkin mielenkiinnostasi	6	Jees	0	6	Jees	0
-6	Huono loppu:Jos et mene työhaastatteluun, miksi edes pelaat tätä peliä?	[X]
+1	Hello! We talked at Ratina's work fair, and you sent me your CV in my e-mails as agreed, thank you for that!	2	[cont]
+2	In our recruitment team, we think that we could have a job that matches your expertise, wouldl you like to come for an interview?	3	That's great! I'd love to come to the interview!	20	5	I'm afraid I can't come to the interview	-20
+3	That's great! Let's see the date for the interview by email.	4	Yeah let's do that	0	4	Yeah let's do that	0
+4	Good ending:You got into a job interview, congratulations!	[X]
+5	All right, thanks for your interest, though	6	Yeah	0	6	Yeah	0
+6	Bad ending:If you're not going to a job interview, why are you even playing this game?	[X]

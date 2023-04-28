@@ -1,4 +1,4 @@
-1	Hei. Oli kiva tavata eilen.	2	Kuin myös	5	15	Kukas sä olitkaan?	-5
+1	Hey, it was nice to meet you yesterday.	2	Likewise!	5	15	Who are you again?	-5
 2	Meillä jäi vähän juttu kesken	3	[cont]
 3	Sanoit, että etsit töitä. Ensi viikolla on tulossa aika siistit työmessut kauppakeskuksessa keskustassa.	4	Pistäisitkö tapahtumakutsun?	10	8	Jaa	0
 4	Joo, laitan kutsun tulemaan!	5	[cont]

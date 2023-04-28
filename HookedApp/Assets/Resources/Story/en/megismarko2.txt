@@ -1,8 +1,0 @@
-0	Was really dope party yesterday!	1	Yeah!	1	6	Let's go again tomorrow!	1
-1	You had a pretty solid conversation with my friend Mira	2	[cont]
-2	She asked if i could give her your number	3	Go ahead	2	4	We didn't have anything	-2
-3	Yeah, she'll probably message you soon!	-1	[next:]Miranviesti
-4	Oh okay then. Wanna party today?	5	Again? No thank you	0	7	Yeah let's party!	1
-5	Alright, we'll try again some other day	-1	[next:]Portsarikaipaa
-6	Great! I just found an event I'd love us to go, I'll send you an invite	-1	[next:]Baari2
-7	Great, I found out about this nice event. I'll invite you	-1	[next:]Baari2

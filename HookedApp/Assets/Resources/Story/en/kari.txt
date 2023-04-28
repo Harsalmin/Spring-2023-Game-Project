@@ -1,12 +1,12 @@
-1	No terve!	2	[cont]
-2	Näin sut salilla eilen ja kuulin et olisit töitä vailla	3	[cont]
-3	Mulla ois sulle mallin keikkaa tarjolla T: Kari	4	Taidan jättää väliin, kiitos	5	7	Ai, mitä siitä maksettais?	-5
-4	Älä nyt heti tyrmää!	5	[cont]
-5	Tää on hyvä keikka hei	6	[cont]
-6	helppoa rahaa ja saat kuvia portfolioon myöhempää käyttöä varten	8	[cont]
-7	Kyllä sulle sopiva korvaus keksitään ;)	8	[cont]
-8	Mä en tätä tarjoa joka tyypille	9	[cont]
-9	mut sul on semmonen fysiikka, et kyllä tuut tällä alalla menestymään..	10	[cont]
-10	Miten on, sovitaanko keikka?	11	Ei kiitos, äläkä enää ole yhteydessä	20	12	No mikä jottei	-20
-11	Missaat hyvän tilaisuuden, mutta olkoon..	0
-12	Huono loppu:Ihan kaikkiin työtarjouksiin ei kannata vastata kyllä	[X]
+1	Well, hello!	2	[cont]
+2	I saw you at the gym last night, and I heard you are looking for a job.	3	[cont]
+3	I've got a model job for you. Regards, Kari.	4	I think I'll pass, thanks.	5	7	Oh, yeah? What do you pay for this?	-5
+4	Don't knock it down yet!	5	[cont]
+5	This is a good gig	6	[cont]
+6	easy money and you can get pictures for later use in your portfolio.	8	[cont]
+7	You'll get a good compensation ;)	8	[cont]
+8	I don't offer this to every person	9	[cont]
+9	but you have such a good physique, you're gonna make it in this business..	10	[cont]
+10	So, what do you say we do a gig?	11	No, thank you. And please don't contact me again.	20	12	Well, why not?	-20
+11	You miss a good opportunity, but fine..	0
+12	Bad ending:Not every job offer should be agreed to.	[X]

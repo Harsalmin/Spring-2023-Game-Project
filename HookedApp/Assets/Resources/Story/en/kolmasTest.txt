@@ -1,6 +1,0 @@
-0	Hello. Was nice yesterday	1	[cont]
-1	Will you come to work for us	2	Of course	30	4	No	-10
-2	:)	3	[cont]
-3	Interview tomorrow at 8	-1	[next:]Haastis
-4	Ok then 	5	[cont]
-5	:/	-1	[next:]Huonoloppu

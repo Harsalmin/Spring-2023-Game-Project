@@ -1,8 +1,8 @@
-1	Hei! Olen Leevi, meidän junioriakatemian rekrytointivastaava.	2	[cont]
-2	Saimme hakemuksesi, kiitos siitä, ja mielenkiinnostasi yritystämme kohtaan	[WAIT]
-3	Valitettavasti valintamme ei tällä kertaa kohdistunut sinuun, kiitos kuitenkin mielenkiinnostasi	0
-4	Haluaisimme kutsua sinut haastatteluun, kävisikö vaikka tällä viikolla?	5	Aivan mahtavaa! Tulen mielelläni haastatteluun	20	7	Valitettavasti en voi tulla haastatteluun	-20
-5	Mahtava juttu! Sovitaan tarkempi ajankohta haastattelulle sähköpostitse	6	[cont]
-6	Hyvä loppu:Pääsit työhaastatteluun, onnittelu!	[X]
-7	Selvä juttu, kiitos kuitenkin mielenkiinnostasi.	8	[cont]
-8	Huono loppu:Jos et mene työhaastatteluun, miksi edes pelaat tätä peliä?	[X]
+1	Hey! I'm Leevi, head of recruitment at our junior academy.	2	[cont]
+2	We got your application, thank you for that, and for your interest in our company.	[WAIT]
+3	Unfortunately, this time our choice did not concern you, but thank you for your interest.	0
+4	We'd like to invite you to an interview. How about this week?	5	That's great! I'd love to come to an interview	20	7	I'm afraid I can't come to an interview.	-20
+5	That's great! We'll set a date for the inverview by email.	6	[cont]
+6	Good ending:You landed a job interview, congratulations!	[X]
+7	All right, thanks for your interest, though.	8	[cont]
+8	Bad ending:If you're not going to a job interview, why are you even playing this game?	[X]
