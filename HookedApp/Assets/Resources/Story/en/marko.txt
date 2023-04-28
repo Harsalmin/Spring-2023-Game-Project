@@ -4,19 +4,19 @@
 4	Laitan sulle heti kutsun!	[E]1
 5	No höh!	6	[cont]
 6	Laitan sulle kuitenkin ton kutsun jos mieli muuttuu	[E]1
-7	Oli kyllä kova meno eilen!	8	Oli kyllä!	0	11	Mennään tänään taas uudestaan!	0
+7	Oli kyllä kova meno eilen!	8	Oli kyllä!	5	11	Mennään tänään taas uudestaan!	-5
 8	Sulla oli aika hyvät setit sen mun kaverin Miran kanssa	9	[cont]
-9	Se pyysi että antaisin sun numeron sille	10	Anna vaan	0	19	Ei meillä niin hyvin synkannu.	0
+9	Se pyysi että antaisin sun numeron sille	10	Anna vaan	5	19	Ei meillä niin hyvin synkannu.	0
 10	Jees, se varmaan laittaa sulle viestiä pian!	[M]Mira:1
 11	No todellakin, ois keikka huomenna H5:ssa	12	[cont]
 12	Laitan sulle tapahtumainfoa.	[E]3
 13	Missasit paljon eilen, ihan jäätävän kova meno!	14	[cont]
 14	Ens kerralla tuut kyllä mukaan!	15	[cont]
-15	Itse asiassa tänä iltana olis keikka H5:ssa, sinne!	16	Ai saakeli nyt kyllä tulen!	0	17	Sori, en tiedä pääsenkö	0
+15	Itse asiassa tänä iltana olis keikka H5:ssa, sinne!	16	Ai saakeli nyt kyllä tulen!	5	17	Sori, en tiedä pääsenkö	0
 16	Mahtavaa! Laitan sulle infoa	[E]3
 17	Okei, laitan sulle tapahtumakutsun joka tapauksessa	[E]3
-18	Mieletön keikka eilen!	19	Oli kyllä!	0	0	Vähän soi korvissa vieläkin	0
-19	Onko tälle illalle suunnitelmia, olis kotibileet tiedossa	20	Bileet!	0	21	Ei enää bilettämistä vähään aikaan	0
+18	Mieletön keikka eilen!	8	Oli kyllä!	5	19	Vähän soi korvissa vieläkin	0
+19	Onko tälle illalle suunnitelmia, olis kotibileet tiedossa	-15	Bileet!	0	21	Ei enää bilettämistä vähään aikaan	5
 20	Huono loppu:Elämä ei ole pelkkää bilettämistä	[X]
 21	Ymmärrän, kiitti ku olit messissä!	0
 22	Missasit hyvän keikan eilen, onko kaikki okei?	23	Joo on, on ollu vaan kiireitä viime aikoina	0	23	Työnhaku vaan stressaa	0

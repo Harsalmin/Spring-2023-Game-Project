@@ -1,10 +1,10 @@
-1	Moro! Aatu tässä, oli hauska tutustua	2	[cont]
-2	Meillä olisi tämmöinen kiva holiton opiskelijatapahtuma Arboretumissa tulossa, haluaisitko tulla mukaan?	3	Ei oikein kuulosta mun jutulta	0	4	Kiinnostaa, onkin tullut kierreltyä baareissa vähän liikaa	0
-3	Selvä juttu, ymmärrän kyllä	0
-4	Kiva juttu! Mä laitan sulle tarkempaa aikataulua	[E]15
-5	Moi taas! Kiva kun pääsit tulemaan	6	[cont]
-6	Kuule, mun työpaikalla olisi alkamassa junioriakatemian rekrytointi.	7	[cont]
-7	Siinä siis otetaan nuoria, valmistuvia opiskelijoita varsinaiseen työhön valmentaviin positioihin	8	[cont]
-8	Laita ihmeettä hakemusta, jos kiinnostaa	9	Ei oikein nappaa tuollainen	0	10	Kiitos tiedosta! Laitan hakemusta menemään!	0
-9	Selvä, ajattelin vain ilmoittaa.	0
-10	Mahtavaa, mä yritän vähän puhua sun puolestas.	[M]Leevi:1
+1	Hello!Aatu here, it was nice to meet you.	2	[cont]
+2	We'd have a nice alcohol-free student event in Arboretum coming up, would you like to join us?	3	Doesn't sound like my thing	-5	4	I'm interested. I've been going around bars a little too much.	5
+3	Okay, I understand	0
+4	Great! I'll send you the schedule	[E]15
+5	Hey again! Glad you could join us!	6	[cont]
+6	Look, my job is about to start recruiting for the junior academy	7	[cont]
+7	So it takes young, graduating students into positions that prepare them for the actual job.	8	[cont]
+8	If you're interested, why don't you put in an application?	9	That doesn't really interest me	-10	10	Thanks for the heads up! I'll put the application in right away	20
+9	Okay, I just wanted to let you know.	0
+10	Great. I'll try to put in a good word for you.	[M]Leevi:1

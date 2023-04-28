@@ -1,16 +1,16 @@
-1	Baari-ilta	party background	Heidi's Bier Bar	1.1.2001	0
-2	Työmessut	workfair background	Tullintori	1.1.2001	0
-3	Klubikeikka	party background	H5	2.1.2001	0
-4	DJ-Keikka	party background	Ilona	3.1.2001	0
-5	Rekrymessut	workfair background	Tredu	3.1.2001	0
-6	DJ-Keikka	party background	Lola	5.1.2001	0
-7	Työmessut	workfair background	Kauppakeskus Ratina	5.1.2001	0
-8	Pelikahvila	workfair background	Lategame	7.1.2001	0
-9	Pelibaari	party background	Save file	4.1.2001	0
-10	Kahvila	workfair background	Valkoinen puu	2.1.2001	0
-11	Baari-ilta	party background	Alepubi	3.1.2001	0
-12	Kuntosali	party background	Kuntosali	4.1.2001	0
-13	Sulkapallo	party background	Kuntosali	6.1.2001	0
-14	Nuorisotalo	party background	Nuorisotalo	4.1.2001	0
-15	Opiskelijatapahtuma	party background	Arboretum	6.1.2001	0
-16	Pelimessut	workfair background	TAMK	3.1.2001	0
+1	Baari-ilta	party background	Heidi's Bier Bar	1.1.	5
+2	Työmessut	workfair background	Tullintori	1.1.	10
+3	Klubikeikka	background party club	H5	2.1.	5
+4	DJ-Keikka	background party club	Ilona	3.1.	5
+5	Rekrymessut	workfair background	Tredu	3.1.	10
+6	DJ-Keikka	background party club	Lola	5.1.	5
+7	Työmessut	workfair background	Kauppakeskus Ratina	5.1.	10
+8	Pelikahvila	background coffee	Lategame	7.1.	5
+9	Pelibaari	party background	Save file	4.1.	5
+10	Kahvila	background coffee	Valkoinen puu	2.1.	5
+11	Baari-ilta	party background	Alepubi	3.1.	10
+12	Kuntosali	background gym	Kuntosali	4.1.	5
+13	Sulkapallo	background gym	Kuntosali	6.1.	5
+14	Nuorisotalo	backgroung nuorisotalo	Nuorisotalo	4.1.	5
+15	Opiskelijatapahtuma	background park	Arboretum	6.1.	5
+16	Pelimessut	workfair background	TAMK	3.1.	10

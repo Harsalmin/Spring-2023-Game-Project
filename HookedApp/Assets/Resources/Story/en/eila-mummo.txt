@@ -1,5 +1,5 @@
-1	Hei kultaseni! En ole nähnyt sinua aikoihin, joten ajattelin tulla sinne kotikaupunkiisi käymään.	2	[cont]
-2	Lähtisitkö kanssani kahville sinne kaupungin keskustaan, siellä on kuulemma monta hyvää kahvilaa?	3	Tottakai, lähden mielelläni!	0	4	Mummo rakas, ei minulla ole aikaa ja on krapula.	0
-3	Ihanaa, nähdään siellä. Muistathan syödä hyvin ja terveellisesti, ja nukkua kunnolla.	[E]10
-4	Voi sentään, olisin niin kovasti halunnut nähdä sinut.	5	Näitä sattuu	0	5	Näitä sattuu	0
-5	Huono loppu:Arvosta mummoasi, julmuri	[X]
+1	Hey, sweetheart! I haven't seen you in a while, so I though I'd come visit you in your hometown.	2	[cont]
+2	Would you like to join me for a cup of coffee in the city center? I hear there's a lot of good cafes there.	3	Of course, I'll gladly go.	5	4	Grandma darling, I don't have the time and I'm hungover.	-10
+3	Lovely, I'll see you there. Don't forget to eat well and healthy, and get a good night's sleep.	[E]10
+4	Oh dear, I wanted to see you so badly	5	Well...	0	5	Well...	0
+5	Bad Ending:Respect your grandma, you brute.	[X]

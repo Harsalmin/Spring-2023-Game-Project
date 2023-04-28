@@ -1,21 +1,21 @@
-1	Päivää. Aattelin että sua saattais kiinnostaa työmessut	2	[cont]
-2	Sellaset olis huomenna Tullintorilla. Lähetän sulle kutsun, toivottavasti nähdään siellä.	3	Kiitos kutsusta! Koitan tulla paikalle	10	4	En mä taida ehtiä. Kiitos kuitenkin.	-5
-3	Hyvä kuulla. Palaillaan	[E]2
-4	No, ihan oma päätöksesi.	[E]2
-5	Olipa kiva nähdä sut eilen työmessuilla.	6	Kuin myös	0	12	Mieluummin olisin mennyt baariin.	0
+1	Hello. I thought you might be interested in a work fair	2	[cont]
+2	There is one coming up at Tullintori. I'll send you an invitation. I hope to see you there.	3	Thanks for the invitation. I'll try to make it.	10	4	I don't think I have the time. Thanks anyway.	-5
+3	Good to hear. Catch you there.	[E]2
+4	Well, it's your decision.	[E]2
+5	Olipa kiva nähdä sut eilen työmessuilla.	6	Kuin myös	5	12	Mieluummin olisin mennyt baariin.	5
 6	Ensi viikolla olis ihan mielenkiintoinen rekrytapahtuma tulossa.	7	[cont]
 7	Se on kyllä samaan aikaan yhden suositun DJ:n keikan kanssa	8	[cont]
-8	Mutta jos kumpikaan kiinnostaa, niin taas olis tapahtumakutsua tarjolla	9	Kiitos, koitan keretä ainakin toiseen tapahtumaan	0	10	Nyt en halua kyllä osallistua mihinkään tapahtumaan	0
+8	Mutta jos kumpikaan kiinnostaa, niin taas olis tapahtumakutsua tarjolla	9	Kiitos, koitan keretä ainakin toiseen tapahtumaan	10	10	Nyt en halua kyllä osallistua mihinkään tapahtumaan	-10
 9	Loistavaa!	[E]5+4
 10	No ei pakko oo, ollaan yhteydessä.	11	Okei	0	11	Okei	0
 11	Huono loppu:Et mennyt mihinkään, pysyit kotona, et saanut työhaastatteluja. Työpaikateivät tule hakemaan kotoa.	[X]
-12	No, olisi tuossa tulossa yhden suositun DJ:n keikka, jos sellainen kiinnostaa enemmän.	10	Ei sekään kiinnosta	0	13	Nonii asiaa!	0
+12	No, olisi tuossa tulossa yhden suositun DJ:n keikka, jos sellainen kiinnostaa enemmän.	10	Ei sekään kiinnosta	-10	13	Nonii asiaa!	5
 13	Noniin, laitan kutsun sinne sitten.	[E]4
-14	Oliko hyvä keikka? Ainakin kuului musiikki hyvin ulos asti :D	15	Aivan mahtava!	0	21	Ei mikään kummoinen	0
+14	Oliko hyvä keikka? Ainakin kuului musiikki hyvin ulos asti :D	15	Aivan mahtava!	5	21	Ei mikään kummoinen	0
 15	Kiva kuulla :)	16	[cont]
 16	Juteltiin työkaverin kanssa, että meillä olis kyllä järjestyksenvalvojan hommissa aina töitä.	17	[cont]
 17	Eihän se ole sitä, mihin sä olet kouluttautunut, mutta saa ainakin rahaa samalla kun hakee oman alan hommia	18	[cont]
-18	Et jos kiinnostaa, niin voin ilmoittaa sut seuraavalle koulutuskurssille	19	Kiinnostaa, kiitos!	0	23	Eipä kyllä oikein nuo hommat kiinnosta	0
+18	Et jos kiinnostaa, niin voin ilmoittaa sut seuraavalle koulutuskurssille	19	Kiinnostaa, kiitos!	20	23	Eipä kyllä oikein nuo hommat kiinnosta	-10
 19	Mahtava homma, kiva saada sut mukaan porukkaan! :)	20	Jee!	0	20	Jee!	0
 20	Hyvä loppu:Aina ei saa sitä työpaikkaa mitä haluaa, mutta muuta työtä hyväksymällä saat arvokasta kokemusta	[X]
 21	Jaa, harmi jos et tykännyt	16	[cont]
