@@ -1,6 +1,0 @@
-0	Hey. You didn't come to the work fair.	1	[cont]
-1	But it's alright	2	[cont]
-2	There's going to be another one. Interested?	3	Yeah, invite me!	2	4	Not really	-1
-3	Yes. I will.	-1	[next:]Messut
-4	Alright.	5	[cont]
-5	:/	-1	[next:]Shutin

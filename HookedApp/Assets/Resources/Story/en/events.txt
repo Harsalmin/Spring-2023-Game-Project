@@ -1,16 +1,16 @@
-1	Baari-ilta	party background	Heidi's Bier Bar	1.1.	5
-2	Työmessut	workfair background	Tullintori	1.1.	10
-3	Klubikeikka	background party club	H5	2.1.	5
-4	DJ-Keikka	background party club	Ilona	3.1.	5
-5	Rekrymessut	workfair background	Tredu	3.1.	10
-6	DJ-Keikka	background party club	Lola	5.1.	5
-7	Työmessut	workfair background	Kauppakeskus Ratina	5.1.	10
-8	Pelikahvila	background coffee	Lategame	7.1.	5
-9	Pelibaari	party background	Save file	4.1.	5
-10	Kahvila	background coffee	Valkoinen puu	2.1.	5
-11	Baari-ilta	party background	Alepubi	3.1.	10
-12	Kuntosali	background gym	Kuntosali	4.1.	5
-13	Sulkapallo	background gym	Kuntosali	6.1.	5
-14	Nuorisotalo	backgroung nuorisotalo	Nuorisotalo	4.1.	5
-15	Opiskelijatapahtuma	background park	Arboretum	6.1.	5
-16	Pelimessut	workfair background	TAMK	3.1.	10
+1	Bar night	party background	Heidi's Bier Bar	1.1.	5
+2	Work fair	workfair background	Tullintori	1.1.	10
+3	Club gig	background party club	H5	2.1.	5
+4	DJ gig	background party club	Ilona	3.1.	5
+5	Recruiting fair	workfair background	Tredu	3.1.	10
+6	DJ gig	background party club	Lola	5.1.	5
+7	Work fair	workfair background	Ratina	5.1.	10
+8	Gaming café	background coffee	Lategame	7.1.	5
+9	Game bar	party background	Save file	4.1.	5
+10	Café	background coffee	Valkoinen puu	2.1.	5
+11	Bar night	party background	Alepubi	3.1.	10
+12	Gym	background gym	Gym	4.1.	5
+13	Badminton	background gym	Gym	6.1.	5
+14	Youth centre	backgroung nuorisotalo	Youth centre	4.1.	5
+15	Student event	background park	Arboretum	6.1.	5
+16	Game fair	workfair background	TAMK	3.1.	10

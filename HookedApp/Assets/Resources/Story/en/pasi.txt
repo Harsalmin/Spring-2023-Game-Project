@@ -1,8 +1,8 @@
-1	Moro, Pasi täällä!	2	[cont]
-2	Sun kaveri antoi sun yhteystiedot. Meillä olisi pelimessut tulossa, kiinnostaisko osallistua?	3	Ei oikeastaan	-5	4	Kiinnostaa kovasti!	5
-3	Harmi kuulla, eipä mulla muuta	0
-4	Mahtavaa! Minäpä laitan sulle sähköpostiin tarkempaa aikatualua	[E]16
-5	Mukavaa, että tulit paikalle! Tuossa yksi kaveri kyseli sun yhteystietoja, olit kuulemma jutellut työnhaustasi eikä hän muistanut kysyä niitä.	6	[cont]
-6	Sopiiko, että laitan yhteystietosi eteenpäin?	7	Ei kiitos	-10	8	Sopii kyllä	10
-7	Selvä homma, mukavaa päivänjatkoa	0
-8	Hieno homma, sieltä tulee varmaan viestiä pian	[M]Sini:1
+1	Hey, it's Pasi!	2	[cont]
+2	Your friend gave me your contact information. We have a game fair coming up. Would you like to join us?	3	Not really	-5	4	Yeah, I'm interested!	5
+3	I'm sorry to hear that, but that's all I had to say.	0
+4	Awesome! Let me e-mail you a more precise schedule.	[E]16
+5	I'm glad you showed up! There was this one gal who asked for your contact information. She said you'd been talking to her about your job search, and she didn't remember to ask them.	6	[cont]
+6	Do you mind if I pass on your contact information?	7	No, thank you.	-10	8	No, I don't mind	10
+7	All right, have a nice day.	0
+8	That's great. I'm sure they'll send a message soon.	[M]Sini:1

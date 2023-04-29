@@ -1,12 +1,12 @@
-1	Morjens! Kiitos, että pidit seuraa äidille, hän tuppaa olemaan vähän yksinäinen	2	[cont]
-2	Teillä oli ilmeisesti sun työnhakus puheenaiheena	3	[cont]
-3	Jos tulen pyörähtämään sielläpäin ja käydään vaikka kaljalla ja jutellaan lisää?	4	Sopii oikein hyvin	10	5	En ole ihan varma siitä työpaikasta, mutta voin mä baariin lähteä	5
-4	Asia selvä, nähdään pian	[E]11
-5	Selvä, käy minulle. Ei olekaan nähty vähään aikaan	[E]11
-6	Laitoin sinulle pomoni sähköpostiosoitteen, laitahan hakemusta ja CV:tä menemään. Eiköhän noin reippaalle nuorelle töitä keksitä.	7	Selvä, laitan hakemuksen heti!	20	9	En taida laittaa	-20
-7	Hienoa, saat varmaan pian vastauksen. Kehun sinua vähän pomolle vielä.	8	Kiva	0	8	Kiva	0
-8	Hyvä loppu:Sait vastauksen samalla viikolla, ja sait töitä rakennusyrityksestä, edes haastatteluita ei tarvittu setäsi suosituksen perusteella.	[X]
-9	Ei ole pakko, jos et halua	10	Niin	0	10	Niin	0
-10	Huono loppu:Töitä ei saa, jos ei niitä hae	[X]
-11	En tiedä kuka sinut kasvatti, kun noin perutaan ilmoittamatta ja tuhlataan ihmisten aikaa. Voit olla varma, että isäsi kuulee tästä	12	O-ou	0	12	O-ou	0
-12	Huono loppu:Arvosta sukulaisiasi	[X]
+1	Hello! Thanks for keeping mom company. She's getting a little lonely.	2	[cont]
+2	I understand you discussed you job search.	3	[cont]
+3	How about I come over there and we'll have a beer or something and talk more about it?	4	That sounds great!	10	5	I'm not sure about the job, but I can go to the bar.	5
+4	Gotcha, we'll see each other soon.	[E]11
+5	Okay, fine by me. I haven't seen you in a while.	[E]11
+6	I sent you my boss's e-mail address, put in an application and your CV. I'm sure we'll find a job for such a brisk young man.	7	Great, I'll send you the application right away!	20	9	I think I won't.	-20
+7	Great. I'm sure you'll get an answer soon enough. I'm gonna praise you to my boss a bit.	8	Nice	0	8	Nice	0
+8	Good ending:You got an answer that same week, and you got a job in the construction company, even an interview was not needed on the basis of your uncle's recommendation.	[X]
+9	You don't have to if you don't want to.	10	Yeah	0	10	Yeah	0
+10	Bad ending:You won't get a job if you don't apply for them.	[X]
+11	I don't know who raised you when you cancel without notification and waste people's time. You can be sure your father will hear about this.	12	Uh oh	0	12	Uh oh	0
+12	Bad ending:Respect your relatives	[X]

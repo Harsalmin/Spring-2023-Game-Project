@@ -1,27 +1,27 @@
-1	Moro! Kiinnostaako yhtään lähteä pelaamaan Savefileen?	2	Sori, en nyt pysty	0	6	Todellakin! En oo käynyt siellä aikoihin.	5
-2	Okei, keksitään muuta tekemistä	3	[cont]
-3	Lähekkö punttisalille?	4	Pumppia hakemaan	5	5	Ei kiitos	-5
-4	Jes, laitetaan rauta nöyrtymään!	[E]12
-5	Heikkoutta, menen sitten itse	0
-6	Mahtavaa, nähdään siellä vaikka kello 18.00!	[E]9
-7	Moro! Oli kiva ilta eilen.	8	[cont]
-8	Törmäsin siellä muuten yhteen TAMKin opettajaan, juteltiin sen kanssa hetki pelialasta ja siellä olevista työmahdollisuuksista	9	[cont]
-9	Niillä on kuulemma jotkut pelimessut tulossa, missä opiskelijat esittelee omia mobiilipelejään.	10	[cont]
-10	Jos kiinnostaa, niin voin antaa sille sun yhteystiedot	11	Anna vaan	5	12	En mä halua kenenkään random opettajan ottavan yhteyttä	0
-11	Jees, se varmaan laittaa sulle viestiä piakkoin.	[M]Pasi:1+Ville:21
-12	Selvä homma, ymmärrän kyllä	0
-13	Ei oo fresh perua tollai ilmoittamatta	8	[cont]
-14	Mitä mitä, eikö sali kiinnosta?	15	[cont]
-15	Sun pitää huolehtia kropastas, et ole nuori ikuisesti.	0
-16	Ai että tuli hyvä pumppi eilen! Oli vaikeeta nousta sängystä tänä aamuna	17	[cont]
-17	Muuten, yks tyyppi kysyi sun yhteystietoja, kuuli kun me puhuttiin sun olevan töitä vailla	18	[cont]
-18	Annanko ne sille?	19	Älä helkutissa	5	20	Anna vaan	-5
-19	Joo, varmaan parempi niin, se oli vähän shady tyyppi.	0
-20	Okei, mut oo varovainen, en mä sitä tunne	[M]Kari:1
-21	Toisaalta voitais mennä yhdessä vaikka pelaamaan sulkapalloa	22	Pelimessut kuulostaa kiinnostavammalta.	5	23	Sulkapallo kiinnostais kyllä enemmän.	5
-22	Jees! Saatan itsekin poiketa siellä	0
-23	Okei, mä varaan meille vuoron!	[E]13
-24	Oli mahtavat pelit eilen!	25	[cont]
-25	Kuule, et sattuis tietämään ketään rakennusalalta? Jäi harjoittelut vähän viime tippaan ja tarttis saada töitä kesäksi	26	Joo, mun setäni on työnjohtaja raksalla, voin antaa sen sähköpostin	20	27	Sori, en tunne ketään	-5
-26	Kiitos paljon!	0
-27	Äh. No ei voi mitään, kiitos kuitenkin.	0
+1	Hello! Are you interested in going to play in SaveFile?	2	Sorry, I can't	0	6	Of course! I haven't been there in a while.	5
+2	Okay, let's figure out something else to do.	3	[cont]
+3	Wanna go to the gym?	4	Let's get that pump	5	5	No thanks.	-5
+4	Yes, let's lift iron!	[E]12
+5	Weakling. I'll go by myself.	0
+6	Great! I'll see you there at 6 p.m.!	[E]9
+7	Hello! It was nice to see you last night.	8	[cont]
+8	By the way, I ran into one of TAMK's teachers there, talked to him about the game industry and the job opportunities there.	9	[cont]
+9	He said that they have some game fair coming up, where students present their own mobile games.	10	[cont]
+10	If you're interested, I can give him your contact information.	11	Yeah, sure	5	12	I don't want any random teacher to contact me.	0
+11	Okay, we probably will contact you soon.	[M]Pasi:1+Ville:21
+12	Okay, I get it.	0
+13	It's not fresh to cancel without notifying.	8	[cont]
+14	What, you don't care about the gym?	15	[cont]
+15	You gotta take care of your body. You're not young forever.	0
+16	Oh, I got a good pump last night! It was hard getting out of bed this morning.	17	[cont]
+17	By the way, there was this guy who asked for your contact information when we talked about you being out of work.	18	[cont]
+18	Shall I give them to him?	19	Hell no.	5	20	Yeah, sure.	-5
+19	Yeah, probably better that way, he was a little shady guy.	0
+20	Okay, but be careful, I don't know him.	[M]Kari:1
+21	On the other hand, we could go play badminton together.	22	Game fair sounds more intersting.	5	23	I'd be more interested in badminton.	5
+22	Alright! I might stop by there myself.	0
+23	Okay, I'll reserve us a field.	[E]13
+24	We had a great game last night!	25	[cont]
+25	Look, you wouldn't happen to know anyone in the construction business, would you? I'm late with my practical training and I need a job for the summer.	26	Yeah, my uncle's a foreman on construction business. I can give you the e-mail.	20	27	Sorry, I don't know anyone.	-5
+26	Thanks a lot!	0
+27	Huh. Well, it's alright, thanks anyway.	0

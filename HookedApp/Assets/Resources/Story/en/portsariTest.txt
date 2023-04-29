@@ -1,6 +1,0 @@
-0	Hey. Megismarko gave this number.	1	[cont]
-1	Are you interested in a work fair?	2	Yeah	30	4	Nope	-10
-2	Nice I'll invite you	3	[cont]
-3	Or actually i'll invite you to two events. You decide which one you like more	-1	[next:]Tapahtumakutsut
-4	Oh well alrighty then	5	[cont]
-5	Except this is a demo version and you have no options	-1	[next:]Tapahtumakutsut2

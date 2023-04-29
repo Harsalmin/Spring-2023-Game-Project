@@ -1,9 +1,9 @@
-1	Y	Vietitte Markon kanssa railakkaan illan baarissa. Myös Markon kavereita oli paikalla. Nyt on krapula.
-1	N	Et lähtenyt baariin tällä kertaa. Markolta tuli monta snappia illan aikana, mutta ajattelit kuitenkin hyvien yöunien olevan tärkeämmät.
-2	Y	Lähdit työmessuille. Törmäsitte siellä Jonin kanssa ja juttelitte hetken, ennen kuin jatkoit messujen kiertelyä.
-2	N	Et lähtenyt Tullintorin työmessuille, tämä saattaa hankaloittaa työllistymistäsi.
-3	Y	Klubilla oli mieletön meininki ja artisti pisti parastaan. Tunnelma oli katossa! Tanssitte Markon ja hänen kavereidensa kanssa pilkkuun asti. 
-3	N	Et taaskaan lähtenyt Markon kanssa radalle, vaan keskityit muihin asioihin. Marko laittoi kuvia keikasta, ja kaduit hieman päätöstäsi.
+1	Y	Marko and you spent a rowdy night at the bar. Marko's friends were also there. Now you have a hangover.
+1	N	You didn't go to the bar this time. Marko sent you many snaps during the evening, but you thought that a good night's sleep was more important.
+2	Y	You went to a work fair. You and Joni ran into each other there and talked for a while before you kept going around the fair.
+2	N	You didn't go to the Tullintori work fair. This might make your employment difficult.
+3	Y	The club had an amazing vibe going on and the artist was giving their all. The atmosphere was in the ceiling! You danced with Marko and his friends until closing time.
+3	N	You didn't go to the club with Marko, instead you focused on other thigs. Marko sent pictures of the gig, and you regretted not going a little bit.
 4	Y	DJ veti huikean keikan! Joni oli töissä ovella, mutta saitte vaihdettua muutaman sanan sekä hänen, että hänen työkaverinsa kanssa.
 4	N	Et mennyt DJ:n keikalle.
 5	Y	Lähdit uudelleen työmessuille mieluista työpaikkaa etsiskellen. Törmäsit uudestaan Joniin, joka esitteli sinut yhdelle paikalla olleista työnantajien edustajista.

@@ -1,11 +1,11 @@
-1	Moro! Tero tässä, juteltiin eilen sinun ja Jonin kanssa sinun työtilanteestasi	2	[cont]
-2	Juttelin tuossa muun rekrytiimin kanssa, ja ajattelimme, että meillä saattaisi olla sinulle sopivaa työtä tarjolla	3	[cont]
-3	Voisitko laittaa minulle CV:n vaikka sähköpostilla, ja kirjoittaisitko vielä perään, millaista koulutusta teillä on ammattikoulussa ollut, kursseja yms.	4	Mahtavaa, laitan sähköpostia tulemaan!	20	5	Kiitos, mutta en ole kiinnostunut	-20
-4	Mahtava juttu, olemme yhteydessä työhaastattelun suhteen!	[WAIT]
-5	Okei, selvä homma. Kiitos mielenkiinnostasi	6	Kuulemiin	0	6	Kuulemiin	0
-6	Huono loppu:Jos et laita hakemusta menemään, kun sitä kysytään, miksi edes pelaat tätä peliä?	[X]
-7	Hei siitä sinun työhakemuksestasi. Haluaisimme kutsua sinut haastatteluun, kävisikö vaikka tällä viikolla?	8	Aivan mahtavaa! Tulen mielelläni haastatteluun	20	10	Valitettavasti en voi tulla haastatteluun	-20
-8	Mahtava juttu! Sovitaan tarkempi ajankohta haastattelulle sähköpostitse.	9	Tehdään näin	0	9	Tehdään näin	0
-9	Hyvä loppu:Pääsit työhaastatteluun, onnittelut!	[X]
-10	Selvä juttu, kiitos kuitenkin mielenkiinnostasi	6	Jees	0	6	Jees	0
-11	Hei siitä sinun työhakemuksestasi. Valitettavasti valintamme ei tällä kertaa kohdistunut sinuun, kiitos kuitenkin mielenkiinnostasi.	0
+1	Hello! It's Tero, I talked with you and Joni yesterday about your work situation.	2	[cont]
+2	I talked to the rest of the recruitment team, and we thought we might have work that suits you.	3	[cont]
+3	Could you e-mail me your CV and write back what kind of training you have had in vocational school, courses etc.	4	That's great, I'll send the e-mail right away!	20	5	Thank you, but I'm not interested.	-20
+4	That's great. We're in touch about the job interview!	[WAIT]
+5	Alright. Thank you for your interest.	6	Thanks	0	6	Thanks	0
+6	Bad ending:If you don't send the job application when you're asked, why are you even playing this game?	[X]
+7	Hey, about your job application. We'd like to invite you to an interview. How about this week?	8	That's great! I'd love to come to an interview!	20	10	I'm afraid I can't come to an interview.	-20
+8	That's great! We'll set the date for the interview by email.	9	Yeah let's do that	0	9	Yeah let's do that	0
+9	Good ending:You landed a job interview, congratulations!	[X]
+10	Alright, thank you for your interest anyway.	6	Yeah	0	6	Yeah	0
+11	Hey, about your job application. Unfortunately this time our choice did not land on you, but thank you for your interest.	0
