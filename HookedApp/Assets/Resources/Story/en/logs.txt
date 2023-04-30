@@ -4,29 +4,29 @@
 2	N	You didn't go to the Tullintori work fair. This might make your employment difficult.
 3	Y	The club had an amazing vibe going on and the artist was giving their all. The atmosphere was in the ceiling! You danced with Marko and his friends until closing time.
 3	N	You didn't go to the club with Marko, instead you focused on other thigs. Marko sent pictures of the gig, and you regretted not going a little bit.
-4	Y	DJ veti huikean keikan! Joni oli töissä ovella, mutta saitte vaihdettua muutaman sanan sekä hänen, että hänen työkaverinsa kanssa.
-4	N	Et mennyt DJ:n keikalle.
-5	Y	Lähdit uudelleen työmessuille mieluista työpaikkaa etsiskellen. Törmäsit uudestaan Joniin, joka esitteli sinut yhdelle paikalla olleista työnantajien edustajista.
-5	N	Et osallistunut näille työmessuille.
-6	Y	DJ veti mielettömän setin, ja törmäsitte Miran kanssa keikalla. Tanssitte yhdessä ja nautitte toistenne seurasta.
-6	N	Et lähtenyt DJ-keikalle Miran kanssa. Mira ei ollut tyytyväinen, hän ei ole viestitellyt sen koommin.
-7	Y	Ratinassa oli melkoinen vilske. Useilla kymmenillä työnantajilla oli oma pöytänsä, jossa heillä oli esitteitä tarjolla olevista töistä. Kiinnostuit useista paikoista, ja uskalsit kertoa omasta koulutuksestasi ja työnhaustasi. Pari työnantajaa osoitti kiinnostustaan, ja lupasit lähettää heille CV:n.
-7	N	Et lähtenyt työmessuille Ratinaan.
-8	Y	Pelasitte yhdessä Miran kanssa erilaisia pelejä ja nauroitte toisillenne. Mira osoittautui oikein kilpailuhenkiseksi ja sait laittaa parastasi hänet päihittääksesi.
-8	N	Et lähtenyt Miran kanssa pelaamaan lupauksestasi huolimatta. Mira ei ole iloinen. 
-9	Y	Pelasitte yhdessä Villen kanssa koko illan. Ville voitti sinut helposti mätkintäpeleissä, mutta annoit samalla mitalla takaisin ajopeleissä.
-9	N	Et lähtenytkään Villen kanssa pelaamaan.
-10	Y	Kahvittelu mummon kanssa sujuu mukavasti ja on kiva vaihtaa kuulumisia ja kuulla muiden sukulaisten tapahtumia. Keskustelu kääntyy pian sinun lähestyvään valmistumiseen ja työtilanteeseen. Mummo muistaa jutelleensa setäsi kanssa, joka on työnjohtajana paikallisessa rakennusfirmassa. Setä oli puhunut, kuinka on vaikeaa löytää nuoria työntekijöitä kesätyöntekijöiksi. Kiinnostuit aiheesta ja mummo lupaa ottaa puheeksi sedän kanssa sinun kiinnostuksesi töitä kohtaan ja kehottaa setää ottamaan sinuun yhteyttä.
-10	N	Olet julma
-11	Y	Keskustelu Raimon kanssa soljuu mukavasti ja kuulet paljon hyviä vinkkejä rakennusalaan liittyen ja mitä ala pitää sisällään. Kiinnostut kovasti kesätyömahdollisuudesta
-11	N	Et lähtenytkään baariin setäsi kanssa lupauksestasi huolimatta. Setäsi ei ole iloinen.
-12	Y	Hiki virtasi ja tsemppasitte Villen kanssa toisianne sarjoja tehdessä. Tuntui totisesti siltä, että jotain on tehty. Treenin ohella juttelitte työtilanteestasi.
-12	N	Et mennyt Villen kanssa puntille.
-13	Y	Pelaatte Villen kanssa sulkapallovuoron, molemmat ottivat homman tosissaan ja vuoron lopuksi kummatkin olivat hiestä märkänä.
-13	N	Et lähtenytkään pelaamaan sulkapalloa Villen kanssa. Pahoittelit asiaa Villelle, joka sanoi etsivänsä vuorolle uuden pelikaverin.
-14	Y	Menit nuorisotalolle, jossa tapasit Liisan ja hänen kaverinsa Aatun. Aatu halusi pelata biljardia, mutta Liisa ei oikein välittänyt siitä, joten sinä pelasit Aatun kanssa. Huomasit, että tulet hyvin juttuun Aatun kanssa ja keskustelun lomassa kävi ilmi, että hän on mukana järjestämässä opiskelijatapahtumia. Vaihdoitte yhteystietoja ja puhuitte, että olisi mukava tavata uudestaan porukalla jossain.
-14	N	Et lähtenyt Liisan kanssa nuorisotalolle, ja menetit mahdollisuuden tutustua hänen kaveriinsa Aatuun.
-15	Y	Vietit kauniin kesäpäivän ulkoilun merkeissä Arboretumissa. Aatun kanssa tuli puheeksi työasiat ja hän oli vasta aloittanut työt uudessa paikassa.
-15	N	Vietit kauniin kesäpäivän kotona pelaten videopelejä, etkä osallistunut ulkoilutapahtumaan.
-16	Y	Lähdet pelimessuille, ja kuuntelet mielenkiinnolla opiskelijoiden peliesittelyitä. Törmäät messuilla Pasiin, jonka kanssa rupattelette TAMKin opiskelumahdollisuuksista. Paikalla on myös peliyritysten edustajia, joiden kanssa päädyt juttelemaan valmistumisestasi.
-16	N	Et lähtenyt pelimessuille. Pasista ei kuulunut sen koommin.
+4	Y	DJ performed an awesome set! Joni was working at the door, but you managed to exchange a few words with both him and his co-worker.
+4	N	You did not go to the DJ gig.
+5	Y	You went for another job fair looking for a job that you'd like. You ran into Joni again, who introduced you to one of the employers' representatives who were there.
+5	N	You did not take part in this recruiting fair.
+6	Y	The DJ pulled a crazy set, and you and Mira ran into each other at the gig. You danced together and enjoyed each other's company.
+6	N	You didn't go to the DJ gig with Mira. Mira wasn't happy. She hasn't texted you since.
+7	Y	There was quite a stir in Ratina. Many dozens of employers had their own table where they had brochures on the work available. You were interested in several places, and you dared to tell them about your own training and job search. A couple of employers showed interest, and you promised to send them a CV.
+7	N	You didn't go to the work fair in Ratina.
+8	Y	You and Mira played different games and laughed at each other. Mira turned out to be very competitive, and you got to put in your best effort to beat her.
+8	N	You didn't got out with Mira to play despite your promise. Mira's not happy.
+9	Y	You and Ville played together all night. Ville beat you easily in the combat games, but you gave him the same amount back in the racing games.
+9	N	You didn't go play some games with Ville.
+10	Y	Coffee with grandma was nice and it was nice to catch up and hear about other family events. The conversation soon turned to your approaching graduation and work situation. Grandma remembered talking to your uncle, who's a foreman at the local construction company. Uncle had talked about how difficult it was to find young workers for summer jobs. You got interested in the subject and Grandma promised to talk to your uncle about your interest in work and tell him to contact you.
+10	N	You are cruel.
+11	Y	The discussion with Raimo was smooth and you heard a lot of good tips about the construction sector and what the industry contains. You were ver interested in the possibility of summer work.
+11	N	You didn't go to the bar with your uncle, despite your promise. Your uncle's not happy.
+12	Y	The sweat flowed, and you and Ville encouraged each other during sets. It certainly felt like something had been done. Besides training, you talked about your work situation.
+12	N	You didn't go to the gym with Ville.
+13	Y	You and Ville played a badminton shift, both took the game seriously, and at the end of the shift, you both were sweaty.
+13	N	You never went to play badminton with Ville. You apologized to Ville, who said he was going to find a new player to play with him.
+14	Y	You went to the youth centre where you met Liisa and her friend Aatu. Aatu wanted to play pool, but Liisa didn't really care about it, so you played with Aatu. You noticed that you're getting along well with Aatu and it turns out that he's involved in organizing student events. You changed your contact information and talked about how nice it would be to meet each other again.
+14	N	You didn't go to the youth centre with Liisa, and you missed a chance to get to know her friend Aatu.
+15	Y	You spent a beautiful summer day out in Arboretum. Aatu and you talked about work and he had only just started working in a new place.
+15	N	You spent a beautiful summer day at some playing video games and didn't attend the outdoor event.
+16	Y	You went to the game fair, and you listened with interest to the students' game presentations. You met Pasi at the fair, with whom you chatted about TAMK's study opportunities. There were also representatives of the gaming companies with whom you ended up talking about your graduation.
+16	N	You did not go to the game fair. You did not hear from Pasi since.
