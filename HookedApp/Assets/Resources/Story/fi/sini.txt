@@ -3,7 +3,7 @@
 3	Tarvitsisimme apukäsiä vähän kaikenlaiseen työhön, kuten tapahtumajärjestelyyn, ei siis vain pelikehitykseen, ja suurin osa on helppo oppia.	4	[cont]
 4	Kiinnostaisiko tulla haastatteluun?	5	En ole kiinnostunut	-20	7	Kiinnostaa!	20
 5	Selvä juttu, kiitos kuitenkin ajastasi	6	[cont]
-6	Huono loppu:Jos et mene työhaastatteluun, miksi edes pelaat täät peliä?	[X]
+6	Huono loppu:Jos et mene työhaastatteluun, miksi edes pelaat tätä peliä?	[X]
 7	Mahtava juttu! Sovitaan tarkempi ajankohta haastattelulle sähköpostitse.	8	[cont]
 8	Ota vaikka opintosuorite mukaan, niin katsotaan sinulle mielekästä tekemistä	9	Tehdään näin	0	9	Tehdään näin	0
 9	Hyvä loppu:Vaikka työpaikka ei olekaan sitä, mitä ajattelit, pääsit silti työhaastatteluun, onnittelut!	[X]
