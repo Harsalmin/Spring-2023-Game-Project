@@ -30,7 +30,7 @@
 30	Oli ihan törkeän hauska ilta eilen :)	31	Ensi kerralla päihitän sut kunnolla ;)	0	32	En olekaan pelaillut kunnolla pitkään aikaan!	0
 31	No voooi, eikä kantti kestä kun saat köniisi naiselta?	32	[cont]
 32	Siellä muuten törmäsin yhteen Pasiin, se on opettajana TAMKilla.	33	[cont]
-33	Sen kanssa juttu kuistaa, kun se on niin kova puhumaan. Pasi kertoi vähän pelialasta ja siellä olevista työmahdollisuuksista	34	[cont]
+33	Sen kanssa juttu luistaa, kun se on niin kova puhumaan. Pasi kertoi vähän pelialasta ja siellä olevista työmahdollisuuksista	34	[cont]
 34	Se kertoi, että opiskelijoilla on tulossa jotkut pelimessut, missä ne esittelee tekemiään mobiilipelejä. Annanko sille sun yhteystiedot?	35	Ei oikein kiinnosta	-5	36	Anna vaan, pelimessut kuulostaa kivalta.	10
 35	Selvä juttu, ollaan yhteydessä!	0
 36	Okei, se varmaan laittaa sulle viestiä pian.	[M]Pasi:1
