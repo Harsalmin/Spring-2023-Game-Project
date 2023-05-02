@@ -18,6 +18,7 @@ public class EventControl : MonoBehaviour
     Control control;
     LanguageControl language;
     bool waitForTero = false;
+    bool dayTwo = false;
 
     [SerializeField] private Image fade;
     [SerializeField] Animator popupAnimator;
@@ -48,9 +49,13 @@ public class EventControl : MonoBehaviour
         {
             // Baari-ilta Heidi's
             case 1:
-                control.StartConversation("Eila-mummo", 1);
-                control.StartConversation("Ville", 1);
-                control.StartConversation("Liisa", 1);
+                if (!dayTwo)
+                {
+                    control.StartConversation("Eila-mummo", 1);
+                    control.StartConversation("Ville", 1);
+                    control.StartConversation("Liisa", 1);
+                    dayTwo = true;
+                }
 
                 if (e.Went)
                 {
@@ -65,11 +70,15 @@ public class EventControl : MonoBehaviour
 
             // Työmessut Tullintori
             case 2:
-                control.StartConversation("Eila-mummo", 1);
-                control.StartConversation("Ville", 1);
-                control.StartConversation("Liisa", 1);
+                if (!dayTwo)
+                {
+                    control.StartConversation("Eila-mummo", 1);
+                    control.StartConversation("Ville", 1);
+                    control.StartConversation("Liisa", 1);
+                    dayTwo = true;
+                }
 
-                if(e.Went)
+                if (e.Went)
                 {
                     Stats.AddPoints(-5);
                     control.StartConversation("Joni", 5);
