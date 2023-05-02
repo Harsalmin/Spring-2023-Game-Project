@@ -302,6 +302,22 @@ public class EventControl : MonoBehaviour
             if (e.Date == current.Date)
             {
                 e.Answered = true;
+
+                // changes every event on the same date so that they are already answered
+                if (e.Id != current.Id)
+                {
+                    e.Went = false;
+                    foreach (GameObject btn in eventButtons)
+                    {
+                        if (btn.name == "Event_" + e.Name)
+                        {
+                            Sprite wentImg = Resources.Load<Sprite>("Art/invite_no");
+
+                            // Adds the sprite
+                            btn.transform.Find("Image").GetComponent<Image>().sprite = wentImg;
+                        }
+                    }
+                }
             }
         }
 
@@ -556,7 +572,7 @@ public class EventControl : MonoBehaviour
     {
         if (waitForTero)
         {
-            if (Stats.GetApproval() > 100)
+            if (Stats.GetApproval() > 50)
             {
                 control.StartConversation("Tero", 7);
             }

@@ -70,7 +70,6 @@ public class MessageSender : MonoBehaviour
         // Displays the notification and changes the icon if this screen is not active currently
         if (!conversationParent.activeInHierarchy)
         {
-            Debug.Log("Is not active in hierarchy");
             if (control != null)
             {
                 control.NewMessagesNotif();
@@ -143,7 +142,7 @@ public class MessageSender : MonoBehaviour
             Debug.Log("Wait");
             if(characterName == "Leevi")
             {
-                if(Stats.GetApproval() > 100)
+                if(Stats.GetApproval() > 50)
                 {
                     control.StartConversation("Leevi", 4);
                 }
@@ -154,7 +153,7 @@ public class MessageSender : MonoBehaviour
             }
             else if(characterName == "Tero")
             {
-
+                control.WaitForTero();
             }
         }
         else
