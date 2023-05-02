@@ -1481,7 +1481,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -24.999939}
+  m_AnchoredPosition: {x: 0, y: -25}
   m_SizeDelta: {x: -200, y: -450}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &194356542
@@ -1892,7 +1892,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4204826550445189971, guid: a4659830826fc5b46a204f32550ace93, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Ville
+      value: Raimo
       objectReference: {fileID: 0}
     - target: {fileID: 4204826550445189971, guid: a4659830826fc5b46a204f32550ace93, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -4098,7 +4098,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4204826550445189971, guid: a4659830826fc5b46a204f32550ace93, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Juhani
+      value: Kari
       objectReference: {fileID: 0}
     - target: {fileID: 4204826550445189971, guid: a4659830826fc5b46a204f32550ace93, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -4653,8 +4653,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 31196210}
   m_HandleRect: {fileID: 31196209}
   m_Direction: 2
-  m_Value: 1.000002
-  m_Size: 0.9588402
+  m_Value: 1
+  m_Size: 0.96455914
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -5164,7 +5164,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1292307602}
   m_Direction: 2
   m_Value: 1.0000026
-  m_Size: 0.91011316
+  m_Size: 0.9220523
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -6232,7 +6232,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4204826550445189971, guid: a4659830826fc5b46a204f32550ace93, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Juhani
+      value: Leevi
       objectReference: {fileID: 0}
     - target: {fileID: 4204826550445189971, guid: a4659830826fc5b46a204f32550ace93, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -8473,7 +8473,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4204826550445189971, guid: a4659830826fc5b46a204f32550ace93, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Ville
+      value: Sini
       objectReference: {fileID: 0}
     - target: {fileID: 4204826550445189971, guid: a4659830826fc5b46a204f32550ace93, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -8615,7 +8615,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4204826550445189971, guid: a4659830826fc5b46a204f32550ace93, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Ville
+      value: Tero
       objectReference: {fileID: 0}
     - target: {fileID: 4204826550445189971, guid: a4659830826fc5b46a204f32550ace93, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -9997,7 +9997,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -24.999939}
+  m_AnchoredPosition: {x: 0, y: -25}
   m_SizeDelta: {x: -200, y: -450}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1415831931
@@ -10156,7 +10156,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4204826550445189971, guid: a4659830826fc5b46a204f32550ace93, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Eila-mummo
+      value: Aatu
       objectReference: {fileID: 0}
     - target: {fileID: 4204826550445189971, guid: a4659830826fc5b46a204f32550ace93, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -14860,7 +14860,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 348158332416940287}
   m_HandleRect: {fileID: 348158332416940284}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
