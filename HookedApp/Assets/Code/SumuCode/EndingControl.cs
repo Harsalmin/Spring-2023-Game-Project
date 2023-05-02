@@ -99,9 +99,9 @@ public class EndingControl : MonoBehaviour
 
     public void BackToMenu()
     {
-        if (GameObject.Find("Loader") != null)
+        if (GameObject.Find("LevelLoader") != null)
         {
-            GameObject.Find("Loader").GetComponent<LevelLoader>().LoadLevel("StartMenu");
+            GameObject.Find("LevelLoader").GetComponent<LevelLoader>().LoadLevel("StartMenu");
         } 
         else
         {

@@ -263,7 +263,6 @@ public class MessageSender : MonoBehaviour
         conversationWindow = conversations.transform.Find("Conversation_" + characterName).Find("Scroll View").Find("Viewport").Find("Conversation").gameObject;
         conversationParent = conversations.transform.Find("Conversation_" + characterName).gameObject;
         conversationParent.SetActive(false);
-        Debug.Log("Trying to find " + characterName);
         newMessagesImg = chatButtons.transform.Find("Character_" + characterName).Find("Image").GetComponent<Image>();
     }
 

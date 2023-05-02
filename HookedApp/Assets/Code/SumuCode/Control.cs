@@ -150,6 +150,7 @@ public class Control : MonoBehaviour
     public void ToggleConversation(string characterName)
     {
         ToggleApp("Chat");
+        Debug.Log(characterName);
         foreach(MessageSender sender in messageSenders)
         {
             if(sender.GetName() == characterName)

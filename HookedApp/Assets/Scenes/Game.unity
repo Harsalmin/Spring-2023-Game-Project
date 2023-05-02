@@ -3140,7 +3140,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1526147310085887226, guid: 6979d5cd75917714f8364a4d91b34151, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Juhani
+      value: Aatu
       objectReference: {fileID: 0}
     - target: {fileID: 1526147310381128697, guid: 6979d5cd75917714f8364a4d91b34151, type: 3}
       propertyPath: m_Content
@@ -3584,7 +3584,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1526147310085887226, guid: 6979d5cd75917714f8364a4d91b34151, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Juhani
+      value: Tero
       objectReference: {fileID: 0}
     - target: {fileID: 1526147310381128697, guid: 6979d5cd75917714f8364a4d91b34151, type: 3}
       propertyPath: m_Content
@@ -6278,7 +6278,7 @@ GameObject:
   - component: {fileID: 1053639202}
   - component: {fileID: 1053639204}
   m_Layer: 0
-  m_Name: Loader
+  m_Name: Stats
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6686,7 +6686,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1526147310085887226, guid: 6979d5cd75917714f8364a4d91b34151, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Juhani
+      value: Kari
       objectReference: {fileID: 0}
     - target: {fileID: 1526147310381128697, guid: 6979d5cd75917714f8364a4d91b34151, type: 3}
       propertyPath: m_Content
@@ -6930,7 +6930,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1526147310085887226, guid: 6979d5cd75917714f8364a4d91b34151, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Juhani
+      value: Leevi
       objectReference: {fileID: 0}
     - target: {fileID: 1526147310381128697, guid: 6979d5cd75917714f8364a4d91b34151, type: 3}
       propertyPath: m_Content
@@ -7937,7 +7937,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1526147310085887226, guid: 6979d5cd75917714f8364a4d91b34151, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Juhani
+      value: Sini
       objectReference: {fileID: 0}
     - target: {fileID: 1526147310381128697, guid: 6979d5cd75917714f8364a4d91b34151, type: 3}
       propertyPath: m_Content
@@ -13792,7 +13792,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1526147310085887226, guid: 6979d5cd75917714f8364a4d91b34151, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Juhani
+      value: Raimo
       objectReference: {fileID: 0}
     - target: {fileID: 1526147310381128697, guid: 6979d5cd75917714f8364a4d91b34151, type: 3}
       propertyPath: m_Content
@@ -14282,7 +14282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aa08ab6e0800fa44ae55d278d1423e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Content: {fileID: 348158332740295617}
+  m_Content: {fileID: 7189822580231065501}
   m_Horizontal: 0
   m_Vertical: 1
   m_MovementType: 2
@@ -15132,7 +15132,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000030517578, y: -50}
+  m_AnchoredPosition: {x: -0.000030517578, y: -0.000061035156}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &7189822580231065502
