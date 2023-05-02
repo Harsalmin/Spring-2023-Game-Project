@@ -11,6 +11,7 @@ public class EndingControl : MonoBehaviour
     [SerializeField] private Image fade;
     [SerializeField] private TMP_Text promptText, yes, no;
     [SerializeField] private Animator promptAnim;
+    [SerializeField] private AudioSource goodEndingSound, badEndingSound;
     int finalPoints = 0;
 
     // Start is called before the first frame update
@@ -32,6 +33,16 @@ public class EndingControl : MonoBehaviour
 
         title.text = Stats.GetEndCreditsTitle();
         description.text = Stats.GetEndCreditsDesc();
+
+        // Plays either the good ending sound or the bad ending sound
+        if(title.text.StartsWith("Good") || title.text.StartsWith("Hyvä"))
+        {
+            goodEndingSound.Play();
+        }
+        else
+        {
+            badEndingSound.Play();
+        }
     }
 
     public void FadePopup(bool fadeIn)

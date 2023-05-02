@@ -16,7 +16,7 @@
 16	Mahtavaa! Laitan sulle infoa	[E]3
 17	Okei, laitan sulle tapahtumakutsun joka tapauksessa	[E]3
 18	Mieletön keikka eilen!	8	Oli kyllä!	5	19	Vähän soi korvissa vieläkin	0
-19	Onko tälle illalle suunnitelmia, olis kotibileet tiedossa	-15	Bileet!	0	21	Ei enää bilettämistä vähään aikaan	5
+19	Onko tälle illalle suunnitelmia, olis kotibileet tiedossa	20	Bileet!	-15	21	Ei enää bilettämistä vähään aikaan	5
 20	Huono loppu:Elämä ei ole pelkkää bilettämistä	[X]
 21	Ymmärrän, kiitti ku olit messissä!	0
 22	Missasit hyvän keikan eilen, onko kaikki okei?	23	Joo on, on ollu vaan kiireitä viime aikoina	0	23	Työnhaku vaan stressaa	0

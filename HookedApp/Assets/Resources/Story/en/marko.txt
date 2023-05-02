@@ -16,7 +16,7 @@
 16	Great! I'll send you the info.	[E]3
 17	Ok, I'll send you the event invitation regardless.	[E]3
 18	Awesome gig yesterday!	8	It was!	5	19	My ears are still ringing.	0
-19	Do you have any plans for tonight? We've got a home party coming up.	-15	Party on!	0	21	No more partying for a while.	5
+19	Do you have any plans for tonight? We've got a home party coming up.	20	Party on!	-15	21	No more partying for a while.	5
 20	Bad ending:There is more to life than partying.	[X]
 21	I understand, thanks for coming along.	0
 22	You missed a great gig yesterday, is everything alright?	23	Yeah, I've been just busy lately.	0	23	Job searching just stresses me out.	0
