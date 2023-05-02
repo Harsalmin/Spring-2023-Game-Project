@@ -1,10 +1,10 @@
 1	Baari-ilta	party background	Heidi's Bier Bar	1.6.	5
-2	Tyomessut	workfair background	Tullintori	1.6.	10
+2	Työmessut	workfair background	Tullintori	1.6.	10
 3	Klubikeikka	background party club	H5	2.6.	5
 4	DJ-Keikka	background dj	Ilona	3.6.	5
 5	Rekrymessut	workfair background	Tredu	3.6.	10
 6	DJ-Keikka	background dj	Lola	5.6.	5
-7	Tyomessut	workfair background	Kauppakeskus Ratina	5.6.	10
+7	Työmessut	workfair background	Kauppakeskus Ratina	5.6.	10
 8	Pelikahvila	background coffee	Lategame	7.6.	5
 9	Pelibaari	party background	Save file	4.6.	5
 10	Kahvila	background coffee	Valkoinen puu	2.6.	5
