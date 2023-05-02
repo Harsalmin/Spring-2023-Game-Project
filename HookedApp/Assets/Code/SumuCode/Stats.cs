@@ -74,4 +74,9 @@ public class Stats : MonoBehaviour
     {
         return endCreditsDesc;
     }
+
+    public static void ResetPoints()
+    {
+        approval = 0;
+    }
 }

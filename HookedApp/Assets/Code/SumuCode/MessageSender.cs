@@ -48,6 +48,7 @@ public class MessageSender : MonoBehaviour
     // Starts the message sender
     public void StartWrapper(int index)
     {
+        Debug.Log("Starting " + characterName);
         StartCoroutine(StartMessages(index));
     }
 
@@ -66,11 +67,14 @@ public class MessageSender : MonoBehaviour
     // Starts to send messages and adding a delay
     public IEnumerator StartMessages(int index)
     {
-
         // Displays the notification and changes the icon if this screen is not active currently
         if (!conversationParent.activeInHierarchy)
         {
-            control.NewMessagesNotif();
+            Debug.Log("Is not active in hierarchy");
+            if (control != null)
+            {
+                control.NewMessagesNotif();
+            }
             UnreadMessages();
         }
 
@@ -163,7 +167,7 @@ public class MessageSender : MonoBehaviour
     // returns dialogue by id
     public Dialogue GetDialogueById(int id)
     {
-        foreach(Dialogue d in fullDialogue)
+        foreach (Dialogue d in fullDialogue)
         {
             if(d.Id == id)
             {
@@ -274,7 +278,7 @@ public class MessageSender : MonoBehaviour
     }
 
     // loads from text file
-    void LoadFromFile()
+    public async void LoadFromFile()
     {
         TextAsset textData = Resources.Load("Story/" + Stats.language + "/" + characterName.ToLower()) as TextAsset;
         string txt = textData.text;

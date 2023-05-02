@@ -273,7 +273,7 @@ public class EventControl : MonoBehaviour
         {
             if(log.EventId == currentEvent && log.WentToEvent)
             {
-                logTexts.text += log.LogText + "\n";
+                logTexts.text += log.LogText + "\n \n";
                 EventInfo e = GetEventById(currentEvent);
                 e.Answered = true;
                 e.Went = true;
@@ -306,7 +306,7 @@ public class EventControl : MonoBehaviour
         {
             if (log.EventId == currentEvent && !log.WentToEvent)
             {
-                logTexts.text += log.LogText + "\n";
+                logTexts.text += log.LogText + "\n \n";
                 EventInfo e = GetEventById(currentEvent);
                 e.Answered = true;
 

@@ -25,7 +25,6 @@ public class Control : MonoBehaviour
         // Set the gameobjects and colors to each sender script
         foreach(MessageSender ms in messageSenders)
         {
-            Debug.Log(ms.GetName());
             ms.SetGameObjects(conversationContainer, chatbuttonContainer);
             ms.SetColors(npcColor, playerColor);
         }
@@ -50,6 +49,11 @@ public class Control : MonoBehaviour
         else
         {
             // loads the data
+            foreach(MessageSender sender in messageSenders)
+            {
+                sender.LoadFromFile();
+            }
+
             SaveLoad gameLoader = GetComponent<SaveLoad>();
             gameLoader.LoadGame();
         }
@@ -85,10 +89,18 @@ public class Control : MonoBehaviour
     // Starts a fresh new game
     void StartNewGame()
     {
+        // resets the star points
+        Stats.ResetPoints();
+
+        foreach(MessageSender sender in messageSenders)
+        {
+            sender.LoadFromFile();
+        }
+
         // hides everyone but the initial conversation buttons
         foreach (Transform t in chatbuttonContainer.transform)
         {
-            if (t.name != "Character_Marko")
+            if (t.name != "Character_Marko" && t.name != "Character_Joni")
             {
                 t.gameObject.SetActive(false);
             }
@@ -97,8 +109,9 @@ public class Control : MonoBehaviour
         // if this is a new game, start from the first phase which is marko 1
         foreach (MessageSender sender in messageSenders)
         {
-            if(sender.GetName() == "Marko")
+            if(sender.GetName() == "Marko" || sender.GetName() == "Joni")
             {
+                Debug.Log("Starting " + sender.GetName());
                 sender.StartWrapper(1);
             }
         }
@@ -124,7 +137,10 @@ public class Control : MonoBehaviour
     // Tells the animator to display the notification
     public void NewMessagesNotif()
     {
-        notificationAnimator.SetTrigger("newMessage");
+        if (notificationAnimator != null)
+        {
+            notificationAnimator.SetTrigger("newMessage");
+        }
     }
 
     // Unlocks the event and displays the notification
@@ -202,6 +218,7 @@ public class Control : MonoBehaviour
                     // Check open choices only if there is something in the list
                     if (pair.Value.Count >= 1)
                     {
+                        Debug.Log(pair.Key + pair.Value[pair.Value.Count - 1].Id);
                         // if there's an open choice, add the choice button(s) too
                         if (pair.Value[pair.Value.Count - 1].OpenChoice)
                         {
